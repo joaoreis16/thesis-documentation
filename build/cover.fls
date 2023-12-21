@@ -1,4 +1,4 @@
-PWD /home/reis/5ano/thesis/thesis
+PWD /home/reis/5ano/thesis/thesis-documentation
 INPUT /etc/texmf/web2c/texmf.cnf
 INPUT /usr/share/texmf/web2c/texmf.cnf
 INPUT /usr/share/texlive/texmf-dist/web2c/texmf.cnf
@@ -203,6 +203,13 @@ INPUT /usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 INPUT build/cover.aux
 INPUT build/cover.aux
 INPUT build/cover.aux
+INPUT /usr/share/texlive/texmf-dist/tex/generic/babel/locale/pt/babel-portuguese.tex
+INPUT /usr/share/texlive/texmf-dist/tex/generic/babel/locale/pt/babel-portuguese.tex
+INPUT /usr/share/texlive/texmf-dist/tex/generic/babel/locale/pt/babel-portuguese.tex
+INPUT /usr/share/texlive/texmf-dist/tex/generic/babel/locale/pt/babel-portuguese.tex
+INPUT /usr/share/texlive/texmf-dist/tex/generic/babel/locale/pt/babel-portuguese.tex
+INPUT /usr/share/texlive/texmf-dist/tex/generic/babel/locale/pt/babel-portuguese.tex
+INPUT /usr/share/texlive/texmf-dist/tex/generic/babel/locale/pt/babel-pt.ini
 OUTPUT build/cover.aux
 INPUT /usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 INPUT /usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
@@ -267,13 +274,6 @@ INPUT /usr/share/texmf/fonts/tfm/public/lm/ec-lmssbx10.tfm
 INPUT /usr/share/texmf/fonts/tfm/public/lm/ec-lmr12.tfm
 INPUT /usr/share/texmf/fonts/tfm/public/lm/ec-lmss12.tfm
 INPUT /usr/share/texmf/fonts/tfm/public/lm/ec-lmssbx10.tfm
-INPUT /usr/share/texlive/texmf-dist/tex/generic/babel/locale/pt/babel-portuguese.tex
-INPUT /usr/share/texlive/texmf-dist/tex/generic/babel/locale/pt/babel-portuguese.tex
-INPUT /usr/share/texlive/texmf-dist/tex/generic/babel/locale/pt/babel-portuguese.tex
-INPUT /usr/share/texlive/texmf-dist/tex/generic/babel/locale/pt/babel-portuguese.tex
-INPUT /usr/share/texlive/texmf-dist/tex/generic/babel/locale/pt/babel-portuguese.tex
-INPUT /usr/share/texlive/texmf-dist/tex/generic/babel/locale/pt/babel-portuguese.tex
-INPUT /usr/share/texlive/texmf-dist/tex/generic/babel/locale/pt/babel-pt.ini
 INPUT /var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map
 INPUT /usr/share/texmf/fonts/tfm/public/lm/ec-lmri10.tfm
 INPUT ./figs/uaLogoNew.pdf

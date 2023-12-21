@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.12.15)  16 DEC 2023 00:58
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.12.15)  19 DEC 2023 14:46
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -163,7 +163,14 @@ File: l3backend-pdftex.def 2022-01-12 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count199
 \l__pdf_internal_box=\box50
 )
-(build/cover.aux)
+(build/cover.aux
+(/usr/share/texlive/texmf-dist/tex/generic/babel/locale/pt/babel-portuguese.tex
+Package babel Info: Importing basic data for portuguese
+(babel)             from babel-pt.ini. Reported on input line 11.
+)
+Package babel Info: Hyphen rules for 'portuguese' set to \l@english
+(babel)             (\language0). Reported on input line 5.
+)
 \openout1 = `cover.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 212.
@@ -180,8 +187,7 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 212.
 LaTeX Font Info:    ... okay on input line 212.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 212.
 LaTeX Font Info:    ... okay on input line 212.
-
-(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+ (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count266
 \scratchdimen=\dimen142
@@ -244,13 +250,6 @@ File: figs/uaLogoNew.pdf Graphic file (type pdf)
 <use figs/uaLogoNew.pdf>
 Package pdftex.def Info: figs/uaLogoNew.pdf  used on input line 222.
 (pdftex.def)             Requested size: 20.48633pt x 25.60747pt.
-
-(/usr/share/texlive/texmf-dist/tex/generic/babel/locale/pt/babel-portuguese.tex
-Package babel Info: Importing basic data for portuguese
-(babel)             from babel-pt.ini. Reported on input line 11.
-)
-Package babel Info: Hyphen rules for 'portuguese' set to \l@english
-(babel)             (\language0). Reported on input line 222.
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./figs/uaLogoNew.pdf>] [1]
@@ -282,11 +281,11 @@ File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 Here is how much of TeX's memory you used:
  3489 strings out of 480171
  57910 string characters out of 5894488
- 360948 words of memory out of 5000000
+ 369171 words of memory out of 5000000
  21391 multiletter control sequences out of 15000+600000
  523248 words of font info for 56 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
- 70i,9n,76p,782b,598s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 70i,9n,76p,782b,474s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-ec
 .enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}</usr/share/texmf/fonts/ty
 pe1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmri10.pfb></us

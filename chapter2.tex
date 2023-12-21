@@ -1,7 +1,7 @@
 \chapter{State of Art}
 \label{chapter: State of Art}
 
-% descrever o estado de arte e cada secção
+This dissertation suggests the development of a conversational query builder that functions as a chat-based interface within the EHDEN project ecosystem. This interface will help researchers redefine their studies effectively. The conversational virtual assistant will return a query to help discover the best databases for specific research. Studying state-of-the-art information retrieval systems to retrieve the most appropriate databases for a researcher's query is essential in this context. In addition, it is vital to explore the {\llm}, a recent advance of algorithms to perform {\nlp} tasks, and the actual state of conversational virtual assistants or chatbots. In the end, research about interactive query builder. And so, these topics will be discussed below.
 
 
 \section{Information Retrieval}
@@ -219,13 +219,15 @@ However, {\llm} has some limitations. \citet{hadi_LLM_2023} address some of them
 
 We already know that {\llm} are pre-trained with extensive training data. But suppose that data contains some biased information related to factors such as gender, socioeconomic status, and/or race. In that case, this may result in analyses and recommendations that are discriminatory or inaccurate across diverse domains. The problem of bias applies not only to training data but also to user interaction bias, algorithmic bias, and contextual bias. The user interaction bias means that, as user prompts shape responses, and if users consistently ask biased or prejudiced questions, the model may acquire and reinforce these biases in its replies.
 
-A severe limitation that is an active area of research is hallucination. \citet{hadi_LLM_2023} characterized {\llm} hallucinations as when the model attempts to fill gaps in knowledge or context, relying on learned patterns during training. Such occurrences can result in inaccurate or misleading responses, which is detrimental to both the user and the reliability of the model.
+A severe limitation that is an active area of research is hallucination. \citet{hadi_LLM_2023} characterized {\llm} hallucinations as when the model attempts to fill gaps in knowledge or context, relying on learned patterns during training. Such occurrences can result in inaccurate or misleading responses, which is detrimental to both the user and the model's reliability.
 
-The way the {\llm} makes decisions is unknown. Comprehending the decision-making process of a complex model with billions of parameters, like {\llm}, is challenging. So, the explainability of these models is a big limitation. Sometimes, it is needed to deciphering the factors that influenced an {\llm}'s decision and this limitation pose difficulties in offering a clear and concise explanation. In vital sectors like healthcare, where decisions carry substantial consequences, ensuring transparency and the capability to elucidate the model's predictions is essential.
+The way the {\llm} makes decisions is unknown. Comprehending the decision-making process of a complex model with billions of parameters, like {\llm}, is challenging. So, the explainability of these models is a big limitation. Sometimes, it is needed to decipher the factors that influenced an {\llm}'s decision, and this limitation poses difficulties in offering a clear and concise explanation. In vital sectors like healthcare, where decisions carry substantial consequences, ensuring transparency and the capability to elucidate the model's predictions is essential.
 
-Another limitation is the cyber-attacks. A {\llm} can suffer some prompt injections from a malicious user to extract sensitive information from the model. This is called by Jail Break attack. Another attack is Data Poisoning Attacks, that consist in data poisoning strategies to manipulate the model's output.
+Another limitation is the cyber-attacks. A {\llm} can suffer some prompt injections from a malicious user to extract sensitive information from the model. This is called the Jail Break attack. Another attack is Data Poisoning Attacks, which consist in data poisoning strategies to manipulate the model's output.
 
-It is important to be aware of this limitations.
+Furthermore, \citet{liu_prompting_nodate} highlighted another limitation: the temporal lag of the training corpus. {\llm} cannot retrieve information in real time, and the answer generated may not be the most current.
+
+It is important to be aware of these limitations.
 
 
 \section{Conversational Virtual Assistant}
@@ -282,12 +284,8 @@ Additionally, some chatbots are integrated with web scrapers to pull data from o
 
 \subsection{Generative-Based Chatbot}
 
-% referencia a LLM
-% escrever sobre RAG
 
-\subsection{Prompt Engineering}
-
-\subsection{Retrieval-Augmentation Generation}
+% The Shell of LLMs 
 
 
 \begin{figure}[ht]
@@ -295,6 +293,36 @@ Additionally, some chatbots are integrated with web scrapers to pull data from o
     \centering
     \caption{[REFAZER IMAGEM] Templates for LLM-based application development. GPT is taken as an example scenario representing LLMs From \citet{hadi_LLM_2023}}
 \end{figure}
+
+
+[Beyond ChatBots: ExploreLLM for Structured Thoughts and Personalized Model Responses]
+Prompt engineering, therefore, has the potential to improve the efficiency, accuracy, and effectiveness of healthcare delivery, making it an increasingly important skill for medical professionals.
+
+
+
+\subsection{Prompt Engineering}
+
+[Prompt Engineering as an Important Emerging Skill for Medical Professionals: Tutorial]
+
+With the emergence of new technologies, such as {\llm}, other research fields were born. Prompt Engineering is one of these cases and has been widely applied. This emerging field involves designing, refining, and implementing prompts or instructions to direct the output of {\llm}, aiding in diverse tasks. {\llm} can follow specific directions provided by users in natural language after being tuned with instructions,
+
+[Beyond ChatBots: ExploreLLM for Structured Thoughts and Personalized Model Responses]
+Research demonstrates that thoughtful prompts enhance {\llm} performance across reasoning and planning tasks. This improvement is achieved through intermediate representations involving thoughts, decomposition, search-decomposition mix, structure, abstraction, and optimization.
+
+[Beyond ChatBots: ExploreLLM for Structured Thoughts and Personalized Model Responses] find with their work that prompt engineering has many benefits for the user when it is well implemented because prompt-based methods assist humans in forming mental models for problem-solving. Also, they conclude that task decomposition enables the breakdown of a complex task into specific sub-tasks, each matched with readily available tools suitable for its completion. This method of prompting engineering had very successful results.
+
+\begin{figure}[ht]
+    \includegraphics[width=14cm]{figs/chapter2/prompt.png}
+    \centering
+    \caption{[REFAZER IMAGEM] Example of a prompt that applies task decomposition From [Beyond ChatBots: ExploreLLM for Structured Thoughts and Personalized Model Responses]}
+\end{figure}
+
+
+% Specific Recommendations for Better LLM Prompts
+[Prompt Engineering as an Important Emerging Skill for Medical Professionals: Tutorial] raise a series of recommendations for more effective {\llm} prompts: it must be as precise as possible; providing the setting and the context of the question is essential; describe the goal of the prompt first; give a role to the {\llm} to get more context (for example, "You are a math teacher and explain the natural numbers"); continuous {\llm} prompt refinement; prefer open questions over close-questions. Regularly testing prompts in real-world situations is crucial, as their effectiveness is most accurately assessed through practical application.
+
+
+\subsection{Retrieval-Augmentation Generation}
 
 
 
