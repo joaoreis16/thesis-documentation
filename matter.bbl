@@ -796,6 +796,284 @@
       \endverb
       \keyw{Biomedical data,Information extraction,Knowledge bases,Linked data,Natural language interfaces,Question answering,Semantic data}
     \endentry
+    \entry{mesko_prompt_2023}{article}{}
+      \name{author}{1}{}{%
+        {{hash=039db2ce84f7aa55f70ad1a7420e9da5}{%
+           family={Meskó},
+           familyi={M\bibinitperiod},
+           given={Bertalan},
+           giveni={B\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \strng{namehash}{039db2ce84f7aa55f70ad1a7420e9da5}
+      \strng{fullhash}{039db2ce84f7aa55f70ad1a7420e9da5}
+      \strng{bibnamehash}{039db2ce84f7aa55f70ad1a7420e9da5}
+      \strng{authorbibnamehash}{039db2ce84f7aa55f70ad1a7420e9da5}
+      \strng{authornamehash}{039db2ce84f7aa55f70ad1a7420e9da5}
+      \strng{authorfullhash}{039db2ce84f7aa55f70ad1a7420e9da5}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{issn}{1438-8871}
+      \field{journaltitle}{Journal of Medical Internet Research}
+      \field{month}{10}
+      \field{shorttitle}{Prompt {Engineering} as an {Important} {Emerging} {Skill} for {Medical} {Professionals}}
+      \field{title}{Prompt {Engineering} as an {Important} {Emerging} {Skill} for {Medical} {Professionals}: {Tutorial}}
+      \field{urlday}{21}
+      \field{urlmonth}{12}
+      \field{urlyear}{2023}
+      \field{volume}{25}
+      \field{year}{2023}
+      \field{urldateera}{ce}
+      \field{pages}{e50638}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.2196/50638
+      \endverb
+    \endentry
+    \entry{ma_beyond_2023}{misc}{}
+      \name{author}{9}{}{%
+        {{hash=5d38fb894354b4d9907d6b0143642902}{%
+           family={Ma},
+           familyi={M\bibinitperiod},
+           given={Xiao},
+           giveni={X\bibinitperiod}}}%
+        {{hash=1d320765e8b313bd56bb50bd79666ad2}{%
+           family={Mishra},
+           familyi={M\bibinitperiod},
+           given={Swaroop},
+           giveni={S\bibinitperiod}}}%
+        {{hash=364cf442fdafb89067a5b788f3cf64a5}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Ariel},
+           giveni={A\bibinitperiod}}}%
+        {{hash=c6145f0fb822d959a0b300c5a9f095f0}{%
+           family={Su},
+           familyi={S\bibinitperiod},
+           given={Sophie},
+           giveni={S\bibinitperiod}}}%
+        {{hash=8106549c70bb754bff2f25ad733d8cc7}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Jilin},
+           giveni={J\bibinitperiod}}}%
+        {{hash=003997d05be9f0cf217b96ce799c4e39}{%
+           family={Kulkarni},
+           familyi={K\bibinitperiod},
+           given={Chinmay},
+           giveni={C\bibinitperiod}}}%
+        {{hash=ed00db26c928a36037c9e0a3fa4eccf5}{%
+           family={Cheng},
+           familyi={C\bibinitperiod},
+           given={Heng-Tze},
+           giveni={H\bibinithyphendelim T\bibinitperiod}}}%
+        {{hash=841a83a4bb5e622d6e1bde4818879016}{%
+           family={Le},
+           familyi={L\bibinitperiod},
+           given={Quoc},
+           giveni={Q\bibinitperiod}}}%
+        {{hash=4c62c73d10bbf27f93c07774d30f647c}{%
+           family={Chi},
+           familyi={C\bibinitperiod},
+           given={Ed},
+           giveni={E\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {arXiv}%
+      }
+      \strng{namehash}{49444e0a5d688c31a958bc42b99d4530}
+      \strng{fullhash}{ffa58d316006259836b2f6c40db6d021}
+      \strng{bibnamehash}{da644fde19dae43205b283bb7a5beaea}
+      \strng{authorbibnamehash}{da644fde19dae43205b283bb7a5beaea}
+      \strng{authornamehash}{49444e0a5d688c31a958bc42b99d4530}
+      \strng{authorfullhash}{ffa58d316006259836b2f6c40db6d021}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{annotation}{Comment: 19 pages, 11 figures}
+      \field{month}{12}
+      \field{note}{arXiv:2312.00763 [cs]}
+      \field{shorttitle}{Beyond {ChatBots}}
+      \field{title}{Beyond {ChatBots}: {ExploreLLM} for {Structured} {Thoughts} and {Personalized} {Model} {Responses}}
+      \field{urlday}{21}
+      \field{urlmonth}{12}
+      \field{urlyear}{2023}
+      \field{year}{2023}
+      \field{urldateera}{ce}
+      \keyw{Computer Science - Artificial Intelligence,Computer Science - Computation and Language,Computer Science - Human-Computer Interaction,Computer Science - Machine Learning}
+    \endentry
+    \entry{gao_retrieval-augmented_2023}{misc}{}
+      \name{author}{9}{}{%
+        {{hash=572def57560315de76cedfc3e17c2eb2}{%
+           family={Gao},
+           familyi={G\bibinitperiod},
+           given={Yunfan},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=bdc1e50b7faa4f8d1a9844199179e6c2}{%
+           family={Xiong},
+           familyi={X\bibinitperiod},
+           given={Yun},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=03e7985fe5e84b74e9f01c4cdbaaee9c}{%
+           family={Gao},
+           familyi={G\bibinitperiod},
+           given={Xinyu},
+           giveni={X\bibinitperiod}}}%
+        {{hash=16ccf3d9ea55a78a7d3dfea173515f1f}{%
+           family={Jia},
+           familyi={J\bibinitperiod},
+           given={Kangxiang},
+           giveni={K\bibinitperiod}}}%
+        {{hash=fd6e4a40c152c7e39a43964918a2c4a5}{%
+           family={Pan},
+           familyi={P\bibinitperiod},
+           given={Jinliu},
+           giveni={J\bibinitperiod}}}%
+        {{hash=efef66e4d4bad100544cfae4a2b3104b}{%
+           family={Bi},
+           familyi={B\bibinitperiod},
+           given={Yuxi},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=f59ef2d4288d687c75882fd75c94cd09}{%
+           family={Dai},
+           familyi={D\bibinitperiod},
+           given={Yi},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=5541cd69dde50ba09f8968212da6602c}{%
+           family={Sun},
+           familyi={S\bibinitperiod},
+           given={Jiawei},
+           giveni={J\bibinitperiod}}}%
+        {{hash=9cca37a322a37778f7e30f057e2c2f90}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Haofen},
+           giveni={H\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {arXiv}%
+      }
+      \strng{namehash}{f1678cfa142d8029151d4faacf40f176}
+      \strng{fullhash}{d439bedbf62a8843c8be1e435742e6a3}
+      \strng{bibnamehash}{d757caaddc31f9d3232054b43ce714e1}
+      \strng{authorbibnamehash}{d757caaddc31f9d3232054b43ce714e1}
+      \strng{authornamehash}{f1678cfa142d8029151d4faacf40f176}
+      \strng{authorfullhash}{d439bedbf62a8843c8be1e435742e6a3}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{month}{12}
+      \field{note}{arXiv:2312.10997 [cs]}
+      \field{shorttitle}{Retrieval-{Augmented} {Generation} for {Large} {Language} {Models}}
+      \field{title}{Retrieval-{Augmented} {Generation} for {Large} {Language} {Models}: {A} {Survey}}
+      \field{urlday}{24}
+      \field{urlmonth}{12}
+      \field{urlyear}{2023}
+      \field{year}{2023}
+      \field{urldateera}{ce}
+      \verb{doi}
+      \verb 10.48550/arXiv.2312.10997
+      \endverb
+      \keyw{Computer Science - Artificial Intelligence,Computer Science - Computation and Language}
+    \endentry
+    \entry{lewis_retrieval-augmented_2020}{inproceedings}{}
+      \name{author}{12}{}{%
+        {{hash=ecbe786a5668bf643d74bb24fe1c3cfe}{%
+           family={Lewis},
+           familyi={L\bibinitperiod},
+           given={Patrick},
+           giveni={P\bibinitperiod}}}%
+        {{hash=79978685fd7b37606022b06c0f6419a1}{%
+           family={Perez},
+           familyi={P\bibinitperiod},
+           given={Ethan},
+           giveni={E\bibinitperiod}}}%
+        {{hash=d205faec67355b6e0ec49f82a492324c}{%
+           family={Piktus},
+           familyi={P\bibinitperiod},
+           given={Aleksandra},
+           giveni={A\bibinitperiod}}}%
+        {{hash=e1c32989a78998fe3c03c981d0da2dc7}{%
+           family={Petroni},
+           familyi={P\bibinitperiod},
+           given={Fabio},
+           giveni={F\bibinitperiod}}}%
+        {{hash=b24392ebfb2c0a35979fc689c389c649}{%
+           family={Karpukhin},
+           familyi={K\bibinitperiod},
+           given={Vladimir},
+           giveni={V\bibinitperiod}}}%
+        {{hash=78a420900f50a8470ad085fb05231bf6}{%
+           family={Goyal},
+           familyi={G\bibinitperiod},
+           given={Naman},
+           giveni={N\bibinitperiod}}}%
+        {{hash=4eadcf26f55e11fe4be834b52d9b7fdf}{%
+           family={Küttler},
+           familyi={K\bibinitperiod},
+           given={Heinrich},
+           giveni={H\bibinitperiod}}}%
+        {{hash=c97f53fdeeb04c28de19e3324cb4bc0a}{%
+           family={Lewis},
+           familyi={L\bibinitperiod},
+           given={Mike},
+           giveni={M\bibinitperiod}}}%
+        {{hash=d4d56d3d370b3afd4ad2ebf985fbd3f8}{%
+           family={Yih},
+           familyi={Y\bibinitperiod},
+           given={Wen-tau},
+           giveni={W\bibinithyphendelim t\bibinitperiod}}}%
+        {{hash=b3ff4029884ead9928954ea33714192c}{%
+           family={Rocktäschel},
+           familyi={R\bibinitperiod},
+           given={Tim},
+           giveni={T\bibinitperiod}}}%
+        {{hash=6cd024b217f3f2f8126e253b8c84d24d}{%
+           family={Riedel},
+           familyi={R\bibinitperiod},
+           given={Sebastian},
+           giveni={S\bibinitperiod}}}%
+        {{hash=ca01c762f4a52dd8a8548508f8d727c9}{%
+           family={Kiela},
+           familyi={K\bibinitperiod},
+           given={Douwe},
+           giveni={D\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Red Hook, NY, USA}%
+      }
+      \list{publisher}{1}{%
+        {Curran Associates Inc.}%
+      }
+      \strng{namehash}{f238c3bfc4b30650dd17e65c4aadfc66}
+      \strng{fullhash}{22489b764620b23a8cc8547a492f0763}
+      \strng{bibnamehash}{aa6cbfbfada4b209505238d4429dc4a3}
+      \strng{authorbibnamehash}{aa6cbfbfada4b209505238d4429dc4a3}
+      \strng{authornamehash}{f238c3bfc4b30650dd17e65c4aadfc66}
+      \strng{authorfullhash}{22489b764620b23a8cc8547a492f0763}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the 34th {International} {Conference} on {Neural} {Information} {Processing} {Systems}}
+      \field{isbn}{978-1-71382-954-6}
+      \field{month}{12}
+      \field{series}{{NIPS}'20}
+      \field{title}{Retrieval-augmented generation for knowledge-intensive {NLP} tasks}
+      \field{urlday}{24}
+      \field{urlmonth}{12}
+      \field{urlyear}{2023}
+      \field{year}{2020}
+      \field{urldateera}{ce}
+      \field{pages}{9459\bibrangedash 9474}
+      \range{pages}{16}
+    \endentry
   \enddatalist
 \endrefsection
 \endinput

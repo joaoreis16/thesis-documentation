@@ -8,7 +8,7 @@
 \contentsline {chapter}{*}{ix}{chapter*.6}%
 \contentsline {chapter}{\chapternumberline {1}Introduction}{1}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Motivation}{2}{section.1.1}%
-\contentsline {section}{\numberline {1.2}Goals}{2}{section.1.2}%
+\contentsline {section}{\numberline {1.2}Objectives}{2}{section.1.2}%
 \contentsline {chapter}{\chapternumberline {2}State of Art}{3}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Information Retrieval}{3}{section.2.1}%
 \contentsline {subsection}{\numberline {2.1.1}Overview of Information Retrieval Systems}{4}{subsection.2.1.1}%
@@ -23,7 +23,6 @@
 \contentsline {subsubsection}{Transformer Architecture}{9}{section*.13}%
 \contentsline {subsubsection}{Pre-training}{10}{section*.15}%
 \contentsline {subsubsection}{Fine-tuning}{11}{section*.17}%
-\contentsline {subsubsection}{Parameters}{12}{section*.18}%
 \contentsline {subsection}{\numberline {2.2.3}Comparation between LLM}{12}{subsection.2.2.3}%
 \contentsline {subsection}{\numberline {2.2.4}Limitations}{12}{subsection.2.2.4}%
 \contentsline {section}{\numberline {2.3}Conversational Virtual Assistant}{13}{section.2.3}%
@@ -31,7 +30,8 @@
 \contentsline {subsection}{\numberline {2.3.2}Common System Architectures}{14}{subsection.2.3.2}%
 \contentsline {subsection}{\numberline {2.3.3}Generative-Based Chatbot}{15}{subsection.2.3.3}%
 \contentsline {subsection}{\numberline {2.3.4}Prompt Engineering}{16}{subsection.2.3.4}%
-\contentsline {subsection}{\numberline {2.3.5}Retrieval-Augmentation Generation}{17}{subsection.2.3.5}%
-\contentsline {section}{\numberline {2.4}Interactive Query Builder}{17}{section.2.4}%
-\contentsline {section}{\numberline {2.5}Insights/Summary}{17}{section.2.5}%
-\contentsline {chapter}{References}{19}{chapter*.22}%
+\contentsline {subsection}{\numberline {2.3.5}Retrieval-Augmented Generation (RAG)}{17}{subsection.2.3.5}%
+\contentsline {subsubsection}{Workflow of a {\gls {rag}} system}{17}{section*.22}%
+\contentsline {section}{\numberline {2.4}Interactive Query Builder}{18}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Insights/Summary}{18}{section.2.5}%
+\contentsline {chapter}{References}{19}{chapter*.24}%

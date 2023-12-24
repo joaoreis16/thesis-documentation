@@ -194,13 +194,13 @@ In Prefix Tuning, task-specific trainable prefix vectors are introduced to trans
 Meanwhile, in adapter tuning, an encoder-decoder module is incorporated with the attention and feed-forward layers within the transformer block. The fine-tuning process selectively targets these layers, leaving the remainder of the model frozen to preserve existing knowledge.
 
 
-\subsubsection{Parameters}
+% \subsubsection{Parameters}
 
-The parameters in neural networks function as learnable components that include weights and biases. These values are adjusted during the training process to minimize the difference between the model's predictions and the actual target outputs.
+% The parameters in neural networks function as learnable components that include weights and biases. These values are adjusted during the training process to minimize the difference between the model's predictions and the actual target outputs.
 
-The more parameters {\llm} have, the more flexibility it has in capturing patterns and relationships in data, but the risk of overfitting increases, and it needs more computational power.
+% The more parameters {\llm} have, the more flexibility it has in capturing patterns and relationships in data, but the risk of overfitting increases, and it needs more computational power.
 
-So ....
+% So ....
 
 
 \subsection{Comparation between LLM}
@@ -299,31 +299,54 @@ Additionally, some chatbots are integrated with web scrapers to pull data from o
 Prompt engineering, therefore, has the potential to improve the efficiency, accuracy, and effectiveness of healthcare delivery, making it an increasingly important skill for medical professionals.
 
 
+\begin{figure}[ht]
+    \includegraphics[width=10cm]{figs/chapter2/otimization_generative_chatbot.png}
+    \centering
+    \caption{[REFAZER IMAGEM] optimization methods of generative-based chatbots. Adapted from [Retrieval-Augmented Generation for Large Language Models: A Survey]}
+\end{figure}
+
+
+
 
 \subsection{Prompt Engineering}
 
-[Prompt Engineering as an Important Emerging Skill for Medical Professionals: Tutorial]
+With the emergence of new technologies, such as {\llm}, other research fields were born. Prompt Engineering is one of these cases and has been widely applied. In compliance with \citet{mesko_prompt_2023}, this emerging field involves designing, refining, and implementing prompts or instructions to direct the output of {\llm}, aiding in diverse tasks. {\llm} can follow specific directions provided by users in natural language after being tuned with instructions,
 
-With the emergence of new technologies, such as {\llm}, other research fields were born. Prompt Engineering is one of these cases and has been widely applied. This emerging field involves designing, refining, and implementing prompts or instructions to direct the output of {\llm}, aiding in diverse tasks. {\llm} can follow specific directions provided by users in natural language after being tuned with instructions,
+\citet{ma_beyond_2023} noted that research demonstrates that thoughtful prompts enhance {\llm} performance across reasoning and planning tasks. This improvement is achieved through intermediate representations involving thoughts, decomposition, search-decomposition mix, structure, abstraction, and optimization.
 
-[Beyond ChatBots: ExploreLLM for Structured Thoughts and Personalized Model Responses]
-Research demonstrates that thoughtful prompts enhance {\llm} performance across reasoning and planning tasks. This improvement is achieved through intermediate representations involving thoughts, decomposition, search-decomposition mix, structure, abstraction, and optimization.
-
-[Beyond ChatBots: ExploreLLM for Structured Thoughts and Personalized Model Responses] find with their work that prompt engineering has many benefits for the user when it is well implemented because prompt-based methods assist humans in forming mental models for problem-solving. Also, they conclude that task decomposition enables the breakdown of a complex task into specific sub-tasks, each matched with readily available tools suitable for its completion. This method of prompting engineering had very successful results.
+Also, \citet{ma_beyond_2023} find with their work that prompt engineering has many benefits for the user when it is well implemented because prompt-based methods assist humans in forming mental models for problem-solving. Also, they conclude that task decomposition enables the breakdown of a complex task into specific sub-tasks, each matched with readily available tools suitable for its completion. This method of prompting engineering had very successful results.
 
 \begin{figure}[ht]
     \includegraphics[width=14cm]{figs/chapter2/prompt.png}
     \centering
-    \caption{[REFAZER IMAGEM] Example of a prompt that applies task decomposition From [Beyond ChatBots: ExploreLLM for Structured Thoughts and Personalized Model Responses]}
+    \caption{[REFAZER IMAGEM] Example of a prompt that applies task decomposition From \citet{ma_beyond_2023}}
 \end{figure}
 
 
-% Specific Recommendations for Better LLM Prompts
-[Prompt Engineering as an Important Emerging Skill for Medical Professionals: Tutorial] raise a series of recommendations for more effective {\llm} prompts: it must be as precise as possible; providing the setting and the context of the question is essential; describe the goal of the prompt first; give a role to the {\llm} to get more context (for example, "You are a math teacher and explain the natural numbers"); continuous {\llm} prompt refinement; prefer open questions over close-questions. Regularly testing prompts in real-world situations is crucial, as their effectiveness is most accurately assessed through practical application.
+\citet{mesko_prompt_2023} raise a series of recommendations for more effective {\llm} prompts: it must be as precise as possible; providing the setting and the context of the question is essential; describe the goal of the prompt first; give a role to the {\llm} to get more context (for example, "You are a math teacher and explain the natural numbers"); continuous {\llm} prompt refinement; prefer open questions over close-questions. Regularly testing prompts in real-world situations is crucial, as their effectiveness is most accurately assessed through practical application.
 
 
-\subsection{Retrieval-Augmentation Generation}
+\subsection{Retrieval-Augmented Generation (RAG)}
 
+\citet{gao_retrieval-augmented_2023} made a survey into {\rag} systems, and distiguish the parametric knowledge from non-parametric knowledge. Traditionally, {\llm} can adapt their knowledge and responses to a specific domain by fine-tuning models with parameters. This is \textbf{parametric knowledge} because the {\llm} knowledge is provided through the model's training data. However, entirely parameterized {\llm} have limitations, including challenges in retaining all the knowledge during training, the inability to dynamically update model parameters leading to outdatedness, and hallucination. The \textbf{non-parametric knowledge}, provided by external information sources, emerged to solve these limitations.
+
+This non-parametric knowledge approach is known as {\rag}. So, according to \citet{gao_retrieval-augmented_2023}, {\rag} involves retrieving pertinent information from external knowledge bases, giving more context to the {\llm}. This approach was introduced by \citet{lewis_retrieval-augmented_2020} in 2020 and enabled {\llm} to access and utilize up-to-date or domain-specific information to enhance response accuracy and relevance while reducing hallucinations.
+
+
+\subsubsection{Workflow of a {\rag} system}
+
+The following figure shows the workflow of a {\rag}. This model aims to retrieve pertinent information from an extensive corpus of documents when answering questions or generating text, subsequently utilizing this information to enhance the quality of predictions, in compliance with \citet{lewis_retrieval-augmented_2020}.
+
+\begin{figure}[ht]
+    \includegraphics[width=10cm]{figs/chapter2/rag_workflow.png}
+    \centering
+    \caption{[REFAZER IMAGEM] {\rag} workflow. Adapted from [https://towardsdatascience.com/retrieval-augmented-generation-rag-from-theory-to-langchain-implementation-4e9bd5f6a4f2]}
+\end{figure}
+
+\citet{gao_retrieval-augmented_2023} explain in a simple way the workflow. The first step is 1) Retrieve information from an external data source, such as a vector database, as in the example of the figure. According to [Retrieval-Augmented Generation for Large Language Models: A Survey], this step utilizes Encoding Models, such as {\bm}, to retrieve relevant information based on the query. The second step is 2) Augment, improving the {\llm} prompt with the context retrieved from external data sources. The last step is 3) Generation. Using the prompt with the retrieved context, the {\llm} generates a response to the query.
+
+
+% escrever mais? vantagens,  RAG vs Fine-tuning, tipos de RAG
 
 
 \section{Interactive Query Builder}
