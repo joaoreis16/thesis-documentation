@@ -38,17 +38,17 @@ This is followed by the ranking stage, in which the primary objective is to adju
 
 \subsection{Traditional Methods}
 
-Some successful classical methods are {\tfidf} and {\bm}, briefly explained next.
+Some successful classical methods are {\ti} and {\bm}, briefly explained next.
 
 \subsubsection{TF-IDF}
 
-To understand the {\tfidf} method, first, it is necessary to understand the concepts of {\tf} and {\idf}. \citet{manning_introduction_2009} explained these concepts as follows.
+To understand the {\ti} method, first, it is necessary to understand the concepts of {\tf} and {\idf}. \citet{manning_introduction_2009} explained these concepts as follows.
 
 It is reasonable to assume that a document containing a query term more frequently is more relevant to that query. Therefore, it should be assigned a higher relevance and/or score. So, {\tf} is the number of term occurrences in a document.
 
 However, to evaluate the relevancy of a query, each term is regarded with equal importance, and this is the problem with the raw method explained above. \citet{manning_introduction_2009} clarified this with the following example: the automotive industry is expected to include the term "auto" in nearly every document. The  {\idf} calculates the rarity of a term across a set of documents. This measure is calculated as the logarithm of the inverse fraction of documents containing the term. The goal is to help prioritize some terms that are sporadic and possibly more informative.
 
-The traditional {\ir} method, {\tfidf}, combines  {\tf} and  {\idf} definitions, as the name suggests, and then produces a weight for each term in each document, as \citet{manning_introduction_2009} and \citet{chizhik_challenges_2020} mention. The weight is calculated as the product of  {\tf} and  {\idf} values, highlighting terms that are both important within a specific document and relatively uncommon in the document collection. 
+The traditional {\ir} method, {\ti}, combines  {\tf} and  {\idf} definitions, as the name suggests, and then produces a weight for each term in each document, as \citet{manning_introduction_2009} and \citet{chizhik_challenges_2020} mention. The weight is calculated as the product of  {\tf} and  {\idf} values, highlighting terms that are both important within a specific document and relatively uncommon in the document collection. 
 
 \begin{figure}[ht]
     \includegraphics[width=14cm]{figs/chapter2/tf-idf_formula.png}
@@ -56,16 +56,16 @@ The traditional {\ir} method, {\tfidf}, combines  {\tf} and  {\idf} definitions,
     \caption{Overview of modern {\ir} system [REFAZER IMAGEM]}
 \end{figure}
 
-\citet{manning_introduction_2009} noted the {\tfidf} weight assigned to a term in a document is highest when the term frequently appears in a few documents, providing discriminating solid power. The weight is lower when the term occurs less frequently in a document or is widespread across many documents, indicating a less pronounced relevance signal. The weight is at its lowest when the term is present in nearly all documents. 
+\citet{manning_introduction_2009} noted the {\ti} weight assigned to a term in a document is highest when the term frequently appears in a few documents, providing discriminating solid power. The weight is lower when the term occurs less frequently in a document or is widespread across many documents, indicating a less pronounced relevance signal. The weight is at its lowest when the term is present in nearly all documents. 
 
 In summary, this {\ir} method evaluates the importance of a term within a document relative to its occurrence across a collection of documents.
 
 
 \subsubsection{BM25}
 
-{\bm}, the short form for Best Matching 25, is a ranking algorithm for {\ir} systems, especially in the context of search engines. It builds upon the {\tfidf} model to provide more accurate and context-aware document ranking. \citet{hambarde_information_2023} noted that {\bm} and other initial retrievers are employed for their effectiveness in recalling pertinent documents from an extensive pool.
+{\bm}, the short form for Best Matching 25, is a ranking algorithm for {\ir} systems, especially in the context of search engines. It builds upon the {\ti} model to provide more accurate and context-aware document ranking. \citet{hambarde_information_2023} noted that {\bm} and other initial retrievers are employed for their effectiveness in recalling pertinent documents from an extensive pool.
 
-The core components of {\bm} include {\tf}, {\idf}, {\dl}, and tuning parameters. Recapping from the {\tfidf} section, {\tf} is the number of occurrences that a specific term is in a document, and {\idf} is a measure that indicates the importance of a term in the whole document. 
+The core components of {\bm} include {\tf}, {\idf}, {\dl}, and tuning parameters. Recapping from the {\ti} section, {\tf} is the number of occurrences that a specific term is in a document, and {\idf} is a measure that indicates the importance of a term in the whole document. 
 
 \begin{figure}[ht]
     \includegraphics[width=18cm]{figs/chapter2/bm25_equation.png}
@@ -136,7 +136,7 @@ In this section, I defined a {\llm}, explore briefily their architectures
 
 These models can process and predict patterns with great accuracy due to their significant model parameters, often comprising hundreds of billions of parameters. \citet{hadi_LLM_2023} combine sophisticated {\slm} and deep learning techniques to train, analyze, and understand huge volumes of data, learning the patterns and relationships among the data. For this reason, according to \citet{naveed_comprehensive_2023}, when provided with task descriptions and examples through prompts, {\llm} can produce textual responses to task queries. So, we can put {\llm} in the generative {\ai} field.
 
-\citet{liu_prompting_nodate} say that the release of ChatGPT 1 garnered significant social attention, and research into {\llm} has evolved. This has led to the development of noteworthy products like PaLM, {\gpt}-2, {\gpt}-3 and, most recently, {\gpt}-4, and LLaMA and LLaMa-2.
+\citet{liu_prompting_nodate} say that the release of ChatGPT 1 garnered significant social attention, and research into {\llm} has evolved. This has led to the development of noteworthy products like PaLM, {\gpt}-2, {\gpt}-3, and, most recently, {\gpt}-4, and LLaMA and LLaMa-2.
 
 
 \subsection{Architecture Overview}
@@ -219,7 +219,7 @@ However, {\llm} has some limitations. \citet{hadi_LLM_2023} address some of them
 
 We already know that {\llm} are pre-trained with extensive training data. But suppose that data contains some biased information related to factors such as gender, socioeconomic status, and/or race. In that case, this may result in analyses and recommendations that are discriminatory or inaccurate across diverse domains. The problem of bias applies not only to training data but also to user interaction bias, algorithmic bias, and contextual bias. The user interaction bias means that, as user prompts shape responses, and if users consistently ask biased or prejudiced questions, the model may acquire and reinforce these biases in its replies.
 
-A severe limitation that is an active area of research is hallucination. \citet{hadi_LLM_2023} characterized {\llm} hallucinations as when the model attempts to fill gaps in knowledge or context, relying on learned patterns during training. Such occurrences can result in inaccurate or misleading responses, which is detrimental to both the user and the model's reliability.
+A severe limitation that is an active area of research is hallucination. \citet{hadi_LLM_2023} characterized {\llm} hallucinations as when the model attempts to fill gaps in knowledge or context, relying on learned patterns during training. Such occurrences can result in inaccurate or misleading responses, detrimental to the user and the model's reliability.
 
 The way the {\llm} makes decisions is unknown. Comprehending the decision-making process of a complex model with billions of parameters, like {\llm}, is challenging. So, the explainability of these models is a big limitation. Sometimes, it is needed to decipher the factors that influenced an {\llm}'s decision, and this limitation poses difficulties in offering a clear and concise explanation. In vital sectors like healthcare, where decisions carry substantial consequences, ensuring transparency and the capability to elucidate the model's predictions is essential.
 
@@ -284,20 +284,15 @@ Additionally, some chatbots are integrated with web scrapers to pull data from o
 
 \subsection{Generative-Based Chatbot}
 
+Generative-based conversational virtual assistants are chatbots that use generative models to generate natural language responses. These chatbots utilize sophisticated deep-learning techniques, such as {\llm} as a {\nlp} engine to understand the user query and formulate a response in context. The {\llm} has been widely used in the new chatbots.
 
-% The Shell of LLMs 
+% \begin{figure}[ht]
+%    \includegraphics[width=10cm]{figs/chapter2/llm.png}
+%    \centering
+%    \caption{[REFAZER IMAGEM] Templates for LLM-based application development. GPT is taken as an example scenario representing LLMs From \citet{hadi_LLM_2023}}
+% \end{figure}
 
-
-\begin{figure}[ht]
-    \includegraphics[width=10cm]{figs/chapter2/llm.png}
-    \centering
-    \caption{[REFAZER IMAGEM] Templates for LLM-based application development. GPT is taken as an example scenario representing LLMs From \citet{hadi_LLM_2023}}
-\end{figure}
-
-
-[Beyond ChatBots: ExploreLLM for Structured Thoughts and Personalized Model Responses]
-Prompt engineering, therefore, has the potential to improve the efficiency, accuracy, and effectiveness of healthcare delivery, making it an increasingly important skill for medical professionals.
-
+There are some methods to improve the results of a {\llm} used on chatbot: fine-tuning the {\llm}, {\rag}, and Prompt Engineering.
 
 \begin{figure}[ht]
     \includegraphics[width=10cm]{figs/chapter2/otimization_generative_chatbot.png}
@@ -305,6 +300,9 @@ Prompt engineering, therefore, has the potential to improve the efficiency, accu
     \caption{[REFAZER IMAGEM] optimization methods of generative-based chatbots. Adapted from [Retrieval-Augmented Generation for Large Language Models: A Survey]}
 \end{figure}
 
+The figure above shows how these methods influence model adaptation and external knowledge. Mixing all methods requires a high model adaptation and external knowledge, but provides better results. 
+
+The following sections demonstrate how Prompt Engineering and {\rag} can optimize {\llm}.
 
 
 
@@ -343,7 +341,7 @@ The following figure shows the workflow of a {\rag}. This model aims to retrieve
     \caption{[REFAZER IMAGEM] {\rag} workflow. Adapted from [https://towardsdatascience.com/retrieval-augmented-generation-rag-from-theory-to-langchain-implementation-4e9bd5f6a4f2]}
 \end{figure}
 
-\citet{gao_retrieval-augmented_2023} explain in a simple way the workflow. The first step is 1) Retrieve information from an external data source, such as a vector database, as in the example of the figure. According to [Retrieval-Augmented Generation for Large Language Models: A Survey], this step utilizes Encoding Models, such as {\bm}, to retrieve relevant information based on the query. The second step is 2) Augment, improving the {\llm} prompt with the context retrieved from external data sources. The last step is 3) Generation. Using the prompt with the retrieved context, the {\llm} generates a response to the query.
+\citet{gao_retrieval-augmented_2023} explain in a simple way the workflow. The first step is 1) Retrieve information from an external data source, such as a vector database, as in the example of the figure. According to \citet{gao_retrieval-augmented_2023}, this step utilizes Encoding Models, such as {\bm}, to retrieve relevant information based on the query. The second step is 2) Augment, improving the {\llm} prompt with the context retrieved from external data sources. The last step is 3) Generation. Using the prompt with the retrieved context, the {\llm} generates a response to the query.
 
 
 % escrever mais? vantagens,  RAG vs Fine-tuning, tipos de RAG

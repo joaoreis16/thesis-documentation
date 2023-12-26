@@ -29,9 +29,9 @@
 \contentsline {subsection}{\numberline {2.3.1}Overview of Conversational Virtual Assistants}{13}{subsection.2.3.1}%
 \contentsline {subsection}{\numberline {2.3.2}Common System Architectures}{14}{subsection.2.3.2}%
 \contentsline {subsection}{\numberline {2.3.3}Generative-Based Chatbot}{15}{subsection.2.3.3}%
-\contentsline {subsection}{\numberline {2.3.4}Prompt Engineering}{16}{subsection.2.3.4}%
-\contentsline {subsection}{\numberline {2.3.5}Retrieval-Augmented Generation (RAG)}{17}{subsection.2.3.5}%
-\contentsline {subsubsection}{Workflow of a {\gls {rag}} system}{17}{section*.22}%
-\contentsline {section}{\numberline {2.4}Interactive Query Builder}{18}{section.2.4}%
-\contentsline {section}{\numberline {2.5}Insights/Summary}{18}{section.2.5}%
-\contentsline {chapter}{References}{19}{chapter*.24}%
+\contentsline {subsection}{\numberline {2.3.4}Prompt Engineering}{15}{subsection.2.3.4}%
+\contentsline {subsection}{\numberline {2.3.5}Retrieval-Augmented Generation (RAG)}{16}{subsection.2.3.5}%
+\contentsline {subsubsection}{Workflow of a {\gls {rag}} system}{17}{section*.21}%
+\contentsline {section}{\numberline {2.4}Interactive Query Builder}{17}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Insights/Summary}{17}{section.2.5}%
+\contentsline {chapter}{References}{19}{chapter*.23}%

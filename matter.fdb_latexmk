@@ -1,16 +1,16 @@
 # Fdb version 3
-["biber matter"] 1703424198 "matter.bcf" "matter.bbl" "matter" 1703424204
-  "matter.bcf" 1703424115 115561 af5a38be32b38b244f0a4993e18e297d "pdflatex"
+["biber matter"] 1703608313 "matter.bcf" "matter.bbl" "matter" 1703608319
+  "matter.bcf" 1703608294 115693 489cf00c9e47177cf9bf1cc5d1eed46e "pdflatex"
   (generated)
   "matter.bbl"
   "matter.blg"
-["makeindex lines.idx"] 1703424199 "lines.idx" "lines.ind" "lines" 1703424204
-  "lines.idx" 1703424115 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+["makeindex lines.idx"] 1703608314 "lines.idx" "lines.ind" "lines" 1703608319
+  "lines.idx" 1703608294 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
   (generated)
   "lines.ilg"
   "lines.ind"
-["pdflatex"] 1703424204 "/home/reis/5ano/thesis/thesis-documentation/matter.tex" "matter.pdf" "matter" 1703424204
-  "/dev/null" 1703420945 0 d41d8cd98f00b204e9800998ecf8427e ""
+["pdflatex"] 1703608319 "/home/reis/5ano/thesis/thesis-documentation/matter.tex" "matter.pdf" "matter" 1703608319
+  "/dev/null" 1703527940 0 d41d8cd98f00b204e9800998ecf8427e ""
   "/etc/texmf/web2c/texmf.cnf" 1702641907 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/reis/5ano/thesis/thesis-documentation/matter.tex" 1702997991 11115 d5fb10eaacf63eb9526b723a45a8acfc ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -315,17 +315,16 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1644012257 39432 7155514e09a3d69036fac785183a21c2 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1702641916 165012 f177baa1c39a3ebd62c3096a43521a0d ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1702641922 1435856 6001608ab229d080fc2c42f783ccdc8a ""
-  "abbreviations.aux" 1703424206 5926 cc5dcc8eda0a6974f20f166db7648b00 "pdflatex"
-  "abbreviations.tex" 1703381755 1990 1c872e55ffc40a7c2d8413eab422568c ""
-  "chapter1.aux" 1703424206 6430 68c00e3152e4f3e4539474e9e0d08452 "pdflatex"
-  "chapter1.tex" 1703173314 5482 f5124f9b1095d6dd14d5d0a5145cee73 ""
-  "chapter2.aux" 1703424207 11517 7742c27a0f92d5331e63d755fd76dd81 "pdflatex"
-  "chapter2.tex" 1703424198 37614 9ce91659094fb8862849113a1031fddc ""
+  "abbreviations.aux" 1703608321 5926 cc5dcc8eda0a6974f20f166db7648b00 "pdflatex"
+  "abbreviations.tex" 1703608313 1987 ee870f7dffd55da295fb447a49b02130 ""
+  "chapter1.aux" 1703608321 6430 68c00e3152e4f3e4539474e9e0d08452 "pdflatex"
+  "chapter1.tex" 1703607870 5482 f5124f9b1095d6dd14d5d0a5145cee73 ""
+  "chapter2.aux" 1703608322 11238 368fc593c37ecea3fa0587f23ac2061f "pdflatex"
+  "chapter2.tex" 1703608284 38016 ee474fc846f990c6e8a39121d2a45d01 ""
   "cover.pdf" 1702641922 129053 28757a2be4323b8be8745243c1f4ae8b ""
   "figs/chapter2/IR_system.png" 1702641922 32002 7b44ea1c1cdf4e8eba39feea1674b80d ""
   "figs/chapter2/bm25_equation.png" 1702657491 6360 96f4ea11c083905866ab0c9b1928f4a8 ""
   "figs/chapter2/chatbot_architecture.png" 1702641922 49110 2da40f95e757c1a4f3fad770f3d244f7 ""
-  "figs/chapter2/llm.png" 1702641922 55546 18c0dc5b81ee32ff75e559bba4764db1 ""
   "figs/chapter2/otimization_generative_chatbot.png" 1703384706 103792 2ecb82dd72a603e1738394c452864c64 ""
   "figs/chapter2/prompt.png" 1703112710 64125 d507e1e7b1d87e7070ab805a17141b97 ""
   "figs/chapter2/rag_workflow.png" 1703382617 222478 68cfc855b1f37f0d1e043ff54b5aabef ""
@@ -334,10 +333,10 @@
   "figs/chapter2/transformer.png" 1702641922 108583 cb55431ac781c93a3e538c1523d92fe1 ""
   "lines.ind" 0 -1 0 "makeindex lines.idx"
   "matter.aux" 0 -1 0 "pdflatex"
-  "matter.bbl" 1703424199 42155 a84c296eced7456d89d08c5564c9e9a5 "biber matter"
-  "matter.lol" 1703424203 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "matter.mw" 1703424203 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "matter.run.xml" 1703424203 2485 cb4ca31efee817eb08d2913f3988c64f "pdflatex"
+  "matter.bbl" 1703608314 42155 a84c296eced7456d89d08c5564c9e9a5 "biber matter"
+  "matter.lol" 1703608318 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "matter.mw" 1703608318 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "matter.run.xml" 1703608318 2485 cb4ca31efee817eb08d2913f3988c64f "pdflatex"
   "matter.tex" 1702997991 11115 d5fb10eaacf63eb9526b723a45a8acfc ""
   (generated)
   "abbreviations.aux"
