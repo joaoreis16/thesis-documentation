@@ -169,6 +169,43 @@
       \field{year}{2020}
       \field{urldateera}{ce}
     \endentry
+    \entry{phd_understanding_2023}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=8c756856c4c1a1da8eb40736342e4290}{%
+           family={Gomede},
+           familyi={G\bibinitperiod},
+           given={Everton},
+           giveni={E\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \strng{namehash}{8c756856c4c1a1da8eb40736342e4290}
+      \strng{fullhash}{8c756856c4c1a1da8eb40736342e4290}
+      \strng{bibnamehash}{8c756856c4c1a1da8eb40736342e4290}
+      \strng{authorbibnamehash}{8c756856c4c1a1da8eb40736342e4290}
+      \strng{authornamehash}{8c756856c4c1a1da8eb40736342e4290}
+      \strng{authorfullhash}{8c756856c4c1a1da8eb40736342e4290}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Introduction}
+      \field{journaltitle}{Medium}
+      \field{month}{9}
+      \field{title}{Understanding the {BM25} {Ranking} {Algorithm}}
+      \field{urlday}{6}
+      \field{urlmonth}{12}
+      \field{urlyear}{2023}
+      \field{year}{2023}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://medium.com/@evertongomede/understanding-the-bm25-ranking-algorithm-19f6d45c6ce
+      \endverb
+      \verb{url}
+      \verb https://medium.com/@evertongomede/understanding-the-bm25-ranking-algorithm-19f6d45c6ce
+      \endverb
+    \endentry
     \entry{zhong_building_2020}{article}{}
       \name{author}{6}{}{%
         {{hash=8e0aaaefdc4d8553532c47a47b7eaa07}{%
@@ -316,8 +353,8 @@
       \strng{authorbibnamehash}{9b3332cb666ca2b7c14ce4be499dd59a}
       \strng{authornamehash}{ef8873ab8d299f03aec0a66aec527e74}
       \strng{authorfullhash}{9b3332cb666ca2b7c14ce4be499dd59a}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{1567-4223}
@@ -462,8 +499,8 @@
       \strng{authorbibnamehash}{50f3155527dea68ce83864c0f2f9d52f}
       \strng{authornamehash}{1e09a0d900617e67739afe8db141f9cf}
       \strng{authorfullhash}{c886c0512f8ef158fe49b61ce22dc741}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{month}{07}
@@ -648,8 +685,8 @@
       \strng{authorbibnamehash}{b3fd92734a14d321f0871e24c47b5d2e}
       \strng{authornamehash}{b3fd92734a14d321f0871e24c47b5d2e}
       \strng{authorfullhash}{b3fd92734a14d321f0871e24c47b5d2e}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{2018 {IEEE} 15th {International} {Conference} on e-{Business} {Engineering} ({ICEBE})}
@@ -738,8 +775,8 @@
       \strng{authorbibnamehash}{07c8eee0af47d9f2fbc154877c732e6b}
       \strng{authornamehash}{07c8eee0af47d9f2fbc154877c732e6b}
       \strng{authorfullhash}{07c8eee0af47d9f2fbc154877c732e6b}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{shorttitle}
       \field{shorttitle}{How to {Build} a {Chatbot}}

@@ -38,17 +38,17 @@ This is followed by the ranking stage, in which the primary objective is to adju
 
 \subsection{Traditional Methods}
 
-Some successful classical methods are {\ti} and {\bm}, briefly explained next.
+Some successful classical methods are {\tfidf} and {\bm}, briefly explained next.
 
 \subsubsection{TF-IDF}
 
-To understand the {\ti} method, first, it is necessary to understand the concepts of {\tf} and {\idf}. \citet{manning_introduction_2009} explained these concepts as follows.
+To understand the {\tfidf} method, first, it is necessary to understand the concepts of {\tf} and {\idf}. \citet{manning_introduction_2009} explained these concepts as follows.
 
 It is reasonable to assume that a document containing a query term more frequently is more relevant to that query. Therefore, it should be assigned a higher relevance and/or score. So, {\tf} is the number of term occurrences in a document.
 
 However, to evaluate the relevancy of a query, each term is regarded with equal importance, and this is the problem with the raw method explained above. \citet{manning_introduction_2009} clarified this with the following example: the automotive industry is expected to include the term "auto" in nearly every document. The  {\idf} calculates the rarity of a term across a set of documents. This measure is calculated as the logarithm of the inverse fraction of documents containing the term. The goal is to help prioritize some terms that are sporadic and possibly more informative.
 
-The traditional {\ir} method, {\ti}, combines  {\tf} and  {\idf} definitions, as the name suggests, and then produces a weight for each term in each document, as \citet{manning_introduction_2009} and \citet{chizhik_challenges_2020} mention. The weight is calculated as the product of  {\tf} and  {\idf} values, highlighting terms that are both important within a specific document and relatively uncommon in the document collection. 
+The traditional {\ir} method, {\tfidf}, combines  {\tf} and  {\idf} definitions, as the name suggests, and then produces a weight for each term in each document, as \citet{manning_introduction_2009} and \citet{chizhik_challenges_2020} mention. The weight is calculated as the product of  {\tf} and  {\idf} values, highlighting terms that are both important within a specific document and relatively uncommon in the document collection. 
 
 \begin{figure}[ht]
     \includegraphics[width=14cm]{figs/chapter2/tf-idf_formula.png}
@@ -56,16 +56,16 @@ The traditional {\ir} method, {\ti}, combines  {\tf} and  {\idf} definitions, as
     \caption{Overview of modern {\ir} system [REFAZER IMAGEM]}
 \end{figure}
 
-\citet{manning_introduction_2009} noted the {\ti} weight assigned to a term in a document is highest when the term frequently appears in a few documents, providing discriminating solid power. The weight is lower when the term occurs less frequently in a document or is widespread across many documents, indicating a less pronounced relevance signal. The weight is at its lowest when the term is present in nearly all documents. 
+\citet{manning_introduction_2009} noted the {\tfidf} weight assigned to a term in a document is highest when the term frequently appears in a few documents, providing discriminating solid power. The weight is lower when the term occurs less frequently in a document or is widespread across many documents, indicating a less pronounced relevance signal. The weight is at its lowest when the term is present in nearly all documents. 
 
 In summary, this {\ir} method evaluates the importance of a term within a document relative to its occurrence across a collection of documents.
 
 
 \subsubsection{BM25}
 
-{\bm}, the short form for Best Matching 25, is a ranking algorithm for {\ir} systems, especially in the context of search engines. It builds upon the {\ti} model to provide more accurate and context-aware document ranking. \citet{hambarde_information_2023} noted that {\bm} and other initial retrievers are employed for their effectiveness in recalling pertinent documents from an extensive pool.
+{\bm}, the short form for Best Matching 25, is a ranking algorithm for {\ir} systems, especially in the context of search engines. It builds upon the {\tfidf} model to provide more accurate and context-aware document ranking. \citet{hambarde_information_2023} noted that {\bm} and other initial retrievers are employed for their effectiveness in recalling pertinent documents from an extensive pool.
 
-The core components of {\bm} include {\tf}, {\idf}, {\dl}, and tuning parameters. Recapping from the {\ti} section, {\tf} is the number of occurrences that a specific term is in a document, and {\idf} is a measure that indicates the importance of a term in the whole document. 
+The core components of {\bm} include {\tf}, {\idf}, {\dl}, and tuning parameters. Recapping from the {\tfidf} section, {\tf} is the number of occurrences that a specific term is in a document, and {\idf} is a measure that indicates the importance of a term in the whole document. 
 
 \begin{figure}[ht]
     \includegraphics[width=18cm]{figs/chapter2/bm25_equation.png}
@@ -73,9 +73,7 @@ The core components of {\bm} include {\tf}, {\idf}, {\dl}, and tuning parameters
     \caption{BM25 equation}
 \end{figure}
 
-The {\bm} equation is composed of the ith query term (q) and the respective {\idf} and {\tf} values. Also, include a division between the {\dl}, represented in the formula as fieldLen, and the average document length, avgFieldLen. This ratio evaluates how much the length of the document field deviates from the average length. So, the [https://www.elastic.co/blog/practical-bm25-part-2-the-bm25-algorithm-and-its-variables] explained intuitively: a document tends to receive a lower score when it contains more terms, especially those that do not match the query. The value b is a fine-tuning parameter, and it is responsible for length normalization. When b is larger, the ratio has a more significant effect on the overall score. Finally, the k1 value means term frequency saturation. It is a fine-tuning parameter that prevents the term frequency component of BM25 from having an unlimited impact on the document score.
-
-[https://medium.com/@evertongomede/understanding-the-bm25-ranking-algorithm-19f6d45c6ce]
+As \citet{phd_understanding_2023} explained, the {\bm} equation is composed of the ith query term (q) and the respective {\idf} and {\tf} values. Also, include a division between the {\dl}, represented in the formula as fieldLen, and the average document length, avgFieldLen. This ratio evaluates how much the length of the document field deviates from the average length. So, the [https://www.elastic.co/blog/practical-bm25-part-2-the-bm25-algorithm-and-its-variables] explained intuitively: a document tends to receive a lower score when it contains more terms, especially those that do not match the query. The value b is a fine-tuning parameter, and it is responsible for length normalization. When b is larger, the ratio has a more significant effect on the overall score. Finally, the k1 value means term frequency saturation. It is a fine-tuning parameter that prevents the term frequency component of BM25 from having an unlimited impact on the document score.
 
 This algorithm is simple and effective in {\ir} tasks, mainly search tasks. Also, it can handle vast collections. For these reasons, it is widely used and called a classic.
 

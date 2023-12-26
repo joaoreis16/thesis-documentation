@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.12.15)  26 DEC 2023 16:31
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.12.15)  26 DEC 2023 17:13
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1663,7 +1663,7 @@ Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
 Package csquotes Info: Redefining alias 'default' -> 'english'.
-No file matter.aux.
+(./matter.aux)
 \openout1 = `matter.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 254.
@@ -1684,7 +1684,7 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 254.
 LaTeX Font Info:    ... okay on input line 254.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 254.
 LaTeX Font Info:    ... okay on input line 254.
-(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+ (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count600
 \scratchdimen=\dimen361
@@ -2271,14 +2271,16 @@ File: figs/chapter2/IR_system.png Graphic file (type png)
 Package pdftex.def Info: figs/chapter2/IR_system.png  used on input line 29.
 (pdftex.def)             Requested size: 398.33858pt x 168.47412pt.
 
-./chapter2.tex:41: Undefined control sequence.
-l.41 Some successful classical methods are {\ti
-                                               } and {\bm}, briefly explaine...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
+
+./chapter2.tex:41: Package glossaries-extra Error: Glossary entry `tfidf' has not been defined.
+
+See the glossaries-extra package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.41 ... successful classical methods are {\tfidf}
+                                                   and {\bm}, briefly explai...
+You need to define a glossary entry before you can reference it.
 
 
 ./chapter2.tex:41: Package glossaries-extra Error: Glossary entry `bm' has not been defined.
@@ -2287,7 +2289,7 @@ See the glossaries-extra package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.41 ...sful classical methods are {\ti} and {\bm}
+l.41 ...l classical methods are {\tfidf} and {\bm}
                                                   , briefly explained next.
 You need to define a glossary entry before you can reference it.
 
@@ -2302,14 +2304,16 @@ l.43 \subsubsection{TF-IDF}
 \openout4 = `matter.mw'.
 
 
-./chapter2.tex:45: Undefined control sequence.
-l.45 To understand the {\ti
-                           } method, first, it is necessary to understand th...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
+
+./chapter2.tex:45: Package glossaries-extra Error: Glossary entry `tfidf' has not been defined.
+
+See the glossaries-extra package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.45 To understand the {\tfidf}
+                                method, first, it is necessary to understand...
+You need to define a glossary entry before you can reference it.
 
 \openout4 = `matter.mw'.
 
@@ -2327,14 +2331,16 @@ and I'll forget about whatever was undefined.
 
 \openout4 = `matter.mw'.
 
-./chapter2.tex:51: Undefined control sequence.
-l.51 The traditional {\ir} method, {\ti
-                                       }, combines  {\tf} and  {\idf} defini...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
+
+./chapter2.tex:51: Package glossaries-extra Error: Glossary entry `tfidf' has not been defined.
+
+See the glossaries-extra package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.51 The traditional {\ir} method, {\tfidf}
+                                           , combines  {\tf} and  {\idf} def...
+You need to define a glossary entry before you can reference it.
 
 \openout4 = `matter.mw'.
 
@@ -2365,14 +2371,16 @@ Package pdftex.def Info: figs/chapter2/tf-idf_formula.png  used on input line 54
 
 \openout4 = `matter.mw'.
 
-./chapter2.tex:59: Undefined control sequence.
-l.59 ...{manning_introduction_2009} noted the {\ti
-                                                  } weight assigned to a ter...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
+
+./chapter2.tex:59: Package glossaries-extra Error: Glossary entry `tfidf' has not been defined.
+
+See the glossaries-extra package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.59 ...ning_introduction_2009} noted the {\tfidf}
+                                                   weight assigned to a term...
+You need to define a glossary entry before you can reference it.
 
 
 ./chapter2.tex:66: Package glossaries-extra Error: Glossary entry `bm' has not been defined.
@@ -2385,14 +2393,16 @@ l.66 {\bm}
           , the short form for Best Matching 25, is a ranking algorithm for ...
 You need to define a glossary entry before you can reference it.
 
-./chapter2.tex:66: Undefined control sequence.
-l.66 ...of search engines. It builds upon the {\ti
-                                                  } model to provide more ac...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
+
+./chapter2.tex:66: Package glossaries-extra Error: Glossary entry `tfidf' has not been defined.
+
+See the glossaries-extra package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.66 ...earch engines. It builds upon the {\tfidf}
+                                                   model to provide more acc...
+You need to define a glossary entry before you can reference it.
 
 \openout4 = `matter.mw'.
 
@@ -2435,14 +2445,16 @@ l.68 The core components of {\bm}
                                   include {\tf}, {\idf}, {\dl}, and tuning p...
 You need to define a glossary entry before you can reference it.
 
-./chapter2.tex:68: Undefined control sequence.
-l.68 ...tuning parameters. Recapping from the {\ti
-                                                  } section, {\tf} is the nu...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
+
+./chapter2.tex:68: Package glossaries-extra Error: Glossary entry `tfidf' has not been defined.
+
+See the glossaries-extra package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.68 ...ng parameters. Recapping from the {\tfidf}
+                                                   section, {\tf} is the num...
+You need to define a glossary entry before you can reference it.
 
 <figs/chapter2/bm25_equation.png, id=285, 939.51pt x 94.3525pt>
 File: figs/chapter2/bm25_equation.png Graphic file (type png)
@@ -2454,6 +2466,14 @@ Overfull \hbox (71.1496pt too wide) in paragraph at lines 71--73
  [][] 
  []
 
+\openout4 = `matter.mw'.
+
+\openout4 = `matter.mw'.
+
+\openout4 = `matter.mw'.
+
+\openout4 = `matter.mw'.
+
 
 ./chapter2.tex:76: Package glossaries-extra Error: Glossary entry `bm' has not been defined.
 
@@ -2461,23 +2481,18 @@ See the glossaries-extra package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.76 The {\bm}
-               equation is composed of the ith query term (q) and the respec...
+l.76 ...d_understanding_2023} explained, the {\bm}
+                                                   equation is composed of t...
 You need to define a glossary entry before you can reference it.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 78--79
-[]\T1/lmr/m/n/10.95 (+20) [https://medium.com/@evertongomede/understanding-the-bm25-ranking-algorithm-
- []
-
-
-./chapter2.tex:82: Package glossaries-extra Error: Glossary entry `bm' has not been defined.
+./chapter2.tex:80: Package glossaries-extra Error: Glossary entry `bm' has not been defined.
 
 See the glossaries-extra package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.82 However, {\bm}
+l.80 However, {\bm}
                     can not perform a semantic analysis of the query and the...
 You need to define a glossary entry before you can reference it.
 
@@ -2492,7 +2507,7 @@ You need to define a glossary entry before you can reference it.
 pdfTeX warning (ext4): destination with the same identifier (name{page.6}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.92 
+l.90 
      
 \openout4 = `matter.mw'.
 
@@ -2531,7 +2546,7 @@ l.92
 
 \openout4 = `matter.mw'.
 
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 106.
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 104.
  (/usr/share/texmf/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
@@ -2554,7 +2569,7 @@ File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 pdfTeX warning (ext4): destination with the same identifier (name{page.7}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.124 B
+l.122 B
        efore {\llm}, there were only simple {\lm}, which, in the initial sta...
 \openout4 = `matter.mw'.
 
@@ -2612,17 +2627,17 @@ l.124 B
 pdfTeX warning (ext4): destination with the same identifier (name{page.8}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.147 
+l.145 
       
 \openout4 = `matter.mw'.
 
  [8] (./matter.mw)
 \openout4 = `matter.mw'.
 
-<figs/chapter2/transformer.png, id=392, 853.1875pt x 1256.695pt>
+<figs/chapter2/transformer.png, id=394, 853.1875pt x 1256.695pt>
 File: figs/chapter2/transformer.png Graphic file (type png)
 <use figs/chapter2/transformer.png>
-Package pdftex.def Info: figs/chapter2/transformer.png  used on input line 155.
+Package pdftex.def Info: figs/chapter2/transformer.png  used on input line 153.
 (pdftex.def)             Requested size: 284.52756pt x 419.10185pt.
 \openout4 = `matter.mw'.
 
@@ -2643,7 +2658,7 @@ Package pdftex.def Info: figs/chapter2/transformer.png  used on input line 155.
 pdfTeX warning (ext4): destination with the same identifier (name{page.9}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.161 \subsubsection{Pre-training}
+l.159 \subsubsection{Pre-training}
                                   
 \openout4 = `matter.mw'.
 
@@ -2669,17 +2684,17 @@ l.161 \subsubsection{Pre-training}
 pdfTeX warning (ext4): destination with the same identifier (name{page.10}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.169 A
+l.167 A
        n important step, the tokenization, follows this. This step aims to d...
 \openout4 = `matter.mw'.
 
  [10 <./figs/chapter2/transformer.png>] (./matter.mw)
 \openout4 = `matter.mw'.
 
-<figs/chapter2/tokenization.png, id=412, 728.7225pt x 285.065pt>
+<figs/chapter2/tokenization.png, id=414, 728.7225pt x 285.065pt>
 File: figs/chapter2/tokenization.png Graphic file (type png)
 <use figs/chapter2/tokenization.png>
-Package pdftex.def Info: figs/chapter2/tokenization.png  used on input line 172.
+Package pdftex.def Info: figs/chapter2/tokenization.png  used on input line 170.
 (pdftex.def)             Requested size: 398.33858pt x 155.82059pt.
 \openout4 = `matter.mw'.
 
@@ -2724,7 +2739,7 @@ Package pdftex.def Info: figs/chapter2/tokenization.png  used on input line 172.
 pdfTeX warning (ext4): destination with the same identifier (name{page.11}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.193 
+l.191 
       
 \openout4 = `matter.mw'.
 
@@ -2774,7 +2789,7 @@ l.193
 pdfTeX warning (ext4): destination with the same identifier (name{page.12}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.228 F
+l.226 F
        urthermore, \citet{liu_prompting_nodate} highlighted another limitati...
 \openout4 = `matter.mw'.
 
@@ -2790,8 +2805,8 @@ l.228 F
 \openout4 = `matter.mw'.
 
 
-./chapter2.tex:240: Undefined control sequence.
-l.240 ...chnologies, including {\nlp}, {\mlearning
+./chapter2.tex:238: Undefined control sequence.
+l.238 ...chnologies, including {\nlp}, {\mlearning
                                                   }, and {\ai}.
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2858,7 +2873,7 @@ and I'll forget about whatever was undefined.
 pdfTeX warning (ext4): destination with the same identifier (name{page.13}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.257 A
+l.255 A
         generative-based chatbot generates a text sequence as a response rat...
 \openout4 = `matter.mw'.
 
@@ -2897,10 +2912,10 @@ l.257 A
 
 \openout4 = `matter.mw'.
 
-<figs/chapter2/chatbot_architecture.png, id=474, 551.05875pt x 276.03125pt>
+<figs/chapter2/chatbot_architecture.png, id=476, 551.05875pt x 276.03125pt>
 File: figs/chapter2/chatbot_architecture.png Graphic file (type png)
 <use figs/chapter2/chatbot_architecture.png>
-Package pdftex.def Info: figs/chapter2/chatbot_architecture.png  used on input line 272.
+Package pdftex.def Info: figs/chapter2/chatbot_architecture.png  used on input line 270.
 (pdftex.def)             Requested size: 398.33858pt x 199.53838pt.
 \openout4 = `matter.mw'.
 
@@ -2913,17 +2928,17 @@ Package pdftex.def Info: figs/chapter2/chatbot_architecture.png  used on input l
 pdfTeX warning (ext4): destination with the same identifier (name{page.14}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.280 
+l.278 
       
 \openout4 = `matter.mw'.
 
  [14 <./figs/chapter2/chatbot_architecture.png>] (./matter.mw)
 \openout4 = `matter.mw'.
 
-<figs/chapter2/otimization_generative_chatbot.png, id=489, 880.28876pt x 522.95375pt>
+<figs/chapter2/otimization_generative_chatbot.png, id=491, 880.28876pt x 522.95375pt>
 File: figs/chapter2/otimization_generative_chatbot.png Graphic file (type png)
 <use figs/chapter2/otimization_generative_chatbot.png>
-Package pdftex.def Info: figs/chapter2/otimization_generative_chatbot.png  used on input line 298.
+Package pdftex.def Info: figs/chapter2/otimization_generative_chatbot.png  used on input line 296.
 (pdftex.def)             Requested size: 284.52756pt x 169.02434pt.
 \openout4 = `matter.mw'.
 
@@ -2944,7 +2959,7 @@ Package pdftex.def Info: figs/chapter2/otimization_generative_chatbot.png  used 
 pdfTeX warning (ext4): destination with the same identifier (name{page.15}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.315 A
+l.313 A
        lso, \citet{ma_beyond_2023} find with their work that prompt engineer...
 \openout4 = `matter.mw'.
 
@@ -2959,10 +2974,10 @@ l.315 A
 
 \openout4 = `matter.mw'.
 
-<figs/chapter2/prompt.png, id=510, 856.19875pt x 293.095pt>
+<figs/chapter2/prompt.png, id=512, 856.19875pt x 293.095pt>
 File: figs/chapter2/prompt.png Graphic file (type png)
 <use figs/chapter2/prompt.png>
-Package pdftex.def Info: figs/chapter2/prompt.png  used on input line 318.
+Package pdftex.def Info: figs/chapter2/prompt.png  used on input line 316.
 (pdftex.def)             Requested size: 398.33858pt x 136.35931pt.
 \openout4 = `matter.mw'.
 
@@ -3023,25 +3038,25 @@ Package pdftex.def Info: figs/chapter2/prompt.png  used on input line 318.
 pdfTeX warning (ext4): destination with the same identifier (name{page.16}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.337 
+l.335 
       
 \openout4 = `matter.mw'.
 
  [16 <./figs/chapter2/prompt.png>] (./matter.mw)
 \openout4 = `matter.mw'.
 
-<figs/chapter2/rag_workflow.png, id=539, 1713.40125pt x 870.25125pt>
+<figs/chapter2/rag_workflow.png, id=541, 1713.40125pt x 870.25125pt>
 File: figs/chapter2/rag_workflow.png Graphic file (type png)
 <use figs/chapter2/rag_workflow.png>
-Package pdftex.def Info: figs/chapter2/rag_workflow.png  used on input line 339.
+Package pdftex.def Info: figs/chapter2/rag_workflow.png  used on input line 337.
 (pdftex.def)             Requested size: 284.52756pt x 144.51479pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 341--341
+Underfull \hbox (badness 10000) in paragraph at lines 339--339
 [][]|\T1/lmr/m/n/10 (+20) [RE-FAZER IM-AGEM] []RAG[] work-flow. Adapted from
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 341--341
+Underfull \hbox (badness 10000) in paragraph at lines 339--339
 \T1/lmr/m/n/10 (+20) [https://towardsdatascience.com/retrieval-augmented-generation-rag-from-theory-
  []
 
@@ -3062,13 +3077,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 341--341
 \openout4 = `matter.mw'.
 
 
-./chapter2.tex:344: Package glossaries-extra Error: Glossary entry `bm' has not been defined.
+./chapter2.tex:342: Package glossaries-extra Error: Glossary entry `bm' has not been defined.
 
 See the glossaries-extra package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.344 ...p utilizes Encoding Models, such as {\bm}
+l.342 ...p utilizes Encoding Models, such as {\bm}
                                                   , to retrieve relevant inf...
 You need to define a glossary entry before you can reference it.
 
@@ -3083,50 +3098,24 @@ You need to define a glossary entry before you can reference it.
  [18] (./matter.mw)
 \openout4 = `matter.mw'.
 
-Package microtype Info: Character `029' is missing
-(microtype)             in font `T1/lmr/m/sc/9'.
-(microtype)             Ignoring protrusion settings for this character.
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 411.
- (/usr/share/texmf/tex/latex/lm/t1lmtt.fd
-File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-Package microtype Info: Loading generic protrusion settings for font family
-(microtype)             `lmtt' (encoding: T1).
-(microtype)             For optimal results, create family-specific settings.
-(microtype)             See the microtype manual for details.
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 411.
- (/usr/share/texmf/tex/latex/lm/ot1lmr.fd
-File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 411.
- (/usr/share/texmf/tex/latex/lm/omllmm.fd
-File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 411.
- (/usr/share/texmf/tex/latex/lm/omslmsy.fd
-File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 411.
- (/usr/share/texmf/tex/latex/lm/omxlmex.fd
-File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <9> on input line 411.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 411.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 411.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 411.
- (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-) (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg
-File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 411.
- (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msb.cfg
-File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
+\openout2 = `chapter3.aux'.
+
+ (./chapter3.tex
+
+./chapter3.tex:6: Package glossaries-extra Error: Glossary entry `bm' has not been defined.
+
+See the glossaries-extra package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.6 ... have started to implement and test a {\bm}
+                                                   method to retrieve the be...
+You need to define a glossary entry before you can reference it.
+
+File: figs/chapter2/rag_workflow.png Graphic file (type png)
+<use figs/chapter2/rag_workflow.png>
+Package pdftex.def Info: figs/chapter2/rag_workflow.png  used on input line 9.
+(pdftex.def)             Requested size: 227.62204pt x 115.6065pt.
 )
 \openout4 = `matter.mw'.
 
@@ -3140,7 +3129,68 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 
 \openout4 = `matter.mw'.
 
- [20] (./matter.mw)
+ [20
+
+
+
+] (./matter.mw)
+\openout4 = `matter.mw'.
+
+Package microtype Info: Character `029' is missing
+(microtype)             in font `T1/lmr/m/sc/9'.
+(microtype)             Ignoring protrusion settings for this character.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 412.
+ (/usr/share/texmf/tex/latex/lm/t1lmtt.fd
+File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `lmtt' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 412.
+ (/usr/share/texmf/tex/latex/lm/ot1lmr.fd
+File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 412.
+ (/usr/share/texmf/tex/latex/lm/omllmm.fd
+File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 412.
+ (/usr/share/texmf/tex/latex/lm/omslmsy.fd
+File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 412.
+ (/usr/share/texmf/tex/latex/lm/omxlmex.fd
+File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <9> on input line 412.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <6> on input line 412.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 412.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 412.
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+) (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg
+File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 412.
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msb.cfg
+File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
+)
+\openout4 = `matter.mw'.
+
+ [21
+
+] (./matter.mw)
+\openout4 = `matter.mw'.
+
+\openout4 = `matter.mw'.
+
+ [22] (./matter.mw)
 \openout4 = `matter.mw'.
 
 \tf@toc=\write26
@@ -3154,6 +3204,10 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 
 \tf@lol=\write29
 \openout4 = `matter.lol'.
+
+\openout4 = `matter.mw'.
+
+\openout4 = `matter.mw'.
 
 \openout4 = `matter.mw'.
 
@@ -3458,6 +3512,23 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 
 \openout4 = `matter.mw'.
 
+) (./chapter3.aux
+\openout4 = `matter.mw'.
+
+\openout4 = `matter.mw'.
+
+\openout4 = `matter.mw'.
+
+\openout4 = `matter.mw'.
+
+\openout4 = `matter.mw'.
+
+\openout4 = `matter.mw'.
+
+\openout4 = `matter.mw'.
+
+\openout4 = `matter.mw'.
+
 )
 \openout4 = `matter.mw'.
 
@@ -3701,6 +3772,8 @@ figs/chapter2/chatbot_architecture.png
 figs/chapter2/otimization_generative_chatbot.png
 figs/chapter2/prompt.png
 figs/chapter2/rag_workflow.png
+chapter3.tex
+figs/chapter2/rag_workflow.png
   t1lmtt.fd    2009/10/30 v1.6 Font defs for Latin Modern
   ot1lmr.fd    2009/10/30 v1.6 Font defs for Latin Modern
   omllmm.fd    2009/10/30 v1.6 Font defs for Latin Modern
@@ -3746,13 +3819,13 @@ Package logreq Info: Writing requests to 'matter.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 56245 strings out of 480171
- 1120913 string characters out of 5894488
- 2258873 words of memory out of 5000000
- 72918 multiletter control sequences out of 15000+600000
- 536196 words of font info for 172 fonts, out of 8000000 for 9000
+ 56283 strings out of 480171
+ 1121899 string characters out of 5894488
+ 2258864 words of memory out of 5000000
+ 72944 multiletter control sequences out of 15000+600000
+ 535942 words of font info for 170 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
- 106i,17n,105p,1195b,2315s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 106i,17n,105p,1195b,2303s stack positions out of 5000i,500n,10000p,200000b,80000s
 pdfTeX warning (dest): name{glo:rag} has been referenced but does not exist, replaced by a fixed one
 
 pdfTeX warning (dest): name{glo:plm} has been referenced but does not exist, replaced by a fixed one
@@ -3788,10 +3861,10 @@ pdfTeX warning (dest): name{glo:nlp} has been referenced but does not exist, rep
 pdfTeX warning (dest): name{glo:llm} has been referenced but does not exist, replaced by a fixed one
 
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}</usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmcsc10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr17.pfb></usr/share/texmf/fonts/type1/public/lm/lmr9.pfb></usr/share/texmf/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf/fonts/type1/public/lm/lmri9.pfb></usr/share/texmf/fonts/type1/public/lm/lmss10.pfb></usr/share/texmf/fonts/type1/public/lm/lmssbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt9.pfb>
-Output written on matter.pdf (46 pages, 916870 bytes).
+Output written on matter.pdf (48 pages, 922307 bytes).
 PDF statistics:
- 743 PDF objects out of 1000 (max. 8388607)
- 616 compressed objects within 7 object streams
- 115 named destinations out of 1000 (max. 500000)
- 35697 words of extra memory for PDF output out of 35830 (max. 10000000)
+ 762 PDF objects out of 1000 (max. 8388607)
+ 633 compressed objects within 7 object streams
+ 120 named destinations out of 1000 (max. 500000)
+ 35705 words of extra memory for PDF output out of 35830 (max. 10000000)
 
