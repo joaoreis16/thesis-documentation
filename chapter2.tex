@@ -1,7 +1,7 @@
 \chapter{State of Art}
 \label{chapter: State of Art}
 
-This dissertation suggests the development of a conversational query builder that functions as a chat-based interface within the EHDEN project ecosystem. This interface will help researchers redefine their studies effectively. The conversational virtual assistant will return a query to help discover the best databases for specific research. Studying state-of-the-art information retrieval systems to retrieve the most appropriate databases for a researcher's query is essential in this context. In addition, it is vital to explore the {\llm}, a recent advance of algorithms to perform {\nlp} tasks, and the actual state of conversational virtual assistants or chatbots. In the end, research about interactive query builder. And so, these topics will be discussed below.
+This dissertation suggests the development of a conversational query builder that functions as a chat-based interface within the EHDEN project ecosystem. This interface will help researchers redefine their studies effectively. The conversational virtual assistant will return a query to help discover the best databases for specific research. Studying state-of-the-art information retrieval systems to retrieve the most appropriate databases for a researcher's query is essential in this context. In addition, it is vital to explore the {\llm}, a recent advance of algorithms to perform {\nlp} tasks, and the actual state of conversational virtual assistants or chatbots. In the end, research about interactive query builder. And so these topics will be discussed below.
 
 
 \section{Information Retrieval}
@@ -51,7 +51,7 @@ However, to evaluate the relevancy of a query, each term is regarded with equal 
 The traditional {\ir} method, {\tfidf}, combines  {\tf} and  {\idf} definitions, as the name suggests, and then produces a weight for each term in each document, as \citet{manning_introduction_2009} and \citet{chizhik_challenges_2020} mention. The weight is calculated as the product of  {\tf} and  {\idf} values, highlighting terms that are both important within a specific document and relatively uncommon in the document collection. 
 
 \begin{figure}[ht]
-    \includegraphics[width=14cm]{figs/chapter2/tf-idf_formula.png}
+    \includegraphics[width=6cm]{figs/chapter2/tf-idf_formula.png}
     \centering
     \caption{Overview of modern {\ir} system [REFAZER IMAGEM]}
 \end{figure}
@@ -68,7 +68,7 @@ In summary, this {\ir} method evaluates the importance of a term within a docume
 The core components of {\bm} include {\tf}, {\idf}, {\dl}, and tuning parameters. Recapping from the {\tfidf} section, {\tf} is the number of occurrences that a specific term is in a document, and {\idf} is a measure that indicates the importance of a term in the whole document. 
 
 \begin{figure}[ht]
-    \includegraphics[width=18cm]{figs/chapter2/bm25_equation.png}
+    \includegraphics[width=14cm]{figs/chapter2/bm25_equation.png}
     \centering
     \caption{BM25 equation}
 \end{figure}
@@ -219,7 +219,7 @@ We already know that {\llm} are pre-trained with extensive training data. But su
 
 A severe limitation that is an active area of research is hallucination. \citet{hadi_LLM_2023} characterized {\llm} hallucinations as when the model attempts to fill gaps in knowledge or context, relying on learned patterns during training. Such occurrences can result in inaccurate or misleading responses, detrimental to the user and the model's reliability.
 
-The way the {\llm} makes decisions is unknown. Comprehending the decision-making process of a complex model with billions of parameters, like {\llm}, is challenging. So, the explainability of these models is a big limitation. Sometimes, it is needed to decipher the factors that influenced an {\llm}'s decision, and this limitation poses difficulties in offering a clear and concise explanation. In vital sectors like healthcare, where decisions carry substantial consequences, ensuring transparency and the capability to elucidate the model's predictions is essential.
+The way the {\llm} makes decisions is unknown. Comprehending the decision-making process of a complex model with billions of parameters, like {\llm}, is challenging. So, the explainability of these models is a big limitation. Sometimes, it is necessary to decipher the factors that influenced an {\llm}'s decision, and this limitation poses difficulties in offering a clear and concise explanation. In vital sectors like healthcare, where decisions carry substantial consequences, ensuring transparency and the capability to elucidate the model's predictions is essential.
 
 Another limitation is the cyber-attacks. A {\llm} can suffer some prompt injections from a malicious user to extract sensitive information from the model. This is called the Jail Break attack. Another attack is Data Poisoning Attacks, which consist in data poisoning strategies to manipulate the model's output.
 
@@ -324,14 +324,14 @@ Also, \citet{ma_beyond_2023} find with their work that prompt engineering has ma
 
 \subsection{Retrieval-Augmented Generation (RAG)}
 
-\citet{gao_retrieval-augmented_2023} made a survey into {\rag} systems, and distiguish the parametric knowledge from non-parametric knowledge. Traditionally, {\llm} can adapt their knowledge and responses to a specific domain by fine-tuning models with parameters. This is \textbf{parametric knowledge} because the {\llm} knowledge is provided through the model's training data. However, entirely parameterized {\llm} have limitations, including challenges in retaining all the knowledge during training, the inability to dynamically update model parameters leading to outdatedness, and hallucination. The \textbf{non-parametric knowledge}, provided by external information sources, emerged to solve these limitations.
+\citet{gao_retrieval-augmented_2023} made a survey into {\rag} systems and distiguish the parametric knowledge from non-parametric knowledge. Traditionally, {\llm} can adapt their knowledge and responses to a specific domain by fine-tuning models with parameters. This is \textbf{parametric knowledge} because the {\llm} knowledge is provided through the model's training data. However, entirely parameterized {\llm} have limitations, including challenges in retaining all the knowledge during training, the inability to dynamically update model parameters, leading to outdatedness, and hallucination. The \textbf{non-parametric knowledge}, provided by external information sources, emerged to solve these limitations.
 
 This non-parametric knowledge approach is known as {\rag}. So, according to \citet{gao_retrieval-augmented_2023}, {\rag} involves retrieving pertinent information from external knowledge bases, giving more context to the {\llm}. This approach was introduced by \citet{lewis_retrieval-augmented_2020} in 2020 and enabled {\llm} to access and utilize up-to-date or domain-specific information to enhance response accuracy and relevance while reducing hallucinations.
 
 
 \subsubsection{Workflow of a {\rag} system}
 
-The following figure shows the workflow of a {\rag}. This model aims to retrieve pertinent information from an extensive corpus of documents when answering questions or generating text, subsequently utilizing this information to enhance the quality of predictions, in compliance with \citet{lewis_retrieval-augmented_2020}.
+The following figure shows the workflow of a {\rag}. This model aims to retrieve pertinent information from an extensive corpus of documents when answering questions or generating text, subsequently utilizing this information to enhance the quality of predictions in compliance with \citet{lewis_retrieval-augmented_2020}.
 
 \begin{figure}[ht]
     \includegraphics[width=10cm]{figs/chapter2/rag_workflow.png}
