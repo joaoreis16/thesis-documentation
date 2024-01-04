@@ -19,19 +19,17 @@
 %\usepackage[scaled]{beramono} % TTT Font
 %\usepackage{anyfontsize} % As the name says...
 
-
 \usepackage[T1]{fontenc}
 
 % Enable for for Overleaf support
 \usepackage{ifthen}
-\def\useoverleaf{0}  % change to non-zero (for instance, 1) to enable it
+\def\useoverleaf{1}  % change to non-zero (for instance, 1) to enable it
 
 \makeatletter
 \newcommand{\makecoverfile}[0]{%
   \immediate\write18{latexmk -pdf cover.tex}%
 }
 \makeatother
-
 
 % For PDF merging
 \usepackage{pdfpages}
@@ -109,6 +107,9 @@
 % Add support for graphics
 \usepackage{graphicx}
 
+% Add support for rotations
+\usepackage{rotating}
+
 % Add support for Colors
 \usepackage{xcolor}
 
@@ -130,7 +131,6 @@
 
 % For fixing listoflistings with memoir
 \usepackage{xparse}
-
 
 % Uncomment the next lines to enable chart support through pgf and tikz
 % This may require you to install further packages in your Tex system
@@ -203,20 +203,26 @@
   \oldchapter#1{#2}
 }
 
-% Glossary
+% For creating a list of abbreviations.
 \usepackage[%
-    nogroupskip=false,%
-    nonumberlist=true,%
-    nopostdot=true,%
-    % style=alttree,%
-    style=listdotted,%
-    % style=long,%
-    % style=super,%
-    shortcuts=abbreviations,%
-    % The "uathesis" style file is already adding the glossary into the
-    % table of contents.
-    toc=false,%
+nogroupskip=false,%
+nonumberlist=true,%
+nopostdot=true,%
+% style=alttree,%
+style=listdotted,%
+% style=long,%
+% style=super,%
+shortcuts=abbreviations,%
+% The "uathesis" style file is already adding the glossary into the
+% table of contents.
+toc=false,%
 ]{glossaries-extra}
+
+% Include defined abbreviations
+\input{abbreviations.tex}
+
+\renewcommand{\glossaryname}{Glossary}
+
 
 
 % Use the built-in division styling
@@ -253,10 +259,10 @@
 
 \begin{document}
 \ifthenelse{\equal{\useoverleaf}{0}}{}{\makecoverfile{}}%
-\includepdf[pages=-]{cover.pdf}
+% \includepdf[pages=-]{cover.pdf}
 
 % Uncomment to enable English
-\selectlanguage{english}
+%\selectlanguage{english}
 
 
 % Front matter
@@ -363,16 +369,11 @@
 }
 
 % Print Glossary
-% {\small\include{glossary}}
+%{\small\include{glossary}}
 
 % Print Glossary (glossaries-extra package)
 \renewcommand{\glossaryname}{}
-% {\printunsrtglossaries}
-
-{\small\include{abbreviations}}
-
-\include{abbreviations.tex}
-
+{\printunsrtglossaries}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Main document starts here
@@ -388,10 +389,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Uncomment to add further chapters
-\include{chapter1.tex}
-\include{chapter2.tex}
-\include{chapter3.tex}
-
+\include{chapter1}
+\include{chapter2}
+\include{chapter3}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % End of Thesis text 
@@ -406,8 +406,8 @@
 \begingroup
 \renewcommand{\bibfont}{\footnotesize}
 % Redefine References name to Portuguese
-% Change if you are using English
-\defbibheading{bibliography}[References]{
+% Change if you are using english
+\defbibheading{bibliography}[Referências]{
 	\chapter{#1}
 }
 \SingleSpacing
