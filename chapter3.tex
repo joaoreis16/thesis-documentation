@@ -3,20 +3,22 @@
 
 For this thesis work, after an extensive literature review on crucial concepts, such as {\ir} and {\llm}, we are ready to achieve the primary goal of this work.
 
-The Gantt diagram above shows the work proposal for the following months. Most of the work these last few months has been necessary for exploring the state-of-the-art, focusing on reading and writing it up. In terms of development, I have so far developed a prototype of a conversational interface, and I have started to implement and test a {\bm} method to retrieve the best databases for a giving query. It is important to note that it is in a very initial stage.
-
-
-% escolher um dos 2
+The Gantt diagram above shows the work proposal for the following months. 
 
 \begin{figure}[ht]
-    \includegraphics[width=5cm]{figs/chapter3/diagrama_gantt_vert.png}
+    \includegraphics[width=16cm]{figs/chapter3/diagram_gantt.png}
     \centering
     \caption{Proposal thesis work in Gantt Diagram}
 \end{figure}
 
+This semester's work focused on the State of Art understanding and writing, going through a process of research and reading articles. It was essential not only to learn more about the actual state of some technologies and concepts but also to get more into the project goal and requirements.
 
-\begin{figure}[ht]
-    \includegraphics[width=15cm]{figs/chapter3/diagrama_gantt_split.png}
-    \centering
-    \caption{Proposal thesis work in Gantt Diagram}
-\end{figure}
+In terms of development, I have developed a prototype of a chat-like interface using NextJS, a well-known ReactJS framework. Also, I have developed a REST API in FastAPI, a modern web framework based on Python. The interface and the API communicate between them through HTTP requests.
+
+Beyond this, inside the backend module, I have started implementing and testing a {\bm} method to retrieve the best databases for a given user query. First, {\nlp} methods are applied to understand the plain-text query. Then, the {\bm} score is calculated between the query and the concepts of which database, making a database ranking.
+ 
+For the following months, I will continue the development of the database recommendation, based on {\bm}, improving some aspects, like concept linking. Test and improve this {\ir} implementation based on the testing results. After this, I will choose, implement, and fine-tune a {\llm} in order to guide the conversation to build the final query with the correct structure. By doing this, the conversation flows naturally. Finally, test and improve the model based on the testing results.
+
+The next step is integrating this system in the {\ehden} Portal and testing and validating the system. 
+
+The documentation of the implementation and the respective steps taken will be carried out throughout its development, as the Gantt Diagram shows.

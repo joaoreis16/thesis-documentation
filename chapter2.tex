@@ -201,12 +201,34 @@ Meanwhile, in adapter tuning, an encoder-decoder module is incorporated with the
 % So ....
 
 
-\subsection{Comparation between LLM}
+\subsection{Comparison between main models}
 
 The best way to compare {\llm} is to evaluate the model's performance, conforming to \citet{hadi_LLM_2023}. \citet{hadi_LLM_2023} identified five factors to make this comparison: the size of the training corpus, the quality of the training corpus, the number of parameters, the complexity of the model, and some test tasks.
 
+The primary foundation models of {\llm} are {\gpt}-4 by OpenAI, LLaMA 2 by Meta, PaLM 2 by Google, and Falcon by Technology Innovation Institute (TII). These {\llm} are provided by big companies and have outstanding records in the evolution of this area. These models gave rise to many others.
 
-%% FAZER MAIS TARDE E PERGUNTAR AO TIAGO
+LLama 2 is an open source {\llm} by Meta [https://arxiv.org/abs/2307.09288]. LLaMa 2 was trained on 40\% more data than LLaMa 1, the model from which it came, and has double the context length. So, the model size of LLaMa 2 is 7 billion, 13 billion, or 70 billion parameters. With 4096 context length and 2 trillion pretraining tokens, this {\llm} is commonly fine-tuned for chat use cases. Many other models, like Alpaca, Vicuna and Llama-2-chat , came from LLaMa and deserve further analysis. It is accessible for both research and commercial purposes
+
+The recent {\gpt} model from OpenAI, {\gpt}-4, is a closed source {\llm} [https://arxiv.org/pdf/2303.08774.pdf]. Trained on a meticulously curated dataset from various textual sources, including books, articles, and websites, {\gpt}-4 exhibits remarkable performance with text and image inputs. It is the {\llm} behind ChatGPT. It has 32 000 context length. OpenAI has chosen to provide limited technical details about the training methodology used for this advanced model, including specific information on parameter counts.
+
+The Google generative chatbot, Bard, uses as {\llm} the PaLM 2 model developed by Google [https://ai.google/static/documents/palm2techreport.pdf]. It emerged from PaLM with 540 billion parameters. PaLM 2 is a closed source {\llm}, and, following the OpenAI approach, has opted to disclose limited technical specifics, including the number of parameters. 
+
+The Falcon {\llm} is an open-source model with impressive performance and scalability. There are three variations of the model size: 7 billion, 40 billion, and the most recent, 180 billion of parameters. [https://arxiv.org/pdf/2311.16867.pdf] This Falcon 180B, equipped with an impressive 180 billion parameters and trained on 3.5 trillion tokens, currently leads the Hugging Face Leaderboard for pre-trained Open Large Language Models. It is accessible for both research and commercial purposes.
+
+\begin{table}[ht]
+    \scalebox{0.8}{
+        \begin{tabular}{|c|c|c|c|c|c|c|}
+        \hline
+        \textbf{Model} & \textbf{Provider} & \textbf{\begin{tabular}[c]{@{}c@{}}Model size\\ (Parameters)\end{tabular}} & \textbf{Context Length} & \textbf{Tokens} & \textbf{Fine-tuneability} & \textbf{Open-source} \\ \hline
+        GPT-4          & OpenAI            & -                                                                          & -                       & -               & No                        & No                   \\ \hline
+        LLaMa 2        & Meta              & 7B, 13B, 70B                                                               & 4096                    & 2T              & Yes                       & Yes                  \\ \hline
+        PaLM 2         & Google            & -                                                                          & -                       & -               & No                        & No                   \\ \hline
+        Falcon         & TII               & 7B, 40B, 180B                                                              & 2048                    & 3.5T            & Yes                       & Yes                  \\ \hline
+        \end{tabular}
+    }
+    \caption{Comparison of the main {\llm}}
+\end{table}
+
 
 
 \subsection{Limitations}
@@ -324,7 +346,7 @@ Also, \citet{ma_beyond_2023} find with their work that prompt engineering has ma
 
 \subsection{Retrieval-Augmented Generation (RAG)}
 
-\citet{gao_retrieval-augmented_2023} made a survey into {\rag} systems and distiguish the parametric knowledge from non-parametric knowledge. Traditionally, {\llm} can adapt their knowledge and responses to a specific domain by fine-tuning models with parameters. This is \textbf{parametric knowledge} because the {\llm} knowledge is provided through the model's training data. However, entirely parameterized {\llm} have limitations, including challenges in retaining all the knowledge during training, the inability to dynamically update model parameters, leading to outdatedness, and hallucination. The \textbf{non-parametric knowledge}, provided by external information sources, emerged to solve these limitations.
+\citet{gao_retrieval-augmented_2023} made a survey into {\rag} systems and distiguish the parametric knowledge from non-parametric knowledge. Traditionally, {\llm} can adapt their knowledge and responses to a specific domain by fine-tuning models with parameters. This is \textbf{parametric knowledge} because the {\llm} knowledge is provided through the model's training data. However, entirely parameterized {\llm} have limitations, including challenges in retaining all the knowledge during training, the inability to dynamically update model parameters, leading to outdatedness and hallucination. The \textbf{non-parametric knowledge}, provided by external information sources, emerged to solve these limitations.
 
 This non-parametric knowledge approach is known as {\rag}. So, according to \citet{gao_retrieval-augmented_2023}, {\rag} involves retrieving pertinent information from external knowledge bases, giving more context to the {\llm}. This approach was introduced by \citet{lewis_retrieval-augmented_2020} in 2020 and enabled {\llm} to access and utilize up-to-date or domain-specific information to enhance response accuracy and relevance while reducing hallucinations.
 
