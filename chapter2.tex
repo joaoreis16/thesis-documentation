@@ -207,13 +207,13 @@ The best way to compare {\llm} is to evaluate the model's performance, conformin
 
 The primary foundation models of {\llm} are {\gpt}-4 by OpenAI, LLaMA 2 by Meta, PaLM 2 by Google, and Falcon by Technology Innovation Institute (TII). These {\llm} are provided by big companies and have outstanding records in the evolution of this area. These models gave rise to many others.
 
-LLama 2 is an open source {\llm} by Meta [https://arxiv.org/abs/2307.09288]. LLaMa 2 was trained on 40\% more data than LLaMa 1, the model from which it came, and has double the context length. So, the model size of LLaMa 2 is 7 billion, 13 billion, or 70 billion parameters. With 4096 context length and 2 trillion pretraining tokens, this {\llm} is commonly fine-tuned for chat use cases. Many other models, like Alpaca, Vicuna and Llama-2-chat , came from LLaMa and deserve further analysis. It is accessible for both research and commercial purposes
+LLama 2 is an open source {\llm} by Meta (\citet{touvron_llama_2023}). LLaMa 2 was trained on 40\% more data than LLaMa 1, the model from which it came, and has double the context length. So, the model size of LLaMa 2 is 7 billion, 13 billion, or 70 billion parameters. With 4096 context length and 2 trillion pretraining tokens, this {\llm} is commonly fine-tuned for chat use cases. Many other models, like Alpaca, Vicuna, and Llama-2-chat, came from LLaMa and deserve further analysis. It is accessible for both research and commercial purposes
 
-The recent {\gpt} model from OpenAI, {\gpt}-4, is a closed source {\llm} [https://arxiv.org/pdf/2303.08774.pdf]. Trained on a meticulously curated dataset from various textual sources, including books, articles, and websites, {\gpt}-4 exhibits remarkable performance with text and image inputs. It is the {\llm} behind ChatGPT. It has 32 000 context length. OpenAI has chosen to provide limited technical details about the training methodology used for this advanced model, including specific information on parameter counts.
+The recent {\gpt} model from OpenAI, {\gpt}-4, is a closed source {\llm} (\citet{openai_gpt-4_2023}). Trained on a meticulously curated dataset from various textual sources, including books, articles, and websites, {\gpt}-4 exhibits remarkable performance with text and image inputs. It is the {\llm} behind ChatGPT. It has 32 000 context length. OpenAI has chosen to provide limited technical details about the training methodology used for this advanced model, including specific information on parameter counts.
 
-The Google generative chatbot, Bard, uses as {\llm} the PaLM 2 model developed by Google [https://ai.google/static/documents/palm2techreport.pdf]. It emerged from PaLM with 540 billion parameters. PaLM 2 is a closed source {\llm}, and, following the OpenAI approach, has opted to disclose limited technical specifics, including the number of parameters. 
+The Google generative chatbot, Bard, uses as {\llm} the PaLM 2 model developed by Google (\citet{anil_palm_2023}). It emerged from PaLM with 540 billion parameters. PaLM 2 is a closed source {\llm}, and, following the OpenAI approach, has opted to disclose limited technical specifics, including the number of parameters. 
 
-The Falcon {\llm} is an open-source model with impressive performance and scalability. There are three variations of the model size: 7 billion, 40 billion, and the most recent, 180 billion of parameters. [https://arxiv.org/pdf/2311.16867.pdf] This Falcon 180B, equipped with an impressive 180 billion parameters and trained on 3.5 trillion tokens, currently leads the Hugging Face Leaderboard for pre-trained Open Large Language Models. It is accessible for both research and commercial purposes.
+The Falcon {\llm} is an open-source model with impressive performance and scalability (\citet{almazrouei_falcon_2023}). There are three variations of the model size: 7 billion, 40 billion, and the most recent, 180 billion of parameters. This Falcon 180B, equipped with an impressive 180 billion parameters and trained on 3.5 trillion tokens, currently leads the Hugging Face Leaderboard for pre-trained Open Large Language Models. It is accessible for both research and commercial purposes.
 
 \begin{table}[ht]
     \scalebox{0.8}{
@@ -374,25 +374,6 @@ A query builder refers to constructing a query according to the user preferences
 It is important to note that there aren't many cases of query builder documentation.
 
 
-
 \section{Insights/Summary}
 
-Não há muito trabalho feito para o desenvolvimento de Conversational Queries Builder.
-
->> limitations: 
-
-* não existe query builder para dados médicos
-
-* muitos chatbots com o seguinte flow: NLP -> query struct -> DB, que não é o caso a ser implementado
-
-* há algumas limitações dos chatbots a ter em conta, destaco os erros gramaticais, erros ortográficos e a ambiguidade de textos
-
-* Recommender System: Existing chatbots do not ask questions, explain, or advise the user topic. They collect information and provide responses from the knowledge base. The chatbot should be able to write questions based on previous answers. [referencia: Chatbot Implementation in Customer Service Industry through Deep Neural Networks]
-
-* alucianação dos LLM
-
->> oportunidades:
-
-* a união entre as áreas de NLP e de IR pode mostrar-se muito promissora
-
-* vários modelos de AI em NLP sobre várias sub-áreas: Query understanding, Text Classification e Text Generation
+Em forma de sumário

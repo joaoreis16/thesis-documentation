@@ -1,18 +1,18 @@
 # Fdb version 3
-["biber matter"] 0 "matter.bcf" "matter.bbl" "matter" 0
-  "matter.bcf" 0 -1 0 "pdflatex"
+["biber matter"] 1704566194 "matter.bcf" "matter.bbl" "matter" 1704566201
+  "matter.bcf" 1704566176 116632 8596ea469902465595c1ae39a3bfd95e "pdflatex"
   (generated)
   "matter.bbl"
   "matter.blg"
-["makeindex lines.idx"] 0 "lines.idx" "lines.ind" "lines" 0
-  "lines.idx" 0 -1 0 "pdflatex"
+["makeindex lines.idx"] 1704566196 "lines.idx" "lines.ind" "lines" 1704566201
+  "lines.idx" 1704566176 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
   (generated)
   "lines.ilg"
   "lines.ind"
-["pdflatex"] 1704563029 "/home/reis/5ano/thesis/thesis-documentation/matter.tex" "matter.pdf" "matter" 1704563029
+["pdflatex"] 1704566201 "/home/reis/5ano/thesis/thesis-documentation/matter.tex" "matter.pdf" "matter" 1704566201
   "/dev/null" 1704390268 0 d41d8cd98f00b204e9800998ecf8427e ""
   "/etc/texmf/web2c/texmf.cnf" 1702641907 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/reis/5ano/thesis/thesis-documentation/matter.tex" 1704380114 11259 fd72343b9e7e3143daaeeabbf2f389e2 ""
+  "/home/reis/5ano/thesis/thesis-documentation/matter.tex" 1704566193 11247 3320be49dd0aeb2dd0c2d64a1ab22b91 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1246382020 916 f87d7c45f9c908e672703b83b72241a3 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam5.tfm" 1246382020 924 9904cf1d39e9767e7a3622f2a125a565 ""
@@ -308,11 +308,11 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1702641916 165012 f177baa1c39a3ebd62c3096a43521a0d ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1702641922 1435856 6001608ab229d080fc2c42f783ccdc8a ""
   "abbreviations.tex" 1704380015 2380 6d5a2c9d5f654bb8e4e6213a019135f3 ""
-  "chapter1.aux" 0 -1 0 "pdflatex"
+  "chapter1.aux" 1704566203 6279 8ca9cb6f25ae5bace8901875b0b8bd74 "pdflatex"
   "chapter1.tex" 1704409902 5340 70fef684832b90ad52f72b412738be6f ""
-  "chapter2.aux" 0 -1 0 "pdflatex"
-  "chapter2.tex" 1704563021 41887 64d34f470a33383cba2a2edc1eb95825 ""
-  "chapter3.aux" 0 -1 0 "pdflatex"
+  "chapter2.aux" 1704566205 11257 75e6d9a2a36f2eaf5cf6a58cb31a27e0 "pdflatex"
+  "chapter2.tex" 1704566056 40982 39d1a273b187dc05cabed0ae96cee5ab ""
+  "chapter3.aux" 1704566205 6230 9e61def5939cc6c1a5706f3567447727 "pdflatex"
   "chapter3.tex" 1704409530 2115 019942eeefbf007e53b8fb1494fbf224 ""
   "figs/chapter2/IR_system.png" 1702641922 32002 7b44ea1c1cdf4e8eba39feea1674b80d ""
   "figs/chapter2/bm25_equation.png" 1702657491 6360 96f4ea11c083905866ab0c9b1928f4a8 ""
@@ -325,12 +325,12 @@
   "figs/chapter2/transformer.png" 1702641922 108583 cb55431ac781c93a3e538c1523d92fe1 ""
   "figs/chapter3/diagram_gantt.png" 1704392808 131575 c8a0dc7e18576ef28944d00e92a4e0ce ""
   "lines.ind" 0 -1 0 "makeindex lines.idx"
-  "matter.aux" 1704563029 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
-  "matter.bbl" 1704563023 43570 37241c891a142fd655ce49407bac12b9 "biber matter"
-  "matter.lol" 0 -1 0 "pdflatex"
-  "matter.mw" 0 -1 0 "pdflatex"
-  "matter.run.xml" 0 -1 0 "pdflatex"
-  "matter.tex" 1704380114 11259 fd72343b9e7e3143daaeeabbf2f389e2 ""
+  "matter.aux" 0 -1 0 "pdflatex"
+  "matter.bbl" 1704566196 138910 900f03e704302989013889723aedd493 "biber matter"
+  "matter.lol" 1704566200 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "matter.mw" 1704566200 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "matter.run.xml" 1704566200 2485 cb4ca31efee817eb08d2913f3988c64f "pdflatex"
+  "matter.tex" 1704566193 11247 3320be49dd0aeb2dd0c2d64a1ab22b91 ""
   (generated)
   "chapter1.aux"
   "chapter2.aux"

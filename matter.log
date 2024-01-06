@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.12.15)  6 JAN 2024 17:43
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.12.15)  6 JAN 2024 19:11
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1611,7 +1611,7 @@ Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
 Package csquotes Info: Redefining alias 'default' -> 'english'.
-(./matter.aux)
+(./matter.aux (./chapter1.aux) (./chapter2.aux) (./chapter3.aux))
 \openout1 = `matter.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 260.
@@ -1726,6 +1726,41 @@ File: translations-basic-dictionary-english.trsl (english translation file `tran
 Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 260.
 runsystem(latexmk -pdf cover.tex)...disabled (restricted).
 
+ (./matter.toc
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 3.
+ (/usr/share/texmf/tex/latex/lm/ot1lmr.fd
+File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 3.
+ (/usr/share/texmf/tex/latex/lm/omllmm.fd
+File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 3.
+ (/usr/share/texmf/tex/latex/lm/omslmsy.fd
+File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 3.
+ (/usr/share/texmf/tex/latex/lm/omxlmex.fd
+File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10> on input line 3.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 3.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 3.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 3.
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+) (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg
+File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 3.
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msb.cfg
+File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
+)
 \openout4 = `matter.mw'.
 
  [1
@@ -1735,16 +1770,35 @@ runsystem(latexmk -pdf cover.tex)...disabled (restricted).
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./matter.mw)
 \openout4 = `matter.mw'.
 
+)
 \openout4 = `matter.mw'.
 
- [2
+ [2] (./matter.mw)
+\openout4 = `matter.mw'.
+
+ (./matter.lof
+\openout4 = `matter.mw'.
+
+\openout4 = `matter.mw'.
+
+\openout4 = `matter.mw'.
+
+\openout4 = `matter.mw'.
+
+\openout4 = `matter.mw'.
+
+\openout4 = `matter.mw'.
+
+\openout4 = `matter.mw'.
+
+\openout4 = `matter.mw'.
+
+)
+\openout4 = `matter.mw'.
+
+ [3
 
 ] (./matter.mw)
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
- [3] (./matter.mw)
 \openout4 = `matter.mw'.
 
 \openout4 = `matter.mw'.
@@ -1754,6 +1808,7 @@ runsystem(latexmk -pdf cover.tex)...disabled (restricted).
 ] (./matter.mw)
 \openout4 = `matter.mw'.
 
+ (./matter.lot)
 \openout4 = `matter.mw'.
 
  [5] (./matter.mw)
@@ -1766,13 +1821,10 @@ runsystem(latexmk -pdf cover.tex)...disabled (restricted).
 ] (./matter.mw)
 \openout4 = `matter.mw'.
 
-
-
-Package hyperref Warning: old lol file detected, not used; run LaTeX again.
-
+ (./matter.lol)
 \openout4 = `matter.mw'.
 
-[7
+ [7
 
 ] (./matter.mw)
 \openout4 = `matter.mw'.
@@ -1870,7 +1922,7 @@ Package microtype Info: Character `029' is missing
 
 \openout4 = `matter.mw'.
 
-<figs/chapter2/IR_system.png, id=139, 586.19pt x 247.92625pt>
+<figs/chapter2/IR_system.png, id=223, 586.19pt x 247.92625pt>
 File: figs/chapter2/IR_system.png Graphic file (type png)
 <use figs/chapter2/IR_system.png>
 Package pdftex.def Info: figs/chapter2/IR_system.png  used on input line 29.
@@ -1912,7 +1964,7 @@ Package pdftex.def Info: figs/chapter2/IR_system.png  used on input line 29.
 
 \openout4 = `matter.mw'.
 
-<figs/chapter2/tf-idf_formula.png, id=172, 455.7025pt x 109.40875pt>
+<figs/chapter2/tf-idf_formula.png, id=252, 455.7025pt x 109.40875pt>
 File: figs/chapter2/tf-idf_formula.png Graphic file (type png)
 <use figs/chapter2/tf-idf_formula.png>
 Package pdftex.def Info: figs/chapter2/tf-idf_formula.png  used on input line 54.
@@ -1938,7 +1990,7 @@ Package pdftex.def Info: figs/chapter2/tf-idf_formula.png  used on input line 54
  [5 <./figs/chapter2/tf-idf_formula.png>] (./matter.mw)
 \openout4 = `matter.mw'.
 
-<figs/chapter2/bm25_equation.png, id=202, 939.51pt x 94.3525pt>
+<figs/chapter2/bm25_equation.png, id=281, 939.51pt x 94.3525pt>
 File: figs/chapter2/bm25_equation.png Graphic file (type png)
 <use figs/chapter2/bm25_equation.png>
 Package pdftex.def Info: figs/chapter2/bm25_equation.png  used on input line 71.
@@ -2074,7 +2126,7 @@ File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
  [8] (./matter.mw)
 \openout4 = `matter.mw'.
 
-<figs/chapter2/transformer.png, id=307, 853.1875pt x 1256.695pt>
+<figs/chapter2/transformer.png, id=381, 853.1875pt x 1256.695pt>
 File: figs/chapter2/transformer.png Graphic file (type png)
 <use figs/chapter2/transformer.png>
 Package pdftex.def Info: figs/chapter2/transformer.png  used on input line 153.
@@ -2121,7 +2173,7 @@ Package pdftex.def Info: figs/chapter2/transformer.png  used on input line 153.
  [10 <./figs/chapter2/transformer.png>] (./matter.mw)
 \openout4 = `matter.mw'.
 
-<figs/chapter2/tokenization.png, id=330, 728.7225pt x 285.065pt>
+<figs/chapter2/tokenization.png, id=402, 728.7225pt x 285.065pt>
 File: figs/chapter2/tokenization.png Graphic file (type png)
 <use figs/chapter2/tokenization.png>
 Package pdftex.def Info: figs/chapter2/tokenization.png  used on input line 170.
@@ -2187,45 +2239,44 @@ Package pdftex.def Info: figs/chapter2/tokenization.png  used on input line 170.
 
 \openout4 = `matter.mw'.
 
+\openout4 = `matter.mw'.
 
-Underfull \hbox (badness 6542) in paragraph at lines 212--213
-[]\T1/lmr/m/n/10.95 (+20) The re-cent []GPT[] model from Ope-nAI, []GPT[]-4, is a closed source []LLM[]
- []
+\openout4 = `matter.mw'.
 
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 228.
-(/usr/share/texmf/tex/latex/lm/ot1lmr.fd
-File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 228.
- (/usr/share/texmf/tex/latex/lm/omllmm.fd
-File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 228.
- (/usr/share/texmf/tex/latex/lm/omslmsy.fd
-File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 228.
- (/usr/share/texmf/tex/latex/lm/omxlmex.fd
-File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
+\openout4 = `matter.mw'.
+
+\openout4 = `matter.mw'.
+
+\openout4 = `matter.mw'.
+
+\openout4 = `matter.mw'.
+
+\openout4 = `matter.mw'.
+
+\openout4 = `matter.mw'.
+
+\openout4 = `matter.mw'.
+
+\openout4 = `matter.mw'.
+
+\openout4 = `matter.mw'.
+
+\openout4 = `matter.mw'.
+
+\openout4 = `matter.mw'.
+
+\openout4 = `matter.mw'.
+
+\openout4 = `matter.mw'.
+
+\openout4 = `matter.mw'.
+
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <10.95> on input line 228.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <8> on input line 228.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <6> on input line 228.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 228.
- (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-) (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg
-File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 228.
- (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msb.cfg
-File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
-)
 \openout4 = `matter.mw'.
 
  [12] (./matter.mw)
@@ -2361,7 +2412,7 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 
 \openout4 = `matter.mw'.
 
-<figs/chapter2/chatbot_architecture.png, id=415, 551.05875pt x 276.03125pt>
+<figs/chapter2/chatbot_architecture.png, id=487, 551.05875pt x 276.03125pt>
 File: figs/chapter2/chatbot_architecture.png Graphic file (type png)
 <use figs/chapter2/chatbot_architecture.png>
 Package pdftex.def Info: figs/chapter2/chatbot_architecture.png  used on input line 292.
@@ -2379,7 +2430,7 @@ Package pdftex.def Info: figs/chapter2/chatbot_architecture.png  used on input l
  [15 <./figs/chapter2/chatbot_architecture.png>] (./matter.mw)
 \openout4 = `matter.mw'.
 
-<figs/chapter2/otimization_generative_chatbot.png, id=433, 880.28876pt x 522.95375pt>
+<figs/chapter2/otimization_generative_chatbot.png, id=504, 880.28876pt x 522.95375pt>
 File: figs/chapter2/otimization_generative_chatbot.png Graphic file (type png)
 <use figs/chapter2/otimization_generative_chatbot.png>
 Package pdftex.def Info: figs/chapter2/otimization_generative_chatbot.png  used on input line 318.
@@ -2408,7 +2459,7 @@ Package pdftex.def Info: figs/chapter2/otimization_generative_chatbot.png  used 
 
 \openout4 = `matter.mw'.
 
-<figs/chapter2/prompt.png, id=443, 856.19875pt x 293.095pt>
+<figs/chapter2/prompt.png, id=514, 856.19875pt x 293.095pt>
 File: figs/chapter2/prompt.png Graphic file (type png)
 <use figs/chapter2/prompt.png>
 Package pdftex.def Info: figs/chapter2/prompt.png  used on input line 338.
@@ -2474,7 +2525,7 @@ Package pdftex.def Info: figs/chapter2/prompt.png  used on input line 338.
 
 \openout4 = `matter.mw'.
 
-<figs/chapter2/rag_workflow.png, id=474, 1713.40125pt x 870.25125pt>
+<figs/chapter2/rag_workflow.png, id=541, 1713.40125pt x 870.25125pt>
 File: figs/chapter2/rag_workflow.png Graphic file (type png)
 <use figs/chapter2/rag_workflow.png>
 Package pdftex.def Info: figs/chapter2/rag_workflow.png  used on input line 359.
@@ -2516,25 +2567,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 361--361
  [18 <./figs/chapter2/rag_workflow.png>] (./matter.mw)
 \openout4 = `matter.mw'.
 
-\openout4 = `matter.mw'.
-
- [19] (./matter.mw)
-\openout4 = `matter.mw'.
-
 \openout2 = `chapter3.aux'.
 
  (./chapter3.tex
-\openout4 = `matter.mw'.
-
- [20
-
-
-
-
-] (./matter.mw)
-\openout4 = `matter.mw'.
-
-<figs/chapter3/diagram_gantt.png, id=511, 845.19765pt x 597.31155pt>
+<figs/chapter3/diagram_gantt.png, id=564, 845.19765pt x 597.31155pt>
 File: figs/chapter3/diagram_gantt.png Graphic file (type png)
 <use figs/chapter3/diagram_gantt.png>
 Package pdftex.def Info: figs/chapter3/diagram_gantt.png  used on input line 9.
@@ -2546,13 +2582,18 @@ Overfull \hbox (14.24408pt too wide) in paragraph at lines 9--11
 
 \openout4 = `matter.mw'.
 
-[21 <./figs/chapter3/diagram_gantt.png>] (./matter.mw)
+[19
+
+
+
+
+ <./figs/chapter3/diagram_gantt.png>] (./matter.mw)
 \openout4 = `matter.mw'.
 
 )
 \openout4 = `matter.mw'.
 
- [22] (./matter.mw)
+ [20] (./matter.mw)
 \openout4 = `matter.mw'.
 
 Package microtype Info: Character `029' is missing
@@ -2566,624 +2607,4 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `lmtt' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <9> on input line 415.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 415.
-\openout4 = `matter.mw'.
-
- [23
-
-
-
-
-] (./matter.mw)
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
- [24] (./matter.mw)
-\openout4 = `matter.mw'.
-
-\tf@toc=\write25
-\openout4 = `matter.toc'.
-
-\tf@lof=\write26
-\openout4 = `matter.lof'.
-
-\tf@lot=\write27
-\openout4 = `matter.lot'.
-
-\tf@lol=\write28
-\openout4 = `matter.lol'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
- (./matter.aux
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
- (./chapter1.aux
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-) (./chapter2.aux
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-) (./chapter3.aux
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-)
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-)
-
- *File List*
-  memoir.cls    2021/06/16 v3.7p configurable book, report, article document class
-   iftex.sty    2020/03/06 v1.0d TeX engine tests
-   mem11.clo    2008/01/30 v0.3 memoir class 11pt size option
-   array.sty    2021/10/04 v2.5f Tabular extension package (FMi)
- dcolumn.sty    2014/10/28 v1.06 decimal alignment package (DPC)
-delarray.sty    2014/10/28 v1.01 array delimiter package (DPC)
-tabularx.sty    2020/01/15 v2.11c `tabularx' package (DPC)
-textcase.sty    2019/09/14 v1.00 Text only upper/lower case changing (DPC)
-inputenc.sty    2021/02/14 v1.3d Input encoding file
- lmodern.sty    2009/10/30 v1.6 Latin Modern Fonts
- fontenc.sty
-   t1lmr.fd    2009/10/30 v1.6 Font defs for Latin Modern
-  ifthen.sty    2020/11/24 v1.1c Standard LaTeX ifthen package (DPC)
-pdfpages.sty    2022/01/29 v0.5u Insert pages of external PDF documents (AM)
-    calc.sty    2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
- eso-pic.sty    2020/10/14 v3.0a eso-pic (RN)
-  keyval.sty    2014/10/28 v1.15 key=value parser (DPC)
-  xcolor.sty    2021/10/31 v2.13 LaTeX color extensions (UK)
-   color.cfg    2016/01/02 v1.6 sample color configuration
-  pdftex.def    2020/10/05 v1.2a Graphics/color driver for pdftex
-graphicx.sty    2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
-graphics.sty    2021/03/04 v1.4d Standard LaTeX Graphics (DPC,SPQR)
-    trig.sty    2021/08/11 v1.11 sin cos tan (DPC)
-graphics.cfg    2016/06/04 v1.11 sample graphics configuration
-pppdftex.def    2022/01/29 v0.5u Pdfpages driver for pdfTeX (AM)
-morewrites.sty    2018/12/29 Always room for a new write
-   expl3.sty    2022-01-21 L3 programming layer (loader) 
-l3backend-pdftex.def    2022-01-12 L3 backend support: PDF output (pdfTeX)
-primargs.sty    2018/12/29 Parsing arguments of primitives
-   babel.sty    2022/01/26 3.70 The Babel package
- english.ldf    2017/06/06 v3.3r English support from the babel system
-microtype.sty    2021/12/10 v3.0b Micro-typographical refinements (RS)
-etoolbox.sty    2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
-microtype-pdftex.def    2021/12/10 v3.0b Definitions specific to pdftex (RS)
-microtype.cfg    2021/12/10 v3.0b microtype main configuration file (RS)
- caption.sty    2020/10/26 v3.5g Customizing captions (AR)
-caption3.sty    2020/10/21 v2.2e caption3 kernel (AR)
-caption-memoir.sto    2020/10/10 v2.1 Adaption of the caption package to the memoir document class (AR)
-subcaption.sty    2020/10/07 v1.3j Sub-captions (AR)
-hyperref.sty    2021-06-07 v7.00m Hypertext links for LaTeX
- ltxcmds.sty    2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
-pdftexcmds.sty    2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
-infwarerr.sty    2019/12/03 v1.5 Providing info/warning/error messages (HO)
-kvsetkeys.sty    2019/12/15 v1.18 Key value parser (HO)
-kvdefinekeys.sty    2019-12-19 v1.6 Define keys (HO)
-pdfescape.sty    2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
- hycolor.sty    2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
-letltxmacro.sty    2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
- auxhook.sty    2019-12-17 v1.6 Hooks for auxiliary files (HO)
-kvoptions.sty    2020-10-07 v3.14 Key value format for package options (HO)
-  pd1enc.def    2021-06-07 v7.00m Hyperref: PDFDocEncoding definition (HO)
-hyperref-langpatches.def    2021-06-07 v7.00m Hyperref: patches for babel languages
- intcalc.sty    2019/12/15 v1.3 Expandable calculations with integers (HO)
-etexcmds.sty    2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
-   puenc.def    2021-06-07 v7.00m Hyperref: PDF Unicode definition (HO)
-     url.sty    2013/09/16  ver 3.4  Verb mode for urls, etc.
-  bitset.sty    2019/12/09 v1.3 Handle bit-vector datatype (HO)
-bigintcalc.sty    2019/12/15 v1.5 Expandable calculations on big integers (HO)
-atbegshi-ltx.sty    2021/01/10 v1.0c Emulation of the original atbegshi
-package with kernel methods
-memhfixc.sty    2021/06/16 v1.19 nameref/hyperref package fixes for memoir class
- hpdftex.def    2021-06-07 v7.00m Hyperref driver for pdfTeX
-atveryend-ltx.sty    2020/08/19 v1.0a Emulation of the original atveryend package
-with kernel methods
-rerunfilecheck.sty    2019/12/05 v1.9 Rerun checks for auxiliary files (HO)
-uniquecounter.sty    2019/12/15 v1.4 Provide unlimited unique counter (HO)
-  minted.sty    2021/12/24 v2.6 Yet another Pygments shim for LaTeX
- fvextra.sty    2019/02/04 v1.4 fvextra - extensions and patches for fancyvrb
-fancyvrb.sty    2021/12/21 4.1b verbatim text (tvz,hv)
- upquote.sty    2012/04/19 v1.3 upright-quote and grave-accent glyphs in verbatim
-textcomp.sty    2020/02/02 v2.0n Standard LaTeX package
-  lineno.sty    2005/11/02 line numbers on paragraphs v4.41
-shellesc.sty    2019/11/08 v1.0c unified shell escape interface for LaTeX
-ifplatform.sty    2017/10/13 v0.4a Testing for the operating system
-catchfile.sty    2019/12/09 v1.8 Catch the contents of a file (HO)
-ifluatex.sty    2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
- xstring.sty    2021/07/21 v1.84 String manipulations (CT)
-  framed.sty    2011/10/22 v 0.96: framed or shaded text with page breaks
-   float.sty    2001/11/08 v1.3d Float enhancements (AL)
-csquotes.sty    2021-02-22 v5.2l context-sensitive quotations (JAW)
-csquotes.def    2021-02-22 v5.2l csquotes generic definitions (JAW)
-csquotes.cfg    
- comment.sty    
-bookmark.sty    2020-11-06 v1.29 PDF bookmarks (HO)
-bkm-pdftex.def    2020-11-06 v1.29 bookmark driver for pdfTeX (HO)
-multicol.sty    2021/10/28 v1.9b multicolumn formatting (FMi)
- amsmath.sty    2021/10/15 v2.17l AMS math features
- amstext.sty    2021/08/26 v2.01 AMS text
-  amsgen.sty    1999/11/30 v2.0 generic functions
-  amsbsy.sty    1999/11/29 v1.2d Bold Symbols
-  amsopn.sty    2021/08/26 v2.02 operator names
- amssymb.sty    2013/01/14 v3.01 AMS font symbols
-amsfonts.sty    2013/01/14 v3.01 Basic AMSFonts support
-rotating.sty    2016/08/11 v2.16d rotated objects in LaTeX
- eurosym.sty    1998/08/06 v1.1 European currency symbol ``Euro''
-todonotes.sty    2021/06/04
- xkeyval.sty    2020/11/20 v2.8 package option processing (HA)
- xkeyval.tex    2014/12/03 v2.7a key=value parser (HA)
-    tikz.sty    2021/05/15 v3.1.9a (3.1.9a)
-     pgf.sty    2021/05/15 v3.1.9a (3.1.9a)
-  pgfrcs.sty    2021/05/15 v3.1.9a (3.1.9a)
-pgfrcs.code.tex
- pgfcore.sty    2021/05/15 v3.1.9a (3.1.9a)
-  pgfsys.sty    2021/05/15 v3.1.9a (3.1.9a)
-pgfsys.code.tex
-pgfsyssoftpath.code.tex    2021/05/15 v3.1.9a (3.1.9a)
-pgfsysprotocol.code.tex    2021/05/15 v3.1.9a (3.1.9a)
-pgfcore.code.tex
-pgfcomp-version-0-65.sty    2021/05/15 v3.1.9a (3.1.9a)
-pgfcomp-version-1-18.sty    2021/05/15 v3.1.9a (3.1.9a)
-  pgffor.sty    2021/05/15 v3.1.9a (3.1.9a)
- pgfkeys.sty    
-pgfkeys.code.tex
- pgfmath.sty    
-pgfmath.code.tex
-pgffor.code.tex
-tikz.code.tex
-biblatex.sty    2022/02/02 v3.17 programmable bibliographies (PK/MW)
-  logreq.sty    2010/08/04 v1.0 xml request logger
-  logreq.def    2010/08/04 v1.0 logreq spec v1.0
-  blx-dm.def    2022/02/02 v3.17 biblatex localization (PK/MW)
-blx-compat.def    2022/02/02 v3.17 biblatex compatibility (PK/MW)
-biblatex.def    2022/02/02 v3.17 biblatex compatibility (PK/MW)
-blx-natbib.def    2022/02/02 v3.17 biblatex compatibility (PK/MW)
-standard.bbx    2022/02/02 v3.17 biblatex bibliography style (PK/MW)
- numeric.bbx    2022/02/02 v3.17 biblatex bibliography style (PK/MW)
-numeric-comp.bbx    2022/02/02 v3.17 biblatex bibliography style (PK/MW)
-    ieee.bbx    2021/12/06 v1.3f biblatex bibliography style
-numeric-comp.cbx    2022/02/02 v3.17 biblatex citation style (PK/MW)
-    ieee.cbx    2021/12/06 v1.3f biblatex citation style
-biblatex.cfg    
-blx-case-expl3.sty    2022/02/02 v3.17 expl3 case changing code for biblatex
-  xparse.sty    2022-01-12 L3 Experimental document command parser
- acronym.sty    2020/04/17 v1.47 Support for acronyms (Tobias Oetiker)
-  suffix.sty    2006/07/15 1.5a Variant command support
-indentfirst.sty    1995/11/23 v1.03 Indent first paragraph (DPC)
- siunitx.sty    2022-02-02 v3.0.46 A comprehensive (SI) units package
-translations.sty    2022/01/04 v1.11 internationalization of LaTeX2e packages (CN)
-l3keys2e.sty    2022-01-12 LaTeX2e option processing using LaTeX3 keys
-  lipsum.sty    2021-09-20 v2.7 150 paragraphs of Lorem Ipsum dummy text
-  lipsum.ltd
-placeins.sty    2005/04/18  v 2.2
-glossaries-extra.sty    2021/11/22 v1.48 (NLCT)
-glossaries.sty    2021/11/01 v4.49 (NLCT)
-mfirstuc.sty    2021/10/15 v2.07 (NLCT)
-    xfor.sty    2009/02/05 v1.05 (NLCT)
-datatool-base.sty    2019/09/27 v2.32 (NLCT)
-  substr.sty    2009/10/20 v1.2 Handle substrings
-datatool-fp.sty    2019/09/27 v2.32 (NLCT)
-      fp.sty    1995/04/02
-defpattern.sty    1994/10/12
-fp-basic.sty    1996/05/13
-fp-addons.sty    1995/03/15
- fp-snap.sty    1995/04/05
-  fp-exp.sty    1995/04/03
-fp-trigo.sty    1995/04/14
-  fp-pas.sty    1994/08/29
-fp-random.sty    1995/02/23
-  fp-eqn.sty    1995/04/03
-  fp-upn.sty    1996/10/21
- fp-eval.sty    1995/04/03
-glossaries-compatible-307.sty    2021/11/01 v4.49 (NLCT)
-tracklang.sty    2020/06/30 v1.5 (NLCT) Track Languages
-tracklang.tex    2020/06/30 v1.5 (NLCT) Track Languages Generic Code
-glossaries-english.ldf    2014/11/23 v1.0
-glossary-hypernav.sty    2021/11/01 v4.49 (NLCT)
-glossary-list.sty    2021/11/01 v4.49 (NLCT)
-glossary-long.sty    2021/11/01 v4.49 (NLCT)
-longtable.sty    2021-09-01 v4.17 Multi-page Table package (DPC)
-glossary-super.sty    2021/11/01 v4.49 (NLCT)
-supertabular.sty    2020/02/02 v4.1g the supertabular environment
-glossary-tree.sty    2021/11/01 v4.49 (NLCT)
-abbreviations.tex
-supp-pdf.mkii
-epstopdf-base.sty    2020-01-24 v2.11 Base part for package epstopdf
-epstopdf-sys.cfg    2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
-pdflscape.sty    2019/12/05 v0.12 Display of landscape pages in PDF (HO)
-  lscape.sty    2020/05/28 v3.02 Landscape Pages (DPC)
-  mt-cmr.cfg    2013/05/19 v2.2 microtype config. file: Computer Modern Roman (RS)
-ltcaption.sty    2020/05/30 v1.4b longtable captions (AR)
- nameref.sty    2021-04-02 v2.47 Cross-referencing by name of section
-refcount.sty    2019/12/15 v3.6 Data extraction from label references (HO)
-gettitlestring.sty    2019/12/15 v1.6 Cleanup title references (HO)
- english.lbx    2022/02/02 v3.17 biblatex localization (PK/MW)
-  matter.bbl
-translations-basic-dictionary-english.trsl    (english translation file `translations-basic-dictionary')
-chapter1.tex
-chapter2.tex
-figs/chapter2/IR_system.png
-figs/chapter2/tf-idf_formula.png
-figs/chapter2/bm25_equation.png
-  ts1lmr.fd    2009/10/30 v1.6 Font defs for Latin Modern
-figs/chapter2/transformer.png
-figs/chapter2/tokenization.png
-  ot1lmr.fd    2009/10/30 v1.6 Font defs for Latin Modern
-  omllmm.fd    2009/10/30 v1.6 Font defs for Latin Modern
- omslmsy.fd    2009/10/30 v1.6 Font defs for Latin Modern
- omxlmex.fd    2009/10/30 v1.6 Font defs for Latin Modern
-    umsa.fd    2013/01/14 v3.01 AMS symbols A
-  mt-msa.cfg    2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
-    umsb.fd    2013/01/14 v3.01 AMS symbols B
-  mt-msb.cfg    2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
-figs/chapter2/chatbot_architecture.png
-figs/chapter2/otimization_generative_chatbot.png
-figs/chapter2/prompt.png
-figs/chapter2/rag_workflow.png
-chapter3.tex
-figs/chapter3/diagram_gantt.png
-  t1lmtt.fd    2009/10/30 v1.6 Font defs for Latin Modern
- ***********
-
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-
-Package biblatex Warning: Please (re)run Biber on the file:
-(biblatex)                matter
-(biblatex)                and rerun LaTeX afterwards.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.mw'.
-
-\openout4 = `matter.bcf'.
-
-Package logreq Info: Writing requests to 'matter.run.xml'.
-\openout1 = `matter.run.xml'.
-
-\openout4 = `lines.idx'.
-
-\openout4 = `matter.toc'.
-
-\openout4 = `matter.lof'.
-
-\openout4 = `matter.lot'.
-
-\openout4 = `matter.lol'.
-
- ) 
-Here is how much of TeX's memory you used:
- 54239 strings out of 480171
- 1074456 string characters out of 5894488
- 2215700 words of memory out of 5000000
- 70947 multiletter control sequences out of 15000+600000
- 544062 words of font info for 184 fonts, out of 8000000 for 9000
- 59 hyphenation exceptions out of 8191
- 106i,15n,105p,1195b,2303s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}</usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmcsc10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr17.pfb></usr/share/texmf/fonts/type1/public/lm/lmr9.pfb></usr/share/texmf/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf/fonts/type1/public/lm/lmri9.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt9.pfb>
-Output written on matter.pdf (34 pages, 930994 bytes).
-PDF statistics:
- 717 PDF objects out of 1000 (max. 8388607)
- 628 compressed objects within 7 object streams
- 129 named destinations out of 1000 (max. 500000)
- 39711 words of extra memory for PDF output out of 42996 (max. 10000000)
-
+LaTeX Font I
