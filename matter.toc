@@ -32,6 +32,6 @@
 \contentsline {subsection}{\numberline {2.3.5}Retrieval-Augmented Generation (RAG)}{17}{subsection.2.3.5}%
 \contentsline {subsubsection}{Workflow of a {\gls {rag}} system}{17}{section*.22}%
 \contentsline {section}{\numberline {2.4}Interactive Query Builder}{18}{section.2.4}%
-\contentsline {section}{\numberline {2.5}Insights/Summary}{18}{section.2.5}%
+\contentsline {section}{\numberline {2.5}Summary}{18}{section.2.5}%
 \contentsline {chapter}{\chapternumberline {3}Methodology}{19}{chapter.3}%
 \contentsline {chapter}{References}{21}{chapter*.25}%
