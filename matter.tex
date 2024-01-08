@@ -362,8 +362,11 @@ toc=false,%
 {\small\listoflistings}
 \addcontentsline{toc}{chapter}{\listoflistingscaption}
 
-\renewcommand*{\glossaryname}{Glossary}
-{\printunsrtglossaries} 
+% Print glossaries-extra
+\renewcommand{\glossaryname}{Glossary}
+\cleardoublepage
+{\printunsrtglossaries}
+\addcontentsline{toc}{chapter}{\glossaryname}
 
 % Reset Chapters
 \renewcommand{\chapter}[2][]{
