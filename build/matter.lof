@@ -1,6 +1,4 @@
-\babel@toc {english}{}\relax
-\babel@toc {english}{}\relax
-\addvspace {10pt}
+\babel@toc {portuguese}{}\relax
 \addvspace {10pt}
 \addvspace {10pt}
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Overview of modern {\gls {ir}} system [REFAZER IMAGEM]\relax }}{4}{figure.caption.7}%
@@ -9,5 +7,9 @@
 \contentsline {figure}{\numberline {2.4}{\ignorespaces The Transformer architecture. From \citet {vaswani_attention_2023}\relax }}{10}{figure.caption.14}%
 \contentsline {figure}{\numberline {2.5}{\ignorespaces Tokenization process visually explained by OpenAI \blx@tocontentsinit {0}\cite {noauthor_openai_nodate}\relax }}{11}{figure.caption.16}%
 \contentsline {figure}{\numberline {2.6}{\ignorespaces [REFAZER IMAGEM] Overview of a conversational system architecture From [An intelligent knowledge-based chatbot for customer service]\relax }}{15}{figure.caption.19}%
-\contentsline {figure}{\numberline {2.7}{\ignorespaces [REFAZER IMAGEM] Templates for LLM-based application development. GPT is taken as an example scenario representing LLMs From \citet {hadi_LLM_2023}\relax }}{16}{figure.caption.20}%
+\contentsline {figure}{\numberline {2.7}{\ignorespaces [REFAZER IMAGEM] optimization methods of generative-based chatbots. Adapted from [Retrieval-Augmented Generation for Large Language Models: A Survey]\relax }}{16}{figure.caption.20}%
+\contentsline {figure}{\numberline {2.8}{\ignorespaces [REFAZER IMAGEM] Example of a prompt that applies task decomposition From \citet {ma_beyond_2023}\relax }}{17}{figure.caption.21}%
+\contentsline {figure}{\numberline {2.9}{\ignorespaces [REFAZER IMAGEM] {\gls {rag}} workflow. Adapted from [https://towardsdatascience.com/retrieval-augmented-generation-rag-from-theory-to-langchain-implementation-4e9bd5f6a4f2]\relax }}{18}{figure.caption.23}%
+\addvspace {10pt}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Proposal thesis work in Gantt Diagram\relax }}{19}{figure.caption.24}%
 \addvspace {10pt}

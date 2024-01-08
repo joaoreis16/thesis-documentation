@@ -23,7 +23,7 @@
 
 % Enable for for Overleaf support
 \usepackage{ifthen}
-\def\useoverleaf{1}  % change to non-zero (for instance, 1) to enable it
+\def\useoverleaf{0}  % change to non-zero (for instance, 1) to enable it
 
 \makeatletter
 \newcommand{\makecoverfile}[0]{%
@@ -106,9 +106,6 @@
 
 % Add support for graphics
 \usepackage{graphicx}
-
-% Add support for rotations
-\usepackage{rotating}
 
 % Add support for Colors
 \usepackage{xcolor}
@@ -221,8 +218,7 @@ toc=false,%
 % Include defined abbreviations
 \input{abbreviations.tex}
 
-\renewcommand{\glossaryname}{Glossary}
-
+% \renewcommand{\glossaryname}{Glossary}
 
 
 % Use the built-in division styling
@@ -258,8 +254,12 @@ toc=false,%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
+
+% Fix the numbering scheme by having a ghost style for page numbering
+\pagenumbering{Alph}
+
 \ifthenelse{\equal{\useoverleaf}{0}}{}{\makecoverfile{}}%
-% \includepdf[pages=-]{cover.pdf}
+%\includepdf[pages=-]{cover.pdf}
 
 % Uncomment to enable English
 %\selectlanguage{english}
@@ -356,11 +356,14 @@ toc=false,%
     {\oldchapter#1{#2}}
 }
 
-\renewcommand{\listingscaption}{Code}
-\renewcommand{\listoflistingscaption}{List of Code Excerpts}
+\renewcommand{\listingscaption}{Código}
+\renewcommand{\listoflistingscaption}{Lista de Excertos de Código}
 \cleardoublepage
 {\small\listoflistings}
 \addcontentsline{toc}{chapter}{\listoflistingscaption}
+
+\renewcommand*{\glossaryname}{Glossary}
+{\printunsrtglossaries} 
 
 % Reset Chapters
 \renewcommand{\chapter}[2][]{
@@ -369,11 +372,9 @@ toc=false,%
 }
 
 % Print Glossary
-%{\small\include{glossary}}
+% {\small\include{glossary}}
 
-% Print Glossary (glossaries-extra package)
-\renewcommand{\glossaryname}{}
-{\printunsrtglossaries}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Main document starts here
@@ -389,9 +390,10 @@ toc=false,%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Uncomment to add further chapters
-\include{chapter1}
-\include{chapter2}
-\include{chapter3}
+\include{chapters/chapter1}
+\include{chapters/chapter2}
+\include{chapters/chapter3}
+%\include{chapter4}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % End of Thesis text 
@@ -407,7 +409,7 @@ toc=false,%
 \renewcommand{\bibfont}{\footnotesize}
 % Redefine References name to Portuguese
 % Change if you are using english
-\defbibheading{bibliography}[References]{
+\defbibheading{bibliography}[Referências]{
 	\chapter{#1}
 }
 \SingleSpacing
@@ -423,8 +425,6 @@ toc=false,%
 \mainmatterWithoutReset
 \appendix
 
-% \include{appendix-a}
-% \include{appendix-b}
-% \include{appendix-c}
+\include{chapters/appendix-more}
 
 \end{document}
