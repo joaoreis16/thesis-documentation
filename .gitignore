@@ -45,4 +45,4 @@
 
 # Ignore most files in the build folder except for a specific file
 build/*
-!build/your_specific_file.tex
+!build/matter.pdf
