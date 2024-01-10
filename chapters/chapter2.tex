@@ -177,9 +177,7 @@ After the pre-training process, the {\llm} goes through a fine-tuning phase.
 
 \subsubsection{Fine-tuning}
 
-\citet{hadi_LLM_2023}
-
-During pre-training, models are generally trained with the objective of next token prediction, learning the nuances of language structure and semantics. According to [Generative pre-trained transformers (GPT) for surface engineering] and \citet{hadi_LLM_2023}, the fine-tuning phase involves adapting a pre-trained model to specific tasks and aligning it with human preferences, improving the performance on particular domains.
+During pre-training, models are generally trained with the objective of next token prediction, learning the nuances of language structure and semantics. According to \citet{kamnis_generative_2023} and \citet{hadi_LLM_2023}, the fine-tuning phase involves adapting a pre-trained model to specific tasks and aligning it with human preferences, improving the performance on particular domains.
 
 In this stage, the model is presented with labeled data to produce more contextually accurate responses for the specific task. Fine-tuning enables the {\llm} to specialize in diverse applications, ranging from language translation and question-answering to text generation. 
 
@@ -369,27 +367,45 @@ The following figure shows the workflow of a {\rag}. This model aims to retrieve
 
 \section{Interactive Query Builder}
 
-[ainda está em desenvolvimento]
+A query builder is a user interface tool for dynamically searching and filtering database objects, constructing a query according to user preferences. This query could be in different formats, such as SQL [Domain Specific Query Generation from Natural Language Text], JSON, and MongoDB [https://react-querybuilder.js.org/docs/utils/export]. This tool lets users construct queries visually, eliminating manual research or coding. 
 
-A query builder refers to constructing a query according to the user preferences. This query could be in different formats, such as SQL [Domain Specific Query Generation from Natural Language Text] and RDF [A Front-End Approach for User Query Generation and Information Retrieval in the SemanticLIFE Framework]. 
-
+% temporário ?
 It is important to note that there aren't many cases of query builder documentation.
-
 
 
 \subsection{General Query Builder}
 
 % explicar como funcionam de forma geral
 
+Users interact with the query builder through a user-friendly interface. The following figure shows a query builder interface from jQuery QueryBuilder [https://querybuilder.js.org/].
+
+\begin{figure}[ht]
+    \includegraphics[width=14cm]{figs/chapter2/querybuilder.png}
+    \centering
+    \caption{Query builder from jQuery QueryBuilder [https://querybuilder.js.org/]}
+\end{figure}
+
+Users can add rules and conditions/groups with some clicks. Each rule typically consists of a field, an operator, and a value. The conditions/groups could be an AND or an OR. Using the figure as example, there is a group with two elements joined with a condition AND: a rule and another group. This other group is composed of two rules joined with a condition OR.
+
+As users build their queries, the query builder internally represents the conditions in a structured format, often a structured JSON of rules and groups, that reflects the logical structure of the query.
+
+In summary, a query builder simplifies creating complex queries by providing a visual and interactive interface, making it more accessible.
+
+There are several advantages of its use: offers a user-friendly interface with menus, operators, and suggestions to facilitate the creation of accurate queries; users, often without direct permissions to modify the data source, can leverage the query builder to transform datasets without making changes to the underlying database; and, the generated queries are easily modifiable, allowing for flexibility in adjustments or repetitions.
+
 
 \subsection{Atlas Query}
 
 % explicar como funciona o processo
 
-
+[ainda em desenvolvimento]
 
 
 \section{Summary}
+
+
+[ainda em desenvolvimento]
+
 
 * a junção das áreas NLP com IR parece bastante promissora
 
