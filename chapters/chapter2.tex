@@ -117,7 +117,7 @@ The other component is \textbf{{\nlg}}. Language generation is responsible for c
 \section{Large Language Models}
 
 
-It is crucial to trace briefly the development history to understand the concept of {\llm}. \citet{liu_prompting_nodate} explained this in a simple and intuitive way.
+It is crucial to trace briefly the development history to understand the concept of {\llm}. \citet{liu_prompting_nodate} explained this simply and intuitively.
 
 Before {\llm}, there were only simple {\lm}, which, in the initial stage, utilized a fully supervised learning approach, where task-specific models were trained on the target task dataset exclusively. Most of these were predictive models based on probabilities and Markov assumptions, also known as {\slm}. This was heavily dependent on feature engineering. Afterward, as deep learning gained prominence, an architecture designed to learn data features automatically; in other words, neural networks for {\nlp} emerged to enhance {\lm}’s capabilities. Integrating feature learning and model training, {\nlm} established a comprehensive neural network framework applicable to diverse {\nlp} tasks.
 
@@ -239,9 +239,9 @@ We already know that {\llm} are pre-trained with extensive training data. But su
 
 A severe limitation that is an active area of research is hallucination. \citet{hadi_LLM_2023} characterized {\llm} hallucinations as when the model attempts to fill gaps in knowledge or context, relying on learned patterns during training. Such occurrences can result in inaccurate or misleading responses, detrimental to the user and the model's reliability.
 
-The way the {\llm} makes decisions is unknown. Comprehending the decision-making process of a complex model with billions of parameters, like {\llm}, is challenging. So, the explainability of these models is a big limitation. Sometimes, it is necessary to decipher the factors that influenced an {\llm}'s decision, and this limitation poses difficulties in offering a clear and concise explanation. In vital sectors like healthcare, where decisions carry substantial consequences, ensuring transparency and the capability to elucidate the model's predictions is essential.
+The way the {\llm} makes decisions is unknown. Comprehending the decision-making process of a complex model with billions of parameters, like {\llm}, is challenging. So, the explainability of these models is a big limitation. Sometimes, it is necessary to decipher the factors that influenced an {\llm}'s decision and this limitation poses difficulties in offering a clear and concise explanation. In vital sectors like healthcare, where decisions carry substantial consequences, ensuring transparency and the capability to elucidate the model's predictions is essential.
 
-Another limitation is the cyber-attacks. A {\llm} can suffer some prompt injections from a malicious user to extract sensitive information from the model. This is called the Jail Break attack. Another attack is Data Poisoning Attacks, which consist in data poisoning strategies to manipulate the model's output.
+Another limitation is the cyber-attacks. A {\llm} can suffer some prompt injections from a malicious user to extract sensitive information from the model. This is called the Jail Break attack. Another attack is Data Poisoning Attacks, which consist of data poisoning strategies to manipulate the model's output.
 
 Furthermore, \citet{liu_prompting_nodate} highlighted another limitation: the temporal lag of the training corpus. {\llm} cannot retrieve information in real time, and the answer generated may not be the most current.
 
@@ -344,7 +344,7 @@ Also, \citet{ma_beyond_2023} find with their work that prompt engineering has ma
 
 \subsection{Retrieval-Augmented Generation (RAG)}
 
-\citet{gao_retrieval-augmented_2023} made a survey into {\rag} systems and distiguish the parametric knowledge from non-parametric knowledge. Traditionally, {\llm} can adapt their knowledge and responses to a specific domain by fine-tuning models with parameters. This is \textbf{parametric knowledge} because the {\llm} knowledge is provided through the model's training data. However, entirely parameterized {\llm} have limitations, including challenges in retaining all the knowledge during training, the inability to dynamically update model parameters, leading to outdatedness and hallucination. The \textbf{non-parametric knowledge}, provided by external information sources, emerged to solve these limitations.
+\citet{gao_retrieval-augmented_2023} made a survey into {\rag} systems and distiguish the parametric knowledge from non-parametric knowledge. Traditionally, {\llm} can adapt their knowledge and responses to a specific domain by fine-tuning models with parameters. This is \textbf{parametric knowledge} because the {\llm} knowledge is provided through the model's training data. However, entirely parameterized {\llm} have limitations, including challenges in retaining all the knowledge during training, and the inability to dynamically update model parameters, leading to outdatedness and hallucination. The \textbf{non-parametric knowledge}, provided by external information sources, emerged to solve these limitations.
 
 This non-parametric knowledge approach is known as {\rag}. So, according to \citet{gao_retrieval-augmented_2023}, {\rag} involves retrieving pertinent information from external knowledge bases, giving more context to the {\llm}. This approach was introduced by \citet{lewis_retrieval-augmented_2020} in 2020 and enabled {\llm} to access and utilize up-to-date or domain-specific information to enhance response accuracy and relevance while reducing hallucinations.
 
@@ -359,7 +359,7 @@ The following figure shows the workflow of a {\rag}. This model aims to retrieve
     \caption{[REFAZER IMAGEM] {\rag} workflow. Adapted from [https://towardsdatascience.com/retrieval-augmented-generation-rag-from-theory-to-langchain-implementation-4e9bd5f6a4f2]}
 \end{figure}
 
-\citet{gao_retrieval-augmented_2023} explain in a simple way the workflow. The first step is 1) Retrieve information from an external data source, such as a vector database, as in the example of the figure. According to \citet{gao_retrieval-augmented_2023}, this step utilizes Encoding Models, such as {\bm}, to retrieve relevant information based on the query. The second step is 2) Augment, improving the {\llm} prompt with the context retrieved from external data sources. The last step is 3) Generation. Using the prompt with the retrieved context, the {\llm} generates a response to the query.
+\citet{gao_retrieval-augmented_2023} explain simply the workflow. The first step is 1) Retrieve information from an external data source, such as a vector database, as in the example in the figure. According to \citet{gao_retrieval-augmented_2023}, this step utilizes Encoding Models, such as {\bm}, to retrieve relevant information based on the query. The second step is 2) Augment, improving the {\llm} prompt with the context retrieved from external data sources. The last step is 3) Generation. Using the prompt with the retrieved context, the {\llm} generates a response to the query.
 
 
 % escrever mais? vantagens,  RAG vs Fine-tuning, tipos de RAG
@@ -367,25 +367,24 @@ The following figure shows the workflow of a {\rag}. This model aims to retrieve
 
 \section{Interactive Query Builder}
 
-A query builder is a user interface tool for dynamically searching and filtering database objects, constructing a query according to user preferences. This query could be in different formats, such as SQL [Domain Specific Query Generation from Natural Language Text], JSON, and MongoDB [https://react-querybuilder.js.org/docs/utils/export]. This tool lets users construct queries visually, eliminating manual research or coding. 
+A query builder is a user interface tool for dynamically searching and filtering database objects, constructing a query according to user preferences. This query could be in different formats, such as SQL, JSON, and MongoDB. This tool lets users construct queries visually, eliminating manual research or coding. 
 
-% temporário ?
-It is important to note that there aren't many cases of query builder documentation.
+It is important to note that there aren't many cases of conversational query builder documentation, so I will document how general query builders work and explain more deeply how the ATLAS cohort definition works. 
 
 
 \subsection{General Query Builder}
 
 % explicar como funcionam de forma geral
 
-Users interact with the query builder through a user-friendly interface. The following figure shows a query builder interface from jQuery QueryBuilder [https://querybuilder.js.org/].
+Users interact with the query builder through a user-friendly interface. The following figure shows a query builder interface from jQuery QueryBuilder \cite{noauthor_jquery_nodate}.
 
 \begin{figure}[ht]
     \includegraphics[width=14cm]{figs/chapter2/querybuilder.png}
     \centering
-    \caption{Query builder from jQuery QueryBuilder [https://querybuilder.js.org/]}
+    \caption{Query builder from jQuery QueryBuilder \cite{noauthor_jquery_nodate}}
 \end{figure}
 
-Users can add rules and conditions/groups with some clicks. Each rule typically consists of a field, an operator, and a value. The conditions/groups could be an AND or an OR. Using the figure as example, there is a group with two elements joined with a condition AND: a rule and another group. This other group is composed of two rules joined with a condition OR.
+Users can add rules and conditions/groups with some clicks. Each rule typically consists of a field, an operator, and a value. The conditions/groups could be an AND or an OR. Using the figure as an example, there is a group with two elements joined with a condition AND: a rule and another group. This other group is composed of two rules joined with a condition OR.
 
 As users build their queries, the query builder internally represents the conditions in a structured format, often a structured JSON of rules and groups, that reflects the logical structure of the query.
 
@@ -394,24 +393,56 @@ In summary, a query builder simplifies creating complex queries by providing a v
 There are several advantages of its use: offers a user-friendly interface with menus, operators, and suggestions to facilitate the creation of accurate queries; users, often without direct permissions to modify the data source, can leverage the query builder to transform datasets without making changes to the underlying database; and, the generated queries are easily modifiable, allowing for flexibility in adjustments or repetitions.
 
 
-\subsection{Atlas Query}
+\subsection{ATLAS}
 
 % explicar como funciona o processo
 
-[ainda em desenvolvimento]
+ATLAS, an open-source and web-based software application, is freely accessible and was created by the {\ohdsi} community. It aids in helping researchers conduct scientific analyses on standardized observational data converted to the {\omop}.
+
+Using healthcare claims data, researchers can define cohorts by categorizing groups of people according to their exposure to a medication or their diagnosis of a certain health condition. ATLAS offers the functionality to search medical concepts, enabling the identification of cases with particular conditions or drug exposures. Moreover, it allows for the examination of patient profiles within a given cohort, providing a way to visualize the healthcare records of specific subjects.
+
+There are some different definitions of cohort, but, in the {\ohdsi} research, according to \citet{informatics_chapter_nodate}, a cohort is a query that defines a set of persons who meet certain inclusion criteria over a specified duration.
+
+Cohorts serve as fundamental units for addressing research questions. A key characteristic of these cohorts is their independent definition. The distinct structure facilitates their reuse across different research contexts.
+
+
+\subsubsection{Cohort definition}
+
+There are two approaches to building a cohort: rule-based and probabilistic. The most popular one is the rule-based cohort definition, which uses explicit rules to describe when a patient is in the cohort.
+
+In ATLAS, the process of defining a cohort is composed of 3 stages \cite{informatics_chapter_nodate}: Cohort Entry Events, Inclusion Criteria, and Cohort Exit.
+
+The creation of a cohort starts with \textbf{Cohort Entry Events}, defining the initial event criteria. This involves the primary identification of the population of interest, which might include users of a certain drug, individuals with a specific diagnosis, or a combination of factors. 
+
+The concept set needs to be specified in the Cohort Entry Events. It is a collection of standardized medical concepts used to define clinical elements like diseases, drugs, or procedures. For instance, if the study is about diabetes, the concept set will include various codes representing diabetes in different medical terminologies. These sets ensure that the cohort captures all relevant instances of the condition or exposure across different healthcare data sources.
+
+Additional initial event criteria can also be added to refine the population further, such as the event occurring within a certain time frame.
+
+After defining the initial event, the next step is to establish \textbf{Inclusion Criteria}. These criteria are based on a combination of domain-specific attributes to further refine and specify the cohort population, ensuring that it aligns closely with the research objectives. The inclusion criteria can be based on a range of factors such as age limits, the presence of certain symptoms, or a specified duration of medication use.
+
+Finally, defining the \textbf{Cohort Exit} criteria is crucial for determining when individuals no longer belong to the cohort. This stage is important for studies where the duration of membership in the cohort is relevant to the research question.
+
+In compliance with \citet{informatics_chapter_nodate}, a well-defined cohort specifies how a patient enters a cohort and how a patient exits a cohort.
+
+After defining the cohort, it is possible to generate an SQL code with the query to get the list of individuals who meet the criteria. ATLAS also facilitates the reuse of cohort definitions across different studies by allowing users to export and import cohort definitions in JSON format. This enhances the efficiency and reproducibility of research within the OHDSI network.
+
+A cohort definition can be seen as a query builder, a little different when compared to other general query builders.
+
+% meter uma imagem da interface ?
 
 
 \section{Summary}
 
+To sum up, a query builder is a tool that helps users construct complex queries on databases by providing interactive and intuitive support. It allows users to visually represent the search space and queries, offering immediate feedback during query construction. 
 
-[ainda em desenvolvimento]
+ATLAS by {\ohdsi} provides a cohort definition, that is a query builder to define groups of people based on the research question using healthcare claims data. However, the interface is not very user-friendly and intuitive because it requires the user to have a good knowledge of its use and important concepts. 
 
+The proposed solution is the development of a conversational query builder to facilitate this process of defining a cohort easily and intuitively. For this, it is important to have an {\nlp} engine, such as {\llm}. An LLM will make the conversation more human and guide it to find out all the information needed to fill in the cohort form, by fine-tuning the {\llm}.
 
-* a junção das áreas NLP com IR parece bastante promissora
+Also, the conversational query builder should retrieve the databases of most interest by the information given. To achieve this, the {\ir} field is important to retrieve and rank the databases of interest using methods, such as {\bm}.
 
-* apesar de poucas informação sobre query builders, é possivel reunir e estruturar conceitos-chave para o seu desenvolvimento
+% explicar o porquê da escola de métodos tradicionais (bm25) agora?
 
-* A área de NLP e llm está em constante atualização atualmente
+Conversational query builders enable users to interact with a database system in a conversational manner, similar to how humans converse. These query builders aim to simplify the process of querying a database by accepting incomplete or incremental queries and matching them to previously issued queries. 
 
-
-* tornar a criação de queries mais intuitiva do atlas
+There is not much documentation on conversational query builders, but, with the information collected, it will be possible to build this tool.
