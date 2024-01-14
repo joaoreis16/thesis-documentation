@@ -158,13 +158,11 @@ Since the model doesn't have recurrence and convolution to understand the order 
 
 \subsubsection{Pre-training}
 
-\citet{hadi_LLM_2023}
-
 Learning the patterns and relationships among the data starts with the pre-training process. First, the {\llm} needs to access a vast volume of textual data from multiple sources. The goal of this phase is to predict the succeeding word in a sentence based on the context given by the previous words through unsupervised learning. 
 
-Preparing and preprocessing the data before the training stage is necessary to achieve this. First, demand quality filtering from the training corpus. It is vital to remove unwanted, repetitive, superfluous, and potentially harmful content from the massive text data. Then, according to \citet{hadi_LLM_2023}, duplicate data in a corpus make less diversity of {\llm}. So, the duplication of data will make the training process unstable, impacting the overall performance of the model. Next, it is necessary to pay attention to privacy. The data could have sensitive or personal information, so it is vital to address privacy concerns by removing this information from the pre-training corpus.
+According to \citet{hadi_LLM_2023}, preparing and preprocessing the data before the training stage is necessary to achieve this. First, demand quality filtering from the training corpus. It is vital to remove unwanted, repetitive, superfluous, and potentially harmful content from the massive text data. Then duplicate data in a corpus make less diversity of {\llm}. So, the duplication of data will make the training process unstable, impacting the overall performance of the model. Next, it is necessary to pay attention to privacy. The data could have sensitive or personal information, so it is vital to address privacy concerns by removing this information from the pre-training corpus.
 
-An important step, the tokenization, follows this. This step aims to divide the unprocessed text into sequences of individual tokens, which are subsequently input into {\llm}. Moreover, it is vital in mitigating the computational load and enhancing efficiency during the pre-training phase.
+An important step, the tokenization, follows this \cite{hadi_LLM_2023}. This step aims to divide the unprocessed text into sequences of individual tokens, which are subsequently input into {\llm}. Moreover, it is vital in mitigating the computational load and enhancing efficiency during the pre-training phase.
 
 \begin{figure}[ht]
     \includegraphics[width=14cm]{figs/chapter2/tokenization.png}
@@ -312,16 +310,30 @@ Generative-based conversational virtual assistants are chatbots that use generat
 
 There are some methods to improve the results of a {\llm} used on chatbot: fine-tuning the {\llm}, {\rag}, and Prompt Engineering.
 
-\begin{figure}[ht]
-    \includegraphics[width=10cm]{figs/chapter2/otimization_generative_chatbot.png}
-    \centering
-    \caption{[REFAZER IMAGEM] optimization methods of generative-based chatbots. Adapted from [Retrieval-Augmented Generation for Large Language Models: A Survey]}
-\end{figure}
+%\begin{figure}[ht]
+%    \includegraphics[width=10cm]{figs/chapter2/otimization_generative_chatbot.png}
+%    \centering
+%    \caption{[REFAZER IMAGEM] optimization methods of generative-based chatbots. Adapted from [Retrieval-Augmented Generation for Large Language Models: A Survey]}
+% \end{figure}
 
-The figure above shows how these methods influence model adaptation and external knowledge. Mixing all methods requires a high model adaptation and external knowledge, but provides better results. 
+
+\begin{table}[]
+    \centering
+    \begin{tabular}{|cc|cc|}
+    \hline
+    \multicolumn{2}{|c|}{\multirow{2}{*}{\textbf{}}}                                                                                 & \multicolumn{2}{c|}{\textbf{Model Adaptation Required}}                                                                   \\ \cline{3-4} 
+    \multicolumn{2}{|c|}{}                                                                                                           & \multicolumn{1}{c|}{Low}                                                                             & High               \\ \hline
+    \multicolumn{1}{|c|}{\multirow{2}{*}{\textbf{\begin{tabular}[c]{@{}c@{}}External \\ Knowledge \\ Required\end{tabular}}}} & Low  & \multicolumn{1}{c|}{Prompt Engineering}                                                              & Fine-tuning        \\ \cline{2-4} 
+    \multicolumn{1}{|c|}{}                                                                                                    & High & \multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}}Retrieval-Augmented \\ Generation (RAG)\end{tabular}} & All of the methods \\ \hline
+    \end{tabular}
+    \caption{Optimization methods of generative-based chatbots}
+\end{table}
+
+
+
+The table above shows how these methods influence model adaptation and external knowledge. Mixing all methods requires a high model adaptation and external knowledge, but provides better results. 
 
 The following sections demonstrate how Prompt Engineering and {\rag} can optimize {\llm}.
-
 
 
 \subsection{Prompt Engineering}
@@ -354,7 +366,7 @@ This non-parametric knowledge approach is known as {\rag}. So, according to \cit
 The following figure shows the workflow of a {\rag}. This model aims to retrieve pertinent information from an extensive corpus of documents when answering questions or generating text, subsequently utilizing this information to enhance the quality of predictions in compliance with \citet{lewis_retrieval-augmented_2020}.
 
 \begin{figure}[ht]
-    \includegraphics[width=10cm]{figs/chapter2/rag_workflow.png}
+    \includegraphics[width=14cm]{figs/chapter2/rag_workflow.png}
     \centering
     \caption{[REFAZER IMAGEM] {\rag} workflow. Adapted from [https://towardsdatascience.com/retrieval-augmented-generation-rag-from-theory-to-langchain-implementation-4e9bd5f6a4f2]}
 \end{figure}
