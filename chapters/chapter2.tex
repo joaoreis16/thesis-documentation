@@ -185,7 +185,7 @@ An important step, the tokenization, follows this \cite{hadi_LLM_2023}. This ste
 \begin{figure}[ht]
     \includegraphics[width=14cm]{figs/chapter2/tokenization.png}
     \centering
-    \caption{Tokenization process visually explained by OpenAI. \cite{noauthor_openai_nodate}}
+    \caption{Tokenization process visually explained by OpenAI \cite{noauthor_openai_nodate}.}
     \label{fig_tokenization}
 \end{figure}
 
@@ -236,7 +236,7 @@ The table \ref{table:comparison} summarizes the important aspects of comparison 
         Falcon         & TII               & 7B, 40B, 180B                                                              & 2048                    & 3.5T            & Yes                       & Yes                  \\ \hline
         \end{tabular}
     }
-    \caption{Comparison of foundation {\llm}.}
+    \caption{Comparison of foundation Large Language Models.}
     \label{table:comparison}
 \end{table}
 
@@ -422,7 +422,7 @@ Users interact with the query builder through a user-friendly interface. Figure 
 \begin{figure}[ht]
     \includegraphics[width=14cm]{figs/chapter2/querybuilder.png}
     \centering
-    \caption{Query builder from jQuery QueryBuilder \cite{noauthor_jquery_nodate}}
+    \caption{Query builder from jQuery QueryBuilder \cite{noauthor_jquery_nodate}.}
     \label{fig_query_builder}
 \end{figure}
 
@@ -475,20 +475,13 @@ A cohort definition can be seen as a query builder, a little different when comp
 
 \section{Summary}
 
-To sum up, a query builder is a tool that helps users construct complex queries on databases by providing interactive and intuitive support. It allows users to visually represent the search space and queries, offering immediate feedback during query construction. 
+To sum up, the proposed query builder is a generative-based chatbot with a closed domain. Closed-domain chatbots are specialized in specific areas, offering precise responses. Generative chatbots use advanced {\lm} to create dynamic responses closer to human interactions.
 
-ATLAS by {\ohdsi} provides a cohort definition, that is a query builder to define groups of people based on the research question using healthcare claims data. However, the interface is not very user-friendly and intuitive because it requires the user to have a good knowledge of its use and important concepts. 
+The utilization of {\llm} allows improvements in the {\nlg} capabilities of chatbots and guides conversations more effectively, especially in the task of defining cohorts in medical research. LLaMa-2 and Falcon appear to be good options to implement since they are open-source and have the possibility of fine-tuning the model. Fine-tune has a role of optimizing chatbot performance, alongside Prompt engineering and {\rag}. However, for this specific case, I don't think much external knowledge will be needed, so the use of fine-tuning should be enough.
 
-The proposed solution is the development of a conversational query builder to facilitate this process of defining a cohort easily and intuitively. For this, it is important to have an {\nlp} engine, such as {\llm}. An LLM will make the conversation more human and guide it to find out all the information needed to fill in the cohort form, by fine-tuning the {\llm}.
+In terms of {\ir}, in order to retrieve the most interesting databases according to the user's needs, the {\bm} technique proves to be a good balance between effectiveness and efficiency. {\bm} is a sophisticated yet relatively straightforward algorithm that improves upon the traditional {\tfidf} approach. Neural {\ir} systems, like Interaction-based models, show good results in the {\ir} tasks, but are complex and the neural networks require substantial computational power. It is a lot simpler to implement than the Neural {\ir} systems, as well as requires fewer computer resources. 
 
-Also, the conversational query builder should retrieve the databases of most interest by the information given. To achieve this, the {\ir} field is important to retrieve and rank the databases of interest using methods, such as {\bm}.
-
-% explicar o porquê da escolha de métodos tradicionais (bm25) agora?
-
-Conversational query builders enable users to interact with a database system in a conversational manner, similar to how humans converse. These query builders aim to simplify the process of querying a database by accepting incomplete or incremental queries and matching them to previously issued queries. 
-
-There is not much documentation on conversational query builders, but, with the information collected, it will be possible to build this tool.
-
+ATLAS by OHDSI provides a cohort definition, which is a query builder to define groups of people based on the research question using healthcare claims data. However, the interface revealed not very user-friendly and intuitive because it requires the user to have a good knowledge of its use and important concepts. Therefore, a chatbot that builds a cohort definition improves the user experience by making it more intuitive and autonomous.
 
 
 %  meter mais referencias e citações
