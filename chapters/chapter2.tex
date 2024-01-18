@@ -82,9 +82,6 @@ The interaction-based model examines how words in a query relate to words in a d
 
 However, only the interaction-based model will be explored.
 
-
-\subsubsection{Interaction-based model}
-
 There are some approaches to adopting an interaction-based model. One of them is the Retrieval and Ranker. According to \citet{hambarde_information_2023}, this method can be separated into two stages, as the name suggests: Retrieval and Ranker. The following figure, adapted from \citet{hambarde_information_2023}, shows us an overview of interaction-based {\ir} systems, highlighting the two main stages.
 
 \begin{figure}[ht]
@@ -101,19 +98,7 @@ This is followed by the ranking stage, in which the primary objective is to adju
 
 \subsection{Question Answering}
 
-{\qa} is a subfield of {\ir} and {\nlp}. According to \citet{zhong_building_2020}, {\qa} focuses on providing a single and specific answer to a question posed in natural language. Unlike {\ir}, which aims to return a broad range of relevant information or documents in response to a query, {\qa} seeks to pinpoint and provide one precise answer.
-
-The traditional approach to question analysis and answering often involves mapping questions into predefined templates, such as "What-type" and "How-type". While widely utilized by existing online question-answering search engines, this template-based approach faces limitations in handling multiple questions \cite{zhong_building_2020}. 
-
-So, with the advancement of technology, another approach emerged: deep learning-based question-answering. In contrast with the traditional approach, this approach employs deep learning techniques, like {\rnn}, to offer automatic representation and analysis of questions. These neural models, trained through end-to-end approaches, excel in extracting and understanding complex characteristics in textual documents.
-
-Recently, deep learning approaches with attention mechanisms and transfer learning have enhanced the flexibility of representation in text classification and named entity recognition. \citet{zhong_building_2020} highlights {\bert} that has emerged as a powerful model, utilizing contextualized representations for transfer learning. {\bert}-based models showcase performance in question-answering tasks, even in domains like medicine.
-
-
-
-\subsubsection{Natural Language Processing (NLP)}
-
-{\nlp} is the basis for building a {\qa} system. It is a field of {\ai} whose primary goal is to understand, interpret, and generate human language. The {\nlp} can be divided into two major components: {\nlu} and {\nlg}, according to \citet{ayanouz_smart_2020}
+{\nlp} is the basis for building a {\qa} system, so it is important to give an overview of this technique. It is a field of {\ai} whose primary goal is to understand, interpret, and generate human language. The {\nlp} can be divided into two major components: {\nlu} and {\nlg}, according to \citet{ayanouz_smart_2020}
 
 The \textbf{ {\nlu} } component is focused on enabling machines to understand and interpret human language in a meaningful way. {\nlu} involves processing and analyzing natural language data to comprehend its meaning, context, sentiment, and intent. 
 
@@ -130,6 +115,14 @@ In agreement with \citet{ngai_intelligent_2021}, the user queries can be process
 \end{itemize}
 
 The other component is \textbf{{\nlg}}. Language generation is responsible for crafting coherent and linguistically accurate responses. Simply put, it grapples with the challenge of navigating the intricacies of natural human language \cite{ngai_intelligent_2021}. 
+
+Backtracking, {\qa} is a subfield of {\ir} and {\nlp}. According to \citet{zhong_building_2020}, {\qa} focuses on providing a single and specific answer to a question posed in natural language. Unlike {\ir}, which aims to return a broad range of relevant information or documents in response to a query, {\qa} seeks to pinpoint and provide one precise answer.
+
+The traditional approach to question analysis and answering often involves mapping questions into predefined templates, such as "What-type" and "How-type". While widely utilized by existing online question-answering search engines, this template-based approach faces limitations in handling multiple questions \cite{zhong_building_2020}. 
+
+So, with the advancement of technology, another approach emerged: deep learning-based question-answering. In contrast with the traditional approach, this approach employs deep learning techniques, like {\rnn}, to offer automatic representation and analysis of questions. These neural models, trained through end-to-end approaches, excel in extracting and understanding complex characteristics in textual documents.
+
+Recently, deep learning approaches with attention mechanisms and transfer learning have enhanced the flexibility of representation in text classification and named entity recognition. \citet{zhong_building_2020} highlights {\bert} that has emerged as a powerful model, utilizing contextualized representations for transfer learning. {\bert}-based models showcase performance in question-answering tasks, even in domains like medicine.
 
 
 
@@ -162,6 +155,8 @@ These models can process and predict patterns with accuracy. \citet{hadi_LLM_202
 
 \subsection{Architecture Overview}
 
+This subsection discusses the architecture of a {\llm}, which is supported by the Transformer Block architecture. Also, explains the pre-training process of this advanced {\lm}.
+
 \subsubsection{Transformer Architecture}
 
 The development and advancement of {\llm} is thankful for the introduction of Transformers by \citet{vaswani_attention_2023} in 2017. Most {\llm} are built on the Transformer model, which is based on a multihead self-attention mechanism and feedforward layers. This new technology enables parallelization and efficient handling of long-range dependencies, according to \citet{hadi_LLM_2023}, and led to the development of models that have achieved enormous results, such as {\gpt} by OpenAI and {\bert} by Google. The architecture of this revolutionized model is shown in figure \ref{fig_trans_arch}.
@@ -180,7 +175,7 @@ Since the model doesn't have recurrence and convolution to understand the order 
 \end{figure}
 
 
-\subsubsection{Pre-training}
+\subsubsection{Pre-training Process}
 
 Learning the patterns and relationships among the data starts with the pre-training process. In compliance with \citet{min_recent_pretrained}, first, the {\llm} needs to access a vast volume of textual data from multiple sources. The goal of this phase is to predict the succeeding word in a sentence based on the context given by the previous words through unsupervised learning. 
 
