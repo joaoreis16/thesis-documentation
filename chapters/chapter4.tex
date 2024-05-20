@@ -1,15 +1,28 @@
 \chapter{Query Builder}
 \label{chapter:QueryBuilder}
 
+This project has another goal: to enhance the conversational search assistant to collect additional information in order to provide a query as an outcome. The query is referred to as cohort definition in the ATLAS community, as stated in section \ref{atlas}.
+
+The following section discusses the implementation of the query builder, as well as the decisions and strategies involved.
 
 
 \section{Strategy}
 
-% explciar a estratégia de implementação do query builder
+% explicar a estratégia de implementação do query builder
 %   criação de 2 ficheiros: o cohort template e outro com as respetivas perguntas para cada field
 %   pointer para o campo a ser analisado
 %   divisão do query builder em 2 partes: concept set and cohort definition
 
+So, to create a system that builds a query through a conversation with the user, the first step was to get a cohort definition generated in the ATLAS platform after implementing an experimental case.
+
+
+% TODO: não sei onde meter esta figura
+\begin{figure}[H]
+  \includegraphics[width=\textwidth]{figs/chapter4/interaction_diagram.png}
+  \centering
+  \caption{Interaction diagram between the user, the system components and external tools.}
+  \label{fig_interaction}
+\end{figure}
 
 
 

@@ -21,6 +21,7 @@ There are four main files that contain the data necessary to obtain an overview 
 
 To comprehend the purpose of the four files, each is detailed with fields, description and an example of entries. When the data is private and sensitive, not-real examples are included to better understand the content and connections between files.
 
+% referenciar o cbms
 
 \paragraph{Countries file {\small\normalfont(\texttt{countries.csv})}}
 
@@ -96,31 +97,29 @@ After understanding the data and its connections, an {\ir} component is crucial 
 
 BioASQ\footnote{\url{http://bioasq.org/}} addresses the information access problem for biomedical experts by organizing challenges in biomedical semantic indexing and {\qa}. These challenges cover tasks such as hierarchical text classification, machine learning, information retrieval, {\qa} from texts and structured data, and multi-document summarization.
 
-The BioASQ includes several challenges. The IEETA team was involved in 'BioASQ Task 12b', focusing on biomedical semantic {\qa}, including IR, {\qa}, and summarization. This challenge aims to advance the development of systems capable of understanding and answering biomedical questions. Participants must respond to test questions using various types of information, including relevant concepts, articles, and snippets. The challenge involves 5,000 training questions with gold-standard answers and introduces 500 new test questions, all constructed by European biomedical experts. The challenge consists of two phases, A and B:
+% preciso explicar o que é o ieeta ou agora ou antes !!
+The BioASQ includes several challenges. The IEETA team was involved in 'BioASQ Task 12b', focusing on biomedical semantic {\qa}. This challenge aims to advance the development of systems capable of understanding and answering biomedical questions. Participants must respond to test questions using various types of information, including relevant concepts, articles, and snippets. The challenge involves 5,000 training questions with gold-standard answers and introduces 500 new test questions, all constructed by European biomedical experts. The challenge consists of two phases, A and B:
 
 \begin{itemize}
     \item \textbf{Phase A}: Participants respond to released questions with relevant articles and snippets.
     \item \textbf{Phase B}: Participants provide exact and ideal answers based on questions and provide relevant articles and snippets.
 \end{itemize}
 
-To choose and validate the {\ir} method for this project, I joined the IEETA team and was involved in the 2024 edition of the BioASQ challenge. My task was implementing and testing some {\ir} methods to determine which performs better. This task allowed me to have more concrete results. The techniques used and tested were BM25, SPLADE, and BGE-M3. {\bm} has already been explained, so here's a brief overview of the other methods tested.
+To choose and validate the {\ir} method for this project, I joined the IEETA team and was involved in the 2024 edition of the BioASQ challenge. My task was implementing and testing some {\ir} methods to determine which performs better. This task allowed me to have more concrete results. The techniques used and tested were {\bm}, SPLADE\cite{formal_splade_2021}, and BGE-M3\cite{chen_bge_2024}. {\bm} has already been explained, so here's a brief overview of the other methods tested.
 
 
 \subsubsection{SPLADE} 
 
-SPLADE\footnote{\url{https://github.com/naver/splade}} is a neural retrieval model that learns query/document sparse expansion through the {\bert} Masked Language Model head and sparse regularization, according to https://arxiv.org/pdf/2107.05720 . This technique belongs to Learned Sparse Retrieval because it combines elements of traditional sparse retrieval techniques with machine learning, particularly deep learning. 
+SPLADE\footnote{\url{https://github.com/naver/splade}} is a neural retrieval model that learns query/document sparse expansion through the {\bert} Masked Language Model head and sparse regularization, according to \citet{formal_splade_2021} . This technique belongs to Learned Sparse Retrieval because it combines elements of traditional sparse retrieval techniques with machine learning, particularly deep learning. 
 
-SPLADE is designed to balance the effectiveness of dense retrieval models with the interpretability and efficiency of sparse representations. So, it is advantageous  because it combines the benefits of dense and sparse models \cite{https://arxiv.org/pdf/2107.05720}. This method can improve the relevance and accuracy of the search results, particularly in complex queries where understanding the context and the semantic relationships between terms is essential. The model used was \texttt{naver/splade-cocondenser-ensembledistil} (https://arxiv.org/pdf/2205.04733)
+SPLADE is designed to balance the effectiveness of dense retrieval models with the interpretability and efficiency of sparse representations. So, it is advantageous  because it combines the benefits of dense and sparse models \cite{formal_splade_2021}. This method can improve the relevance and accuracy of the search results, particularly in complex queries where understanding the context and the semantic relationships between terms is essential. The model used was \texttt{naver/splade-cocondenser-ensembledistil}, detailed by \citet{formal_distillation_2022}.
 
 % tbd
 
 
-
 \subsubsection{BGE-M3} 
 
-% https://arxiv.org/pdf/2402.03216
-
-BGE-M3\footnote{\url{https://github.com/FlagOpen/FlagEmbedding/tree/master/FlagEmbedding/BGE_M3 }} is a multifunctional technique because it can simultaneously perform  the three common retrieval functionalities of embedding model: dense retrieval, multi-vector retrieval, and sparse retrieval. Also, this technique is multilingual because it supports over 100 languages and is multi-granular because it can process inputs ranging from short sentences to long documents, accommodating up to 8192 tokens. The model used was \texttt{BAAI/bge-m3} with 1024 of dimension and 8192 tokens of sequence length.
+In compliance with \citet{chen_bge_2024}, BGE-M3\footnote{\url{https://github.com/FlagOpen/FlagEmbedding/tree/master/FlagEmbedding/BGE_M3 }} is a multifunctional technique because it can simultaneously perform  the three common retrieval functionalities of embedding model: dense retrieval, multi-vector retrieval, and sparse retrieval. Also, this technique is multilingual because it supports over 100 languages and is multi-granular because it can process inputs ranging from short sentences to long documents, accommodating up to 8192 tokens. The model used was \texttt{BAAI/bge-m3} with 1024 of dimension and 8192 tokens of sequence length.
 
 
 % tbd
@@ -180,9 +179,9 @@ This API-driven approach enhances the {\ir} component's interoperability and ens
 \section{Frameworks to streamline biomedical data discovery\protect\footnote{This section is mainly based in the publication \textit{Using Flowise to Streamline Biomedical Data Discovery and Analysis, IEEE 22nd Mediterranean Electrotechnical Conference (MELECON), 2024}}}
 
 
-To achieve the proposed goal of making a conversational search assistant, a {\llm} has a crucial role in generating coherent, contextually relevant text and engaging in human language interactions. The {\llm} used in this project is \texttt{Nous Hermes 2 Mixtral 8x7B} open model. This model belongs to the llama family and has a 47B of parameters. The reason for using this {\llm} model is that it is a promising model, and the IEETA has installed it for use in its projects.
+To achieve the proposed goal of making a conversational search assistant, a {\llm} has a crucial role in generating coherent, contextually relevant text and engaging in human language interactions. The {\llm} used in this project is \texttt{Nous Hermes 2 Mixtral 8x7B}~\cite{Nous-Hermes-2-Mixtral-8x7B-DPO} open model, finetuned from Mixtral~\cite{jiang2024a}. This model belongs to the llama family and has a 47B of parameters. The reason for using this {\llm} model is that it is a promising model, and the IEETA has installed it for use in its projects.
 
-The {\llm} is installed a local version of the Ollama framework and deployed in a Virtual Machine to access the {\llm} using a URL. So, there are some options to integrate the model in the system. FlowiseAI and Langflow are frameworks that enable build an {\llm} system without worrying with the orchestration flow between components. An overview of these frameworks and, in the case of FlowiseAI, an implementation are presented below.
+The {\llm} is installed a local version of the Ollama\footnote{\url{https://ollama.com/}} framework and deployed in a Virtual Machine to access the {\llm} using a URL. So, there are some options to integrate the model in the system. FlowiseAI and Langflow are frameworks that enable build an {\llm} system without worrying with the orchestration flow between components. An overview of these frameworks and, in the case of FlowiseAI, an implementation are presented below.
 
 % tbd: overview de frameworks e como podem ser uteis ?
 
@@ -194,16 +193,18 @@ FlowiseAI\footnote{\url{https://github.com/FlowiseAI/Flowise}}, an open-source a
 
 FlowiseAI enables the creation of customized orchestration flows for {\llm} with {\ai} agents and other tools. The workflows within FlowiseAI consist of interconnected nodes or blocks that represent various actions or operations. The specific workflow implemented is illustrated in Figure~\ref{fig_workflow}.
 
-\begin{figure*}[H]
-    \includegraphics[width=1\textwidth]{figs/chapter3/workflow.png}
+
+\begin{figure}[H]
+    \includegraphics[width=\textwidth]{figs/chapter3/workflow.png}
     \centering
     \caption{Worflow implemented in FlowiseAI tool.}
     \label{fig_workflow}
-\end{figure*}
+\end{figure}
+
 
 The conversational agent employs a comprehensive approach to enable dynamic interactions on a healthcare {\ir} platform. It orchestrates the dialogue flow through the Conversational Agent Node, utilizing an {\llm} to provide a coherent and context-aware user experience. This node is configured with parameters that control tool access, chat model specifications, and memory capabilities, allowing it to maintain context or state information across interactions for structured conversations.
 
-The core of conversational dynamics is powered by the ChatOllama Node, a chatbot engine designed for processing user queries and the generation of relevant responses. The implementation rely on Ollama\footnote{\url{https://ollama.com/}} since other solutions like ChatGPT API possess privacy issues. The Ollama operates based on a set of parameters including a base URL, alongside model specifications and a temperature setting that modulates probabilistic distribution over the predicted tokens. Furthermore, the Conversational Agent incorporates a Buffer Memory component, essential for the retention of interaction histories and stateful data. This component ensures the persistence of conversational context, a critical feature for enhancing user engagement and response relevance.
+The core of conversational dynamics is powered by the ChatOllama Node, a chatbot engine designed for processing user queries and the generation of relevant responses. The implementation rely on Ollama since other solutions like ChatGPT API possess privacy issues. The Ollama operates based on a set of parameters including a base URL, alongside model specifications and a temperature setting that modulates probabilistic distribution over the predicted tokens. Furthermore, the Conversational Agent incorporates a Buffer Memory component, essential for the retention of interaction histories and stateful data. This component ensures the persistence of conversational context, a critical feature for enhancing user engagement and response relevance.
 
 To provide the most relevant medical databases, a {\rag} architecture was adopted, as detailed in the section \ref{rag_section}. This approach applied to this scenario involves retrieving the best databases from the {\ir} component and adding them to the {\llm} prompt. {\rag} enables the {\llm} to have up-to-date, valid, and domain-specific information to enhance response accuracy and relevance. 
 
@@ -216,7 +217,7 @@ Langflow\footnote{\url{https://github.com/langflow-ai/langflow}} is another open
 
 % tbd: o que meto mais? não tenho implementação
 
-
+ 
 
 
 \section{EHDEN Chatbot\protect\footnote{This section is mainly based in the publication \textit{A chatbot-like platform to enhance the
