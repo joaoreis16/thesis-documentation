@@ -176,6 +176,111 @@ The API offers endpoints for submitting queries and retrieving search results. W
 This API-driven approach enhances the {\ir} component's interoperability and ensures that external systems can seamlessly query and retrieve data. This enables efficient and precise identification of the most suitable databases for any given query, facilitating the integration of the {\ir} component in the following project implementation steps.
 
 
+
+
+\section{Large Language Model}
+
+% texto repetido:
+To achieve the proposed goal of making a conversational search assistant, a {\llm} has a crucial role in generating coherent, contextually relevant text and engaging in human language interactions. The {\llm} used in this project is \texttt{Nous Hermes 2 Mixtral 8x7B}~\cite{Nous-Hermes-2-Mixtral-8x7B-DPO} open model, finetuned from Mixtral~\cite{jiang2024a}. This model belongs to the llama family and has a 47B of parameters. The reason for using this {\llm} model is that it is a promising model, and the IEETA has installed it for use in its projects.
+
+
+\subsection{Tasks}
+
+In the context of this project, between the multiple applications and capabilities, the {\llm} has two types of tasks: text generation and text analysis. So, Table \ref{table_tasks} shows the different tasks given to the LLM and the respective descriptions. Also, it presents the output format and the temperature used in each task. The output format is the generated response format expected from {\llm}. The temperature of a {\llm} refers to a hyperparameter that controls the randomness of predictions made by the model. A higher temperature results in more creative and random outputs. Otherwise, a lower temperature results in more deterministic and focused outputs.
+
+\begin{table}[H]
+  \centering
+  \resizebox{\textwidth}{!}{%
+  \begin{tabular}{|c|c|l|}
+  \hline
+  \textbf{Type of Task}       & \textbf{Task}           & \textbf{Description}                                                                                                                                      \\ \hline
+  \multirow{3}{*}{Generation} & Response                & Generate a response to a given message.                                                                                                                   \\ \cline{2-3} 
+                              & Response with Databases & Generate a response to retrieve the best databases to the user.                                                                                           \\ \cline{2-3} 
+                              & Question                & Generate a question related to a given question.                                                                                                          \\ \hline
+  \multirow{3}{*}{Analyse}    & Topic                   & \begin{tabular}[c]{@{}l@{}}Identify if the user message is related to health. \\ If so, identify the research topic in the field of health.\end{tabular} \\ \cline{2-3} 
+                              & Yes or No Answer        & Indentify if the answer is positive or negative for a respective question.                                                                                \\ \cline{2-3} 
+                              & Answer to Question      & indentify if the answer is a response for a respective question.                                                                                          \\ \hline
+  \end{tabular}%
+  }
+  \caption{Overview of the LLM tasks.}
+  \label{fig_interaction}
+\end{table}
+
+
+\subsection{Implementation}
+
+After defining the tasks, the following table \ref{tasks_info} represents the parameters and the output format of each task.
+
+
+\begin{table}[H]
+  \centering
+  \resizebox{\textwidth}{!}{%
+  \begin{tabular}{|c|c|c|c|}
+  \hline
+  \textbf{Type of Task}       & \textbf{Task}           & \textbf{Output format}       & \textbf{\begin{tabular}[c]{@{}c@{}}Temperature\\ (0 - 1)\end{tabular}} \\ \hline
+  \multirow{3}{*}{Generation} & Response                & \multirow{3}{*}{Plain Text}  & 0.5                                                                    \\ \cline{2-2} \cline{4-4} 
+                              & Response with Databases &                              & 0.1                                                                    \\ \cline{2-2} \cline{4-4} 
+                              & Question                &                              & 0.5                                                                    \\ \hline
+  \multirow{3}{*}{Analyse}    & Topic                   & \multirow{3}{*}{JSON object} & 0.1                                                                    \\ \cline{2-2} \cline{4-4} 
+                              & Yes or No Answer        &                              & 0.1                                                                    \\ \cline{2-2} \cline{4-4} 
+                              & Answer to Question      &                              & 0.1                                                                    \\ \hline
+  \end{tabular}%
+  }
+  \caption{LLM tasks parameters and output information.}
+  \label{tasks_info}
+\end{table}
+
+Inside the Generation main task, the {\llm} should generate a simple response, a response with the most suitable databases, and a question to ask the user. The temperature in this type of task is medium to provide a balance between randomness and determinism, in simple words, to be more creative in his answers and not lose the focus of the answer. The output format is Plain Text because it is intended to send messages to the user. This task can be viewed as an NLG task.
+
+In the main Analysis task, the language model should respond in a JSON object with a specific structure as specified in the prompt. This is crucial for the system to comprehend the user's response. This task is related to the {\nlu} task.
+
+% llm precisa de prompts. cada tarefa tem o seu prompt especifico e a sua temperatura especifica. estes parametros (prompt e temperature) estão definidos num ficheiro JSON (params.json)
+
+The model require specific prompts to generate appropriate responses. Each task assigned to the LLM has its own specific prompt and a corresponding temperature setting, which controls the randomness of the output, as we can see in the example \ref{params}. These parameters — prompt and temperature — are defined in a JSON file {\small\normalfont(\texttt{params.json})}. 
+
+\begin{listing}[H]
+  \begin{minted}[breaklines]{json}
+      
+  {
+    "url": "http://<LLM_URL>:<port>/api/generate",
+    "model": "nous-hermes2-mixtral:latest",
+    "system": "...",
+    "generate_question": {
+      "prompt": "Your goal is generate a question. You already chat with the user; you don't need to welcome him. Just ask the following question (you should rewrite the question): <question>. This question aims to extract more user research requirements. You should write a message with plain text, not in JSON.",
+      "temperature": 0.5
+    },
+    "topic": {
+      "prompt": "...",
+      "temperature": 0.1
+    },
+    "yesno": {
+        "prompt": "...",
+        "temperature": 0.1
+    },
+    "is_answer_to_question": {
+        "prompt": "...",
+        "temperature": 0.1
+    },
+    "retriever": {
+        "prompt": "...",
+        "temperature": 0.1
+    },
+    "generate_answer": {
+        "prompt": "...",
+        "temperature": 0.5
+    }
+  }
+  \end{minted}
+  \caption{The configuration file of the LLM {\small\normalfont(\texttt{params.json})}}
+  \label{params}
+\end{listing}
+
+This file serves as a configuration file, ensuring that the {\llm} receives the correct instructions and settings for each task, thereby optimizing its performance and ensuring the generated responses meet the desired criteria.
+
+
+
+
+
 \section{Frameworks to streamline biomedical data discovery\protect\footnote{This section is mainly based in the publication \textit{Using Flowise to Streamline Biomedical Data Discovery and Analysis, IEEE 22nd Mediterranean Electrotechnical Conference (MELECON), 2024}}}
 
 
@@ -220,7 +325,7 @@ Langflow\footnote{\url{https://github.com/langflow-ai/langflow}} is another open
  
 
 
-\section{EHDEN Chatbot\protect\footnote{This section is mainly based in the publication \textit{A chatbot-like platform to enhance the
+\section{EHDEN Chatbot Architecture\protect\footnote{This section is mainly based in the publication \textit{A chatbot-like platform to enhance the
 discovery of OMOP CDM databases, 34th Medical Informatics Europe Conference (MIE), 2024}}}
 
 
