@@ -18,12 +18,20 @@ So, to create a system that builds a query through a conversation with the user,
 
 \subsection{Interaction between Components}
 
+It is important to understand how this system interacts with the user and other external tools. Diagram \ref{fig_interaction} describes all the interactions between components. The interaction diagram all the interactions between components. The system components are the {\ir} API and the Chatbot Interface, which contains the User interface and the {\llm}. The {\ehden} Portal and ATLAS are external tools.
+
 \begin{figure}[H]
   \includegraphics[width=\textwidth]{figs/chapter4/interaction_diagram.png}
   \centering
   \caption{Interaction diagram between the user, the system components and external tools.}
   \label{fig_interaction}
 \end{figure}
+
+This diagram presents all the interactions of the conversational query builder, not only presenting the interactions detailed in the previous chapter \ref{chapter:ConversationalSearchAssistant} — steps 1) to 5) —, but also the interactions that will be performed during the detail of this chapter — steps 6) to 9).
+
+Reminding the interactions explained in chapter \ref{chapter:ConversationalSearchAssistant}, the {\ir} component receives the databases' metadata from the {\ehden} Portal — step 1) —, creating and indexing the documents. The user asks a question to the Chatbot Interface — step 2). Here, the {\llm} applies his task of identifying the research topic and sends it to the {\ir} API — step 3). The {\ir} API retrieves the most suitable databases for the research concept and sends the list of databases to the Chatbot Interface — step 4). The user can review the recommended databases in the catalogue in the {\ehden} Portal — step 5). 
+
+Now, the query builder phase starts. The {\ir} API, when sending the databases to the chatbot interface, also sends a question to complete a field in the cohort definition — step 6). The user answer to the question — step 7) — and the {\llm}, in the Chatbot Interface, analyses if the user message is an answer to the question. If so, the answer will be saved in the cohort template — step 8). Steps 6), 7), and 8) are repeated until the cohort template is complete. Finally, the {\ir} API sends the cohort definition to ATLAS — step 9).
 
 
 

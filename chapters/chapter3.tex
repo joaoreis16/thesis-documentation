@@ -2,7 +2,7 @@
 \label{chapter:ConversationalSearchAssistant}
 
 
-The {\ehden} Portal is a web-based platform that facilitates access to information, resources, and tools for data partners, researchers, and other stakeholders involved in the {\ehden} project. The portal fosters collaboration, knowledge exchange, and innovation among diverse partners, providing a user-friendly interface to access standardized healthcare data and related resources. {\ehden} delivers a catalogue of medical databases across Europe, offering researchers a centralized platform to explore available medical data sources. However, with the increasing number of databases in the catalogue, {\ehden} built a tool named Network Dashboards\footnote{\url{https://github.com/{\ehden}/NetworkDashboards}} to help researchers to choose the best databases across the catalogue. {\ehden} Network Dashboards is a complementary tool of this ecosystem that provides statistical and aggregated information about the databases available on the network. 
+The {\ehden} Portal is a web-based platform that facilitates access to information, resources, and tools for data partners, researchers, and other stakeholders involved in the {\ehden} project. The portal fosters collaboration, knowledge exchange, and innovation among diverse partners, providing a user-friendly interface to access standardized healthcare data and related resources. {\ehden} delivers a catalogue of medical databases across Europe, offering researchers a centralized platform to explore available medical data sources. However, with the increasing number of databases in the catalogue, {\ehden} built a tool named Network Dashboards\footnote{\url{https://github.com/EHDEN/NetworkDashboards}} to help researchers to choose the best databases across the catalogue. {\ehden} Network Dashboards is a complementary tool of this ecosystem that provides statistical and aggregated information about the databases available on the network. 
 
 However, the catalogue's growth is inevitable, making it difficult and time-consuming for a researcher to find his databases of interest. The proposed solution is to build a conversational search tool for the {\ehden} catalogue.
 
@@ -130,7 +130,7 @@ In compliance with \citet{chen_bge_2024}, BGE-M3\footnote{\url{https://github.co
 
 Although we have tested various methods, the implementation of {\bm} has shown promising results. {\bm} is the selected method for implementing the {\ir} component in this project. The technique was implemented using the PyTerrier PISA, a python interface to PISA\footnote{\url{https://github.com/terrierteam/pyterrier_pisa}}.
 
-This section explains the implementation of BM25, the process of creating documents based on the {\ehden} data, and the indexing and searching of these documents.
+This section explains the implementation of {\bm}, the process of creating documents based on the {\ehden} data, and the indexing and searching of these documents.
 
 
 \subsubsection{Database Indexing Process}
@@ -179,9 +179,12 @@ This API-driven approach enhances the {\ir} component's interoperability and ens
 
 
 \section{Large Language Model}
+\label{sec:llm}
 
 % texto repetido:
-To achieve the proposed goal of making a conversational search assistant, a {\llm} has a crucial role in generating coherent, contextually relevant text and engaging in human language interactions. The {\llm} used in this project is \texttt{Nous Hermes 2 Mixtral 8x7B}~\cite{Nous-Hermes-2-Mixtral-8x7B-DPO} open model, finetuned from Mixtral~\cite{jiang2024a}. This model belongs to the llama family and has a 47B of parameters. The reason for using this {\llm} model is that it is a promising model, and the IEETA has installed it for use in its projects.
+To achieve the proposed goal of making a conversational search assistant, a {\llm} has a crucial role in generating coherent, contextually relevant text and engaging in human language interactions. The {\llm} used in this project is \texttt{Nous Hermes 2 Mixtral 8x7B}~\cite{Nous-Hermes-2-Mixtral-8x7B-DPO} open model, finetuned from Mixtral~\cite{jiang2024a}. This model belongs to the llama family and has a 47B of parameters. 
+
+The reason for using this {\llm} model is that it is a promising model, and the IEETA has installed it for use in its projects. The {\llm} is installed a local version of the Ollama\footnote{\url{https://ollama.com/}} framework and deployed in a Virtual Machine to access the {\llm} using a URL. 
 
 
 \subsection{Tasks}
@@ -203,7 +206,7 @@ In the context of this project, between the multiple applications and capabiliti
   \end{tabular}%
   }
   \caption{Overview of the LLM tasks.}
-  \label{fig_interaction}
+  \label{table_tasks}
 \end{table}
 
 
@@ -230,9 +233,9 @@ After defining the tasks, the following table \ref{tasks_info} represents the pa
   \label{tasks_info}
 \end{table}
 
-Inside the Generation main task, the {\llm} should generate a simple response, a response with the most suitable databases, and a question to ask the user. The temperature in this type of task is medium to provide a balance between randomness and determinism, in simple words, to be more creative in his answers and not lose the focus of the answer. The output format is Plain Text because it is intended to send messages to the user. This task can be viewed as an NLG task.
+Inside the Generation main task, the {\llm} should generate a simple response, a response with the most suitable databases, and a question to ask the user. The temperature in this type of task is medium to provide a balance between randomness and determinism, in simple words, to be more creative in his answers and not lose the focus of the answer. The output format is Plain Text because it is intended to send messages to the user. These tasks can be viewed as {\nlg} tasks.
 
-In the main Analysis task, the language model should respond in a JSON object with a specific structure as specified in the prompt. This is crucial for the system to comprehend the user's response. This task is related to the {\nlu} task.
+In the main Analysis task, the language model should respond in a JSON object with a specific structure as specified in the prompt. This is crucial for the system to comprehend the user's response. These tasks is related to the {\nlu} tasks.
 
 % llm precisa de prompts. cada tarefa tem o seu prompt especifico e a sua temperatura especifica. estes parametros (prompt e temperature) estão definidos num ficheiro JSON (params.json)
 
@@ -280,13 +283,9 @@ This file serves as a configuration file, ensuring that the {\llm} receives the 
 
 
 
-
 \section{Frameworks to streamline biomedical data discovery\protect\footnote{This section is mainly based in the publication \textit{Using Flowise to Streamline Biomedical Data Discovery and Analysis, IEEE 22nd Mediterranean Electrotechnical Conference (MELECON), 2024}}}
 
-
-To achieve the proposed goal of making a conversational search assistant, a {\llm} has a crucial role in generating coherent, contextually relevant text and engaging in human language interactions. The {\llm} used in this project is \texttt{Nous Hermes 2 Mixtral 8x7B}~\cite{Nous-Hermes-2-Mixtral-8x7B-DPO} open model, finetuned from Mixtral~\cite{jiang2024a}. This model belongs to the llama family and has a 47B of parameters. The reason for using this {\llm} model is that it is a promising model, and the IEETA has installed it for use in its projects.
-
-The {\llm} is installed a local version of the Ollama\footnote{\url{https://ollama.com/}} framework and deployed in a Virtual Machine to access the {\llm} using a URL. So, there are some options to integrate the model in the system. FlowiseAI and Langflow are frameworks that enable build an {\llm} system without worrying with the orchestration flow between components. An overview of these frameworks and, in the case of FlowiseAI, an implementation are presented below.
+There are some options to integrate the {\llm} in this system. FlowiseAI and Langflow are frameworks that enable build an {\llm} system without worrying with the orchestration flow between components. An overview of these frameworks and, in the case of FlowiseAI, an implementation are presented below.
 
 % tbd: overview de frameworks e como podem ser uteis ?
 
@@ -344,5 +343,6 @@ Figure~\ref{fig_arch} represents the key components of the system and their inte
 
 The Conversational User Interface is the primary interface for user interaction, built on the React framework. The User Interface records the user questions and conveys them to the backend to be processed in the component dedicated to {\ir}. 
 
-The backend API, built on the FastAPI framework, handles the HTTP requests from the other components. When it recieves a query from the User Interface, the backend communicates with the {\llm}. The {\llm} is the same open model used in the previous implementation, \texttt{Nous Hermes 2 Mixtral 8x7B}, and it has two tasks that run consecutively: to identify if the query is related to health and to generate responses. If the first task returns false, the {\llm} generates a response reminding the user of the chatbot's purpose. However, if the first task is true, then the {\rag} architecture is applied. This means that the {\bm} retrieves the best databases, and then the {\llm} generates a response with that valid information.
+The backend API, built on the FastAPI framework, handles the HTTP requests from the other components. When it recieves a query from the User Interface, the backend communicates with the {\llm}. The {\llm} is the same open model detailed in the section \ref{sec:llm}, \texttt{Nous Hermes 2 Mixtral 8x7B}. In this implementation, the {\llm} has two tasks: analyse the topic of health and generation of a response with databases or generate a simple response. If the first task returns false, \textit{i.e.}, if the user message is not related to health, the {\llm} generates a simple response reminding the user of the chatbot's purpose. Otherwise, if the first task is true, then the {\rag} architecture is applied. This means that the generation of a response with databases task is applied. The {\bm} retrieves the best databases to the {\llm}, so it could generate a response with that valid information.
+
 
