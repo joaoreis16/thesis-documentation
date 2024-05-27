@@ -6,22 +6,16 @@
 % The tool is incorporated with a comprehensive database catalogue with information from almost 200 databases from Europe. It spans across 28 countries and offers data concerning 256 million patients, derived from 34 distinct data sources.
 % The databases in the EHDEN Catalogue are supported by 38 unique attributes focused on exposing the core characteristics regarding data access. Additionally, the EHDEN Network Dashboards, it is hosted a staggering 8,504,324 unique concepts to accurately represent the scope of each database. These concepts are organized into 25 domains, including but not limited to Measurement, Condition, Procedure, Observation, and Drug.
 
-The presented system aims to optimize the process of identifying and selecting relevant observational databases for medical research. The tool simplifies the discovery of medical observational databases in the EHDEN network, addressing the challenges of navigating through the vast and varied catalogues of medical databases. It also tackles the challenge of defining a cohort study in the ATLAS platform by improving the tool to allow for a more conversational approach to defining and providing a cohort query as an outcome.
-
 The current methods applied to help medical researchers discover databases of interest, specifically on the {\ehden} Portal, are based on graphical and tabular views. These methods also have shown good results when dealing with a low number of databases, or concepts. However, with the increase of the databases in the network, such techniques may not be the best option.
 
 The increasing number of databases in the {\ehden} methods leads to a comprehensive database catalogue with information from almost 200 databases in Europe. It spans across 28 countries and offers data concerning 256 million patients, derived from 34 distinct data sources \citet{MIE}. 
 
 The databases in the {\ehden} Catalogue are supported by 38 unique attributes focused on exposing the core characteristics regarding data access. Additionally, the {\ehden} Network Dashboards, it is hosted a staggering 8,504,324 unique concepts to accurately represent the scope of each database. These concepts are organized into 25 domains, including but not limited to Measurement, Condition, Procedure, Observation, and Drug. This amount of data raised unseen challenges that this project tried to address with this new approach.
 
-% IR 
-The integration of {\ir} techniques within a conversational user interface represents a significant advancement in the field of data discovery~\cite{ritzel2019development}. Its ability to return a list of databases that are pertinent to the user's query not only saves time but also introduces a level of precision in the selection process that was previously unattainable through manual methods.
+The presented system aims to optimize the process of identifying and selecting relevant observational databases for medical research. The tool simplifies the discovery of medical observational databases in the EHDEN network, addressing the challenges of navigating through the vast and varied catalogues of medical databases. It also tackles the challenge of defining a cohort study in the ATLAS platform by improving the tool to allow for a more conversational approach to defining and providing a cohort query as an outcome.
 
-The integration of generative {\ai} ...
+\hl{This section ...}
 
-Research can establish questions like ``What is the prevalence of omeprazole?'', and the tool responds with the most relevant databases that may have the information to answer such questions. Then, the research can analyze this information in more detail, or refine the question.
-
-Therefore, the method of simplifying the discovery of observational databases has an impact on the speed and quality of research efforts. Also, the tool has the potential to level the playing field by providing less experienced individuals with access to complex databases that they might otherwise overlook or find too challenging to navigate. However, the interaction with the proposed tool is somewhat restricted due to the data content. Users may expect to have deep insights into the databases, but that may expose sensitive data. Future enhancements could include the integration of such information available only to users with access to them, which will include the use of Rule-Based Access Control~(RBAC) mechanisms over this tool.
 
 
 \section{IR methods}
@@ -29,12 +23,63 @@ Therefore, the method of simplifying the discovery of observational databases ha
 mas que resultados?
 
 
-\section{Flowise vs Langflow}
+\section{LLM Implementation: FlowiseAI vs Langflow}
 
-meto a comparação entre os dois aqui?
+Langflow and FlowiseAI are similar tools that provide multiple tools that allow the building of different workflows, architectures, and integrations with external tools. The table \ref{flowise_vs_langflow} shows a comparison between these two frameworks, identifying the strengths and weaknesses of each one.
+
+FlowiseAI can run in air-gapped environments with local {\llm}, embeddings and vector databases. Also, it creates autonomous agents that can use tools to execute different tasks, such as Custom Tools, OpenAI Assistant, and Function Agent. FlowiseAI has proved to be a great solution to build an {\llm}-based chatbot. However, the FlowiseAI implementation become limited to address the requirements of the query builder. It became difficult to control the logic and the flow required by the query builder requirements. 
+
+Langflow is a dynamic graph where each node is an executable unit, so the way of development of a {\llm} application is very identical to FlowiseAI. But also, Langflow shown to be limited for this project because of missing basic features.
+
+\begin{table}[H]
+	\centering
+	\resizebox{0.8\textwidth}{!}{%
+	\begin{tabular}{|c|c|c|}
+	\hline
+	\textbf{}                            & \textbf{FlowiseAI}                     & \textbf{Langflow}      \\ \hline
+	\multirow{3}{*}{\textbf{Strengths}}  & \hl{falta um aqui}	 & Flexible customization \\ \cline{2-3} 
+										 & Free access                            & Bug tracking           \\ \cline{2-3} 
+										 & Visually intuitive                     & Visually intuitive     \\ \hline
+	\multirow{3}{*}{\textbf{Weaknesses}} & Bug tracking                           & Missing basic features \\ \cline{2-3} 
+										 & Limited documentation                  & Outdated documentation \\ \cline{2-3} 
+										 & Limited features                       & Controled access       \\ \hline
+	\end{tabular}%
+	}
+	\caption{Comparison between FlowiseAI and Langflow.}
+	\label{flowise_vs_langflow}
+\end{table}
+
+Starting with FlowiseAI, it is a great tool to build simple {\llm} applications, but have some limitations:
+
+\begin{itemize}
+	\item \textbf{Limited Features} - There are tasks that require more costumization, and the costum tool that FlowiseAI provides is not enough for some of these tasks.
+	\item \textbf{Limited Documentation} - There are some tools that not have documentation, and it became difficult sometimes to explore a tool without information about it.
+	\item \textbf{Bug Tracking} - It is difficult to debug. When something in your system goes wrong, it is difficult to find what is causing that error. 
+\end{itemize}
+
+Otherwise, Langflow offers features that either improve upon or address certain limitations of FlowiseAI, such as better features for bug tracking and more customization; for example, creating a complete custom component is possible. However, it also addresses some limitations:
+
+\begin{itemize}
+	\item \textbf{Missing basic features} - Lacked basic functionalities such as a conversational agent. Others, requires some 
+	\item \textbf{Outdated documentation} - There was documentation of tools that didn't exist, and there wasn't documentation of some that did exist. 
+	\item \textbf{Controled Access} - Requires an API key to access tools and features of the platform. 
+\end{itemize}
 
 
-\section{conversational query builder}
+Although these frameworks prove to be good options, they have limitations that do not satisfy this project's complexity. So, the {\llm} orchestration flow was implemented using a Python-based backend, developed for this project system.
+
+
+\section{Conversational Search Assistant}
+
+The integration of {\ir} techniques within a conversational user interface represents a significant advancement in the field of data discovery~\cite{ritzel2019development}. Its ability to return a list of databases that are pertinent to the user's query not only saves time but also introduces a level of precision in the selection process that was previously unattainable through manual methods. The integration of generative {\ai} helps the conversation be more human-like. % tbd: adicionar mais coisas aqui!!! 
+
+Researcher can establish questions like ``What is the prevalence of omeprazole?'', and the tool responds with the most relevant databases that may have the information to answer such questions. Then, the research can analyze this information in more detail, or refine the question. % tbd: se continuar a conversa consegue definir um cohort para o seu estudo através da conversa
+
+Therefore, the method of simplifying the discovery of observational databases has an impact on the speed and quality of research efforts. Also, the tool has the potential to level the playing field by providing less experienced individuals with access to complex databases that they might otherwise overlook or find too challenging to navigate. However, the interaction with the proposed tool is somewhat restricted due to the data content. Users may expect to have deep insights into the databases, but that may expose sensitive data. Future enhancements could include the integration of such information available only to users with access to them, which will include the use of Rule-Based Access Control~(RBAC) mechanisms over this tool.
+
+
+
+\section{Conversational Query Builder}
 
 
 ?????

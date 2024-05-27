@@ -217,7 +217,7 @@ After defining the tasks, the following table \ref{tasks_info} represents the pa
 
 \begin{table}[H]
   \centering
-  \resizebox{\textwidth}{!}{%
+  \resizebox{0.8\textwidth}{!}{%
   \begin{tabular}{|c|c|c|c|}
   \hline
   \textbf{Type of Task}       & \textbf{Task}           & \textbf{Output format}       & \textbf{\begin{tabular}[c]{@{}c@{}}Temperature\\ (0 - 1)\end{tabular}} \\ \hline
@@ -280,6 +280,9 @@ The model require specific prompts to generate appropriate responses. Each task 
 
 This file serves as a configuration file, ensuring that the {\llm} receives the correct instructions and settings for each task, thereby optimizing its performance and ensuring the generated responses meet the desired criteria.
 
+The URL field contains the Ollam {\llm} endpoint to generate text. The model field indicates the {\llm} model used, and the system field refers to the system prompt. System prompt is crucial because it guides how these advanced {\ai} models interpret and respond to user queries. It directs the {\llm} behavior and ensures that the generated outputs align with the intended goals. 
+
+The following fields are the tasks, with the respective prompt and temperature associated. The prompt of the question generation task, as an example, has a <question> string, where the cohort question replaces it later. This prompt refinement is done in every task prompt.
 
 
 
@@ -346,3 +349,6 @@ The Conversational User Interface is the primary interface for user interaction,
 The backend API, built on the FastAPI framework, handles the HTTP requests from the other components. When it recieves a query from the User Interface, the backend communicates with the {\llm}. The {\llm} is the same open model detailed in the section \ref{sec:llm}, \texttt{Nous Hermes 2 Mixtral 8x7B}. In this implementation, the {\llm} has two tasks: analyse the topic of health and generation of a response with databases or generate a simple response. If the first task returns false, \textit{i.e.}, if the user message is not related to health, the {\llm} generates a simple response reminding the user of the chatbot's purpose. Otherwise, if the first task is true, then the {\rag} architecture is applied. This means that the generation of a response with databases task is applied. The {\bm} retrieves the best databases to the {\llm}, so it could generate a response with that valid information.
 
 
+\subsection{Conversation Historic}
+
+para breve ...
