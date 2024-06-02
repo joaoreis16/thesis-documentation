@@ -90,12 +90,14 @@ The combination of these four files gives the necessary information about the da
 
 After understanding the data and its connections, an {\ir} component is crucial to this project to find the most suitable databases. This section discusses mainly the {\ir} methods tested, the process of indexing and seaching in the collection and an API-driven approach of the {\ir} component.
 
-% tbd
+% TODO: passar a introdução do bio asq para aqui!!!
+
+BioASQ\footnote{\url{http://bioasq.org/}} addresses the information access problem for biomedical experts by organizing challenges in biomedical semantic indexing and {\qa}. These challenges cover tasks such as hierarchical text classification, machine learning, {\ir}, {\qa} from texts and structured data, and multi-document summarization.
+
+This section outlines the {\ir} component, covering the BioASQ challenge and its relevance, the implementation of BM25 for indexing and searching databases, and the API-driven approach for integrating {\ir} functionalities with external systems.
 
 
 \subsection{BioASQ Challenge 2024}
-
-BioASQ\footnote{\url{http://bioasq.org/}} addresses the information access problem for biomedical experts by organizing challenges in biomedical semantic indexing and {\qa}. These challenges cover tasks such as hierarchical text classification, machine learning, information retrieval, {\qa} from texts and structured data, and multi-document summarization.
 
 % preciso explicar o que é o ieeta ou agora ou antes !!
 The BioASQ includes several challenges. The IEETA team was involved in 'BioASQ Task 12b', focusing on biomedical semantic {\qa}. This challenge aims to advance the development of systems capable of understanding and answering biomedical questions. Participants must respond to test questions using various types of information, including relevant concepts, articles, and snippets. The challenge involves 5,000 training questions with gold-standard answers and introduces 500 new test questions, all constructed by European biomedical experts. The challenge consists of two phases, A and B:
@@ -128,7 +130,7 @@ In compliance with \citet{chen_bge_2024}, BGE-M3\footnote{\url{https://github.co
 \subsection{BM25 Implementation}
 \label{bm25implementation}
 
-Although we have tested various methods, the implementation of {\bm} has shown promising results. {\bm} is the selected method for implementing the {\ir} component in this project. The technique was implemented using the PyTerrier PISA, a python interface to PISA\footnote{\url{https://github.com/terrierteam/pyterrier_pisa}}.
+Although we have tested various methods, the implementation of {\bm} has shown promising results. {\bm} is the selected method for implementing the {\ir} component in this project. \hl{The technique was implemented using the PyTerrier PISA, a python interface to PISA\footnote{\url{https://github.com/terrierteam/pyterrier_pisa}}.}
 
 This section explains the implementation of {\bm}, the process of creating documents based on the {\ehden} data, and the indexing and searching of these documents.
 
@@ -154,7 +156,7 @@ The first approach to structure of the documents to be indexed is shown in Figur
     \item \textbf{Poor Search Results}: The search engine returns unsatisfactory results because the indexing does not accurately reflect the importance of each concept. This leads to low search scores, resulting in commonly retrieving irrelevant documents.
 \end{itemize}
 
-SO, the approach to creating the document structure has been refined to enhance the granularity and searchability of the database content. Each concept in the database is individually indexed, as shown in Figure~\ref{fig_struct}, part C). Each concept within a database is treated as a separate document for indexing purposes. This is achieved by assigning a document number that uniquely combines the database ID and the concept's position within its list. The document number serves as a unique identifier for each concept, ensuring that each piece of data can be individually retrieved and queried. The content of each document, represented by the concept itself, allows for reflecting the importance of concepts within the database, facilitating more precise and efficient retrieval of information.
+So, the approach to creating the document structure has been refined to enhance the granularity and searchability of the database content. Each concept in the database is individually indexed, as shown in Figure~\ref{fig_struct}, part C). Each concept within a database is treated as a separate document for indexing purposes. This is achieved by assigning a document number that uniquely combines the database ID and the concept's position within its list. The document number serves as a unique identifier for each concept, ensuring that each piece of data can be individually retrieved and queried. The content of each document, represented by the concept itself, allows for reflecting the importance of concepts within the database, facilitating more precise and efficient retrieval of information.
 
 
 \subsubsection{Database Searching Process}
@@ -239,7 +241,7 @@ In the main Analysis task, the language model should respond in a JSON object wi
 
 % llm precisa de prompts. cada tarefa tem o seu prompt especifico e a sua temperatura especifica. estes parametros (prompt e temperature) estão definidos num ficheiro JSON (params.json)
 
-The model require specific prompts to generate appropriate responses. Each task assigned to the LLM has its own specific prompt and a corresponding temperature setting, which controls the randomness of the output, as we can see in the example \ref{params}. These parameters — prompt and temperature — are defined in a JSON file {\small\normalfont(\texttt{params.json})}. 
+The model require specific prompts to generate appropriate responses. Each task assigned to the LLM has its own specific prompt and a corresponding temperature setting, which controls the randomness of the output, as we can see in the Code \ref{params}. These parameters — prompt and temperature — are defined in a JSON file {\small\normalfont(\texttt{params.json})}. 
 
 \begin{listing}[H]
   \begin{minted}[breaklines]{json}
@@ -348,7 +350,6 @@ The Conversational User Interface is the primary interface for user interaction,
 
 The backend API, built on the FastAPI framework, handles the HTTP requests from the other components. When it recieves a query from the User Interface, the backend communicates with the {\llm}. The {\llm} is the same open model detailed in the section \ref{sec:llm}, \texttt{Nous Hermes 2 Mixtral 8x7B}. In this implementation, the {\llm} has two tasks: analyse the topic of health and generation of a response with databases or generate a simple response. If the first task returns false, \textit{i.e.}, if the user message is not related to health, the {\llm} generates a simple response reminding the user of the chatbot's purpose. Otherwise, if the first task is true, then the {\rag} architecture is applied. This means that the generation of a response with databases task is applied. The {\bm} retrieves the best databases to the {\llm}, so it could generate a response with that valid information.
 
+For research purposes, researchers may save their conversations to facilitate data analysis and enhance their research outcomes. When a user decides to save a conversation, they can do so by pressing a save button, which triggers an API endpoint designed to store the conversation. The conversations are subsequently added to a JSON file, creating a structured and accessible format for future analysis. This method ensures that valuable data is systematically archived and easily retrievable for subsequent research endeavors.
 
-\subsection{Conversation Historic}
-
-para breve ...
+Storing these dialogues can be particularly valuable for research purposes, for example, identify frequently asked questions by medical researchers. By analyzing the saved conversations, researchers can gain insights into common concerns, informational gaps, and the types of support often sought by medical researchers. By taking advantage of this stored information, the system can be improved, or even develop other platforms to improve the overall quality and impact of medical research.
