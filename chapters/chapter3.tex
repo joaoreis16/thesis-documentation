@@ -1,5 +1,5 @@
 \chapter{Conversational Search Assistant}
-\label{chapter:ConversationalSearchAssistant}
+\label{chapter:CSA}
 
 
 The {\ehden} Portal is a web-based platform that facilitates access to information, resources, and tools for data partners, researchers, and other stakeholders involved in the {\ehden} project. The portal fosters collaboration, knowledge exchange, and innovation among diverse partners, providing a user-friendly interface to access standardized healthcare data and related resources. {\ehden} delivers a catalogue of medical databases across Europe, offering researchers a centralized platform to explore available medical data sources. However, with the increasing number of databases in the catalogue, {\ehden} built a tool named Network Dashboards\footnote{\url{https://github.com/EHDEN/NetworkDashboards}} to help researchers to choose the best databases across the catalogue. {\ehden} Network Dashboards is a complementary tool of this ecosystem that provides statistical and aggregated information about the databases available on the network. 
@@ -130,12 +130,18 @@ In compliance with \citet{chen_bge_2024}, BGE-M3\footnote{\url{https://github.co
 \subsection{BM25 Implementation}
 \label{bm25implementation}
 
-Although we have tested various methods, the implementation of {\bm} has shown promising results. {\bm} is the selected method for implementing the {\ir} component in this project. \hl{The technique was implemented using the PyTerrier PISA, a python interface to PISA\footnote{\url{https://github.com/terrierteam/pyterrier_pisa}}.}
+Although we have tested various methods, the implementation of {\bm} has shown promising results. {\bm} is the selected method for implementing the {\ir} component in this project. The library implemented was PyTerrier\footnote{\url{https://github.com/terrier-org/pyterrier}}, a Python framework for performing {\ir} experiments.
 
 This section explains the implementation of {\bm}, the process of creating documents based on the {\ehden} data, and the indexing and searching of these documents.
 
 
-\subsubsection{Database Indexing Process}
+ncept within a database is treated as a separate document for indexing purposes. This is achieved by assigning a document number that uniquely combines the database ID and the concept's position within its list. The document number serves as a unique identifier for each concept, ensuring that each piece of data can be individually retrieved and queried. The content of each document, represented by the concept itself, allows for reflecting the importance of concepts within the database, facilitating more precise and efficient retrieval of information.
+
+
+\subsubsection{Database Searching Process}
+\label{searchprocess}
+
+When the {\ir} system receives a query in free text, the system processes it using {\nlp} techniques applied to the query to enhance the search performance. These processes can include tokenization (splitting the text into individual terms or words), stemming or lemmatization (reducing words to their base form), and stop-word removal (eliminating common words that do not contribute to the search). Standardi\subsubsection{Database Indexing Process}
 
 The {\ir} component must index a collection of documents that thoroughly represent all the concepts within the databases, ensuring a clear understanding of what each database encompasses. To achive this, the data mentioned in the section \ref{data} is used to create the documents.
 
@@ -156,13 +162,7 @@ The first approach to structure of the documents to be indexed is shown in Figur
     \item \textbf{Poor Search Results}: The search engine returns unsatisfactory results because the indexing does not accurately reflect the importance of each concept. This leads to low search scores, resulting in commonly retrieving irrelevant documents.
 \end{itemize}
 
-So, the approach to creating the document structure has been refined to enhance the granularity and searchability of the database content. Each concept in the database is individually indexed, as shown in Figure~\ref{fig_struct}, part C). Each concept within a database is treated as a separate document for indexing purposes. This is achieved by assigning a document number that uniquely combines the database ID and the concept's position within its list. The document number serves as a unique identifier for each concept, ensuring that each piece of data can be individually retrieved and queried. The content of each document, represented by the concept itself, allows for reflecting the importance of concepts within the database, facilitating more precise and efficient retrieval of information.
-
-
-\subsubsection{Database Searching Process}
-\label{searchprocess}
-
-When the {\ir} system receives a query in free text, the system processes it using {\nlp} techniques applied to the query to enhance the search performance. These processes can include tokenization (splitting the text into individual terms or words), stemming or lemmatization (reducing words to their base form), and stop-word removal (eliminating common words that do not contribute to the search). Standardizing the text and transforming the query into important terms improves the match between the queries and indexed concepts as documents.
+So, the approach to creating the document structure has been refined to enhance the granularity and searchability of the database content. Each concept in the database is individually indexed, as shown in Figure~\ref{fig_struct}, part C). Each cozing the text and transforming the query into important terms improves the match between the queries and indexed concepts as documents.
 
 After processing the query, the {\bm} algorithm evaluates the relevance of each concept within the database to the query, assigning a score that reflects its relevance. The method returns the 100 most relevant results and scores each concept. Then, these concepts are grouped by databases. The total relevance score for each database is calculated by summing the scores of its concepts. This comprehensive compilation process highlights the most relevant concepts. To ensure that only the most pertinent databases are presented to the user, the engine applies a predefined threshold to filter out databases with lower cumulative scores. The remaining results are then sorted in descending order of their total scores, prioritizing those with the highest relevance to the query.
 
@@ -325,6 +325,7 @@ The integration with the Chain Tool facilitates the application of prompt engine
 Langflow\footnote{\url{https://github.com/langflow-ai/langflow}} is another open-source tool to build {\ai} applications. It is also a low-code tool that allows the integration of {\llm} and {\ai} components. This tool simplifies the process of creating flows, such as chatflows. Users can drag components from the sidebar onto the canvas and connect them to begin building their applications. The platform allows for exploration by editing prompt parameters, grouping components into high-level components, and creating custom components. This intuitive interface makes Langflow a powerful tool for developing {\llm}-based applications.
 
 % tbd: o que meto mais? não tenho implementação
+An implementation was tested, but without much success due to some of the tool's limitations, such as the lack of basic functionalities like a conversational agent.
 
  
 

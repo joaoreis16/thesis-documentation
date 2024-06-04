@@ -1,5 +1,5 @@
 \chapter{Results and Discussion}
-\label{chapter:results}
+\label{chapter:RD}
 
 
 % meter na intro:
@@ -14,18 +14,20 @@ The databases in the {\ehden} Catalogue are supported by 38 unique attributes fo
 
 The presented system aims to optimize the process of identifying and selecting relevant observational databases for medical research. The tool simplifies the discovery of medical observational databases in the EHDEN network, addressing the challenges of navigating through the vast and varied catalogues of medical databases. It also tackles the challenge of defining a cohort study in the ATLAS platform by improving the tool to allow for a more conversational approach to defining and providing a cohort query as an outcome.
 
-\hl{This section ...}
-
+This section details the results about the {\ir} component, the {\llm} implementation and the conversational query builder.
 
 
 \section{IR methods}
 
-mas que resultados?
+
+% Como não temos data labeled para verificar e avaliar os resultados de IR para este caso, recorremos à avaliação no bioASQ, onde temos acesso a dados médicos
+
+% nos reconhecemos que não é a melhor abordagem, de que 
+
 
 
 \section{LLM Implementation: FlowiseAI vs Langflow}
 
-% 
 
 Langflow and FlowiseAI are similar tools that provide multiple tools that allow the building of different workflows, architectures, and integrations with external tools. The table \ref{flowise_vs_langflow} shows a comparison between these two frameworks, identifying the strengths and weaknesses of each one.
 
@@ -40,9 +42,9 @@ Langflow is a dynamic graph where each node is an executable unit, so the way of
 	\hline
 	\textbf{}                            & \textbf{FlowiseAI}                     & \textbf{Langflow}      \\ \hline
 	\multirow{3}{*}{\textbf{Strengths}}  & \hl{falta um aqui}	 & Flexible customization \\ \cline{2-3} 
-										 & Free access                            & Bug tracking           \\ \cline{2-3} 
+										 & Free access                            & better development environment          \\ \cline{2-3} 
 										 & Visually intuitive                     & Visually intuitive     \\ \hline
-	\multirow{3}{*}{\textbf{Weaknesses}} & Bug tracking                           & Missing basic features \\ \cline{2-3} 
+	\multirow{3}{*}{\textbf{Weaknesses}} & non development environment                          & Missing basic features \\ \cline{2-3} 
 										 & Limited documentation                  & Outdated documentation \\ \cline{2-3} 
 										 & Limited features                       & Controled access       \\ \hline
 	\end{tabular}%
@@ -75,7 +77,15 @@ Although these frameworks prove to be good options, they have limitations that d
 
 The integration of {\ir} techniques within a conversational user interface represents a significant advancement in the field of data discovery~\cite{ritzel2019development}. Its ability to return a list of databases that are pertinent to the user's query not only saves time but also introduces a level of precision in the selection process that was previously unattainable through manual methods. The integration of generative {\ai} helps the conversation be more human-like. % tbd: adicionar mais coisas aqui!!! 
 
-Researcher can establish questions like ``What is the prevalence of omeprazole?'', and the tool responds with the most relevant databases that may have the information to answer such questions. Then, the research can analyze this information in more detail, or refine the question. % tbd: se continuar a conversa consegue definir um cohort para o seu estudo através da conversa
+Researcher can establish questions like ``We want to conduct a characterization study with main research topic about Covid-19.'', and the tool responds with the most relevant databases that may have the information to answer such questions. Then, the research can analyze this information in more detail, or refine the question. Figure \ref{fig_chat1} shows a conversational search assistant interaction.
+
+\begin{figure}[H]
+    \includegraphics[width=\textwidth]{figs/chapter5/chat1_blur.png}
+    \centering
+    \caption{Conversation to get the most suitable databases.}
+    \label{fig_chat1}
+\end{figure}
+
 
 Therefore, the method of simplifying the discovery of observational databases has an impact on the speed and quality of research efforts. Also, the tool has the potential to level the playing field by providing less experienced individuals with access to complex databases that they might otherwise overlook or find too challenging to navigate. However, the interaction with the proposed tool is somewhat restricted due to the data content. Users may expect to have deep insights into the databases, but that may expose sensitive data. Future enhancements could include the integration of such information available only to users with access to them, which will include the use of Rule-Based Access Control~(RBAC) mechanisms over this tool.
 
@@ -83,5 +93,27 @@ Therefore, the method of simplifying the discovery of observational databases ha
 
 \section{Query Builder}
 
+% em relação  ao query builder, do cohort todo foi apenas definido o seu concept set e a observation window, uma vez que o resto do cohort mostrou ser complexo para o tempo definido para este projeto. Acredito que com mais tempo o cohort seja definido.
 
-?????
+% Contudo, o sistema atual mostra que consegue definir um concept set com sucesso e criar um cohort com o respetivo cocnept set e observation window com sucesso também. Com a funionalidade de enviar diretamente para a instância do ATLAS, estes avanços mostram ser promissores na eficacia e no time-saving.
+
+The Query Builder component of the system is an essential part developed to simplify the process of making cohort definitions on ATLAS platform. The present version allows users to specify concept sets and observation windows for a cohort. Concept set, on the other hand, is what defines study group's overall health outcomes such as relevant medical conditions, procedures and medications while observation window means time frame in which patients' data will be observed. The following figures, Figure \ref{fig_chat2} and Figure \ref{fig_chat3}, shows the continuation of the conversation in Figure \ref{fig_chat1}, where the concept set and cohort are defined, respectively.
+
+\begin{figure}[H]
+    \includegraphics[width=\textwidth]{figs/chapter5/chat2_blur.png}
+    \centering
+    \caption{Continuing the conversation to define the Concept Set.}
+    \label{fig_chat2}
+\end{figure}
+
+\begin{figure}[H]
+    \includegraphics[width=\textwidth]{figs/chapter5/chat3.png}
+    \centering
+    \caption{Continuing the conversation to define the cohort.}
+    \label{fig_chat3}
+\end{figure}
+
+
+One of the significant developments made on the Query Builder is its ability to send defined cohort directly to an instance of ATLAS platform. Being able to send these definitions directly to the ATLAS instance points out considerable improvements towards efficiency as well as time-saving for medical researchers. This shortcut process enhances research quality, reduces errors, and accelerates its pace, facilitating data manipulation for medical researchers dealing with complex observational data.
+
+However, these advancements still face some difficulties. Full cohort definition procedure includes additional parameters like inclusion/exclusion criteria, cohort exit criteria, and cohort attributes that were not fully covered so as not to surpass project's timeline. Some improvements would center on integrating these attributes, enabling the system to better assist researchers in defining their cohorts in their entirety.
