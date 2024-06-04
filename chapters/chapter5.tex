@@ -25,9 +25,20 @@ This section details the results about the {\ir} component, the {\llm} implement
 % nos reconhecemos que não é a melhor abordagem, de que 
 
 
+% como jsutificar o uso de BM25
+% como temos a certeza que os resultados estão certos
+
+
+NÃO TENHO INFORMAÇÕES, F1 SCORE 
+NÃO TEMOS DATASET ANOTADO
+
+
+APESAR DE TERMOS BONS RESULTSADOS, MAS OS RESULTADOS SÃO COMPETITIVOS, NO ENTANTO OS RESULTADOS USAM PARCIALMENTE O BM25, NÓS NÃO TEMOS METRICAS.
+
+
+
 
 \section{LLM Implementation: FlowiseAI vs Langflow}
-
 
 Langflow and FlowiseAI are similar tools that provide multiple tools that allow the building of different workflows, architectures, and integrations with external tools. The table \ref{flowise_vs_langflow} shows a comparison between these two frameworks, identifying the strengths and weaknesses of each one.
 
@@ -37,19 +48,19 @@ Langflow is a dynamic graph where each node is an executable unit, so the way of
 
 \begin{table}[H]
 	\centering
-	\resizebox{0.8\textwidth}{!}{%
+	\resizebox{1\textwidth}{!}{%
 	\begin{tabular}{|c|c|c|}
 	\hline
-	\textbf{}                            & \textbf{FlowiseAI}                     & \textbf{Langflow}      \\ \hline
-	\multirow{3}{*}{\textbf{Strengths}}  & \hl{falta um aqui}	 & Flexible customization \\ \cline{2-3} 
-										 & Free access                            & better development environment          \\ \cline{2-3} 
-										 & Visually intuitive                     & Visually intuitive     \\ \hline
-	\multirow{3}{*}{\textbf{Weaknesses}} & non development environment                          & Missing basic features \\ \cline{2-3} 
-										 & Limited documentation                  & Outdated documentation \\ \cline{2-3} 
-										 & Limited features                       & Controled access       \\ \hline
+	\textbf{}                            & \textbf{FlowiseAI} (version 1.6.0)    & \textbf{Langflow} (version 0.6.10)      					\\ \hline
+	\multirow{3}{*}{\textbf{Strengths}}  & \hl{More features}	 				  & Flexible customization 					\\ \cline{2-3} 
+										 & Ollama integration                    & Better development environment          \\ \cline{2-3} 
+										 & Visually intuitive                     & Visually intuitive     					\\ \hline
+	\multirow{3}{*}{\textbf{Weaknesses}} & Limited development environment            & Missing basic features 					\\ \cline{2-3} 
+										 & Limited documentation                  & Outdated documentation 					\\ \cline{2-3} 
+										 & Limited features                       & Ollama integration missing      				\\ \hline
 	\end{tabular}%
 	}
-	\caption{Comparison between FlowiseAI and Langflow.}
+	\caption{Strengths and weaknesses comparison between FlowiseAI and Langflow.}
 	\label{flowise_vs_langflow}
 \end{table}
 
@@ -58,15 +69,15 @@ Starting with FlowiseAI, it is a great tool to build simple {\llm} applications,
 \begin{itemize}
 	\item \textbf{Limited Features} - There are tasks that require more costumization, and the costum tool that FlowiseAI provides is not enough for some of these tasks.
 	\item \textbf{Limited Documentation} - There are some tools that not have documentation, and it became difficult sometimes to explore a tool without information about it.
-	\item \textbf{Bug Tracking} - It is difficult to debug. When something in your system goes wrong, it is difficult to find what is causing that error. 
+	\item \textbf{Limited Development Environment} - It is difficult to debug. When something in your system goes wrong, it is difficult to find what is causing that error. 
 \end{itemize}
 
-Otherwise, Langflow offers features that either improve upon or address certain limitations of FlowiseAI, such as better features for bug tracking and more customization; for example, creating a complete custom component is possible. However, it also addresses some limitations:
+Otherwise, at the time of writing, Langflow offers features that either improve upon or address certain limitations of FlowiseAI, such as better features for development environment and more customization; for example, creating a complete custom component is possible. However, it also addresses some limitations:
 
 \begin{itemize}
-	\item \textbf{Missing basic features} - Lacked basic functionalities such as a conversational agent. Others, requires some 
+	\item \textbf{Missing basic features} - Lacked basic functionalities such as a conversational agent.
 	\item \textbf{Outdated documentation} - There was documentation of tools that didn't exist, and there wasn't documentation of some that did exist. 
-	\item \textbf{Controled Access} - Requires an API key to access tools and features of the platform. 
+	\item \textbf{Ollama integration missing} - For this project, it is important to have an integration with Ollama, because the {\llm} model is installed a local version of the Ollama framework.
 \end{itemize}
 
 

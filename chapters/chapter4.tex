@@ -21,19 +21,19 @@ To create a system that builds a query through a conversation with the user, the
 It is important to understand how this system interacts with the user and other external tools. Diagram \ref{fig_interaction} describes all the interactions between components. The interaction diagram all the interactions between components. The system components are the {\ir} API and the Chatbot Interface, which contains the User interface and the {\llm}. The {\ehden} Portal and ATLAS are external tools.
 
 \begin{figure}[H]
-  \includegraphics[width=\textwidth]{figs/chapter4/interaction_diagram1.png}
+  \includegraphics[width=\textwidth]{figs/chapter4/interaction_diagram2.png}
   \centering
   \caption{Interaction diagram between the user, the system components and external tools.}
   \label{fig_interaction}
 \end{figure}
 
-This diagram presents all the interactions of the conversational query builder, not only presenting the interactions detailed in the previous chapter \ref{chapter:ConversationalSearchAssistant} — steps 1) to 5) —, but also the interactions that will be performed during the detail of this chapter — steps 6) to 13).
+This diagram presents the interactions detailed in the previous chapter \ref{chapter:CSA} — steps 1 to 5 —, and all the interactions of the conversational query builder — steps 6 to 14 —, explained during this chapter.
 
-Reminding the interactions explained in chapter \ref{chapter:ConversationalSearchAssistant}, the {\ir} component receives the databases' metadata from the {\ehden} Portal — step 1) —, creating and indexing the documents. The user asks a question to the Chatbot Interface — step 2). Here, the {\llm} applies his task of identifying the research topic and sends it to the {\ir} API — step 3). The {\ir} API retrieves the most suitable databases for the research concept and sends the list of databases to the Chatbot Interface — step 4). The user can review the recommended databases in the catalogue in the {\ehden} Portal — step 5). 
+Reminding the interactions explained in chapter \ref{chapter:CSA}, the {\ir} component receives the databases' metadata from the {\ehden} Portal — step 1 —, creating and indexing the documents. The user asks a question to the Chatbot Interface — step 2. Here, the {\llm} applies his task of identifying the research topic and sends it to the {\ir} API — step 3. The {\ir} API retrieves the most suitable databases for the research concept and sends the list of databases to the Chatbot Interface — step 4. The user can review the recommended databases in the catalogue in the {\ehden} Portal — step 5. 
 
-Now, the query builder phase starts. As mentioned before, the cohort's construction requires a concept set. So, the {\ir} API, when sending the databases to the chatbot interface, also sends questions and then a form to help define the concept set — step 6). The user answers the question and fills out the form — step 7 —, in order to create the Concept Set that could be sent to the ATLAS instance — step 8). 
+Now, the query builder phase starts. As mentioned before, the cohort's construction requires a concept set. So, the {\ir} API, when sending the databases to the chatbot interface, also sends questions and then a form to help define the concept set — step 6. The user answers the question and fills out the form — step 7 —, in order to create the Concept Set that could be sent to the ATLAS instance — step 8. 
 
-The rest of the cohort will be determined now that the concept set is defined. The Concept Set is added to the cohort definition template  — step 9). The {\ir} API sends a question to complete a field needed for the cohort definition  — step 10). After the user answers to it  — step 11) —, the {\llm}, in the Chatbot Interface, analyses if the user message is an answer to the question. If so, the answer will be saved in the cohort template — step 12). Steps 10), 11), and 12) are repeated until the cohort template is complete. Finally, the {\ir} API sends the cohort definition to the ATLAS instance if the user requests it — step 13).
+The rest of the cohort will be determined now that the concept set is defined. The Concept Set is added to the cohort definition template  — step 9. The {\ir} API sends a question to complete a field needed for the cohort definition  — step 10. After the user answers to it  — step 11 —, the {\llm}, in the Chatbot Interface, analyses if the user message is an answer to the question. If so, the answer will be saved in the cohort template — step 12. Steps 10, 11, and 12 are repeated until the cohort template is complete. Finally, the API sends the cohort definition to the ATLAS instance if the user requests it — step 13 —, where they can review it in ATLAS — step 14.
 
 
 \subsection{Template and Questions}

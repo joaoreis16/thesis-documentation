@@ -42,6 +42,9 @@
 \newcommand{\MAPProgram}[1]{\def\ciMAPProgram{#1}}
 \newcommand{\GrantText}[2]{\def\ciGrantFirst{#1}\def\ciGrantSecond{#2}}
 \newcommand{\Acknowledgements}[1]{\def\ciAcknowledgements{#1}}
+
+\newcommand{\IA}[1]{\def\ciIA{#1}}
+
 \newcommand{\JuriMember}[2]{
     \listadd{\ciJuriMember}{\JURI{\JURICATEGORY}{#1}{#2}}
 }
@@ -653,6 +656,22 @@ do {\ua@textA} {\ua@textB} da Universidade de Aveiro{\yourSecondSupervisor}{\you
 \hbadness=10000
 
 \dolistloop{\ciAbstract}
+
+
+%
+% recognizing the use of AI tools page
+%
+%
+
+\ifdefined \ciIA
+\TitlePage
+  \vspace*{55mm}
+  \SECTION{\textbf{reconhecimento do uso de ferramentas IA~/\newline recognizing the use of AI tools}}
+       {\ciIA}
+
+\EndTitlePage
+\titlepage\ \endtitlepage % empty page
+\fi
 
 }
 
