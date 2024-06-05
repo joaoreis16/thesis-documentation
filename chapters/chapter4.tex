@@ -240,7 +240,7 @@ At the end, users can download the cohort definition by clicking on a button sen
 % dizer que atualmente o sistem só consegue definir a observation window
 % Observation Window: Users can specify the time period during which patients' data will be observed. This includes the start and end dates relative to an index event, ensuring the cohort's temporal accuracy.
 
-\section{ATLAS WebAPI}
+\section{Integration with OHDSI ATLAS}
 
 The {\ohdsi} community provides a WebAPI\footnote{https://github.com/OHDSI/WebAPI} that contains all {\ohdsi} RESTful services that can be called from {\ohdsi} applications. This API has many features, such as providing a centralized API for working with databases converted to the {\omop}, searching the {\omop} standardized vocabularies for medical concepts and constructing concept sets. Also, it allows defining cohort definitions for use in identifying patient populations.
 
@@ -250,7 +250,7 @@ This section explains the communication with the external tool ATLAS, emphasizin
 
 
 
-\subsection{Communications with ATLAS}
+\subsection{Communication with ATLAS WebAPI}
 
 When the user interacts with the tool and finalizes the definition of a concept set or cohort, the IR API facilitates seamless integration with the {\ohdsi} WebAPI by consuming specific endpoints designed for these tasks.
 
