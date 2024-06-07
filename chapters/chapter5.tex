@@ -8,7 +8,7 @@
 
 The current methods applied to help medical researchers discover databases of interest, specifically on the {\ehden} Portal, are based on graphical and tabular views. These methods also have shown good results when dealing with a low number of databases, or concepts. However, with the increase of the databases in the network, such techniques may not be the best option.
 
-The increasing number of databases in the {\ehden} methods leads to a comprehensive database catalogue with information from almost 200 databases in Europe. It spans across 28 countries and offers data concerning 256 million patients, derived from 34 distinct data sources \citet{reis2024chatbotlike}. 
+The increasing number of databases in the {\ehden} Portal leads to a comprehensive database catalogue with information from almost 200 databases in Europe. It spans across 28 countries and offers data concerning 256 million patients, derived from 34 distinct data sources \cite{reis2024chatbotlike}. 
 
 The databases in the {\ehden} Catalogue are supported by 38 unique attributes focused on exposing the core characteristics regarding data access. Additionally, the {\ehden} Network Dashboards, it is hosted a staggering 8,504,324 unique concepts to accurately represent the scope of each database. These concepts are organized into 25 domains, including but not limited to Measurement, Condition, Procedure, Observation, and Drug. This amount of data raised unseen challenges that this project tried to address with this new approach.
 
@@ -22,22 +22,30 @@ This section details the results about the {\ir} component, the {\llm} implement
 
 % Não tens um data set anotado, então participaste no BioASQ. No entanto, os resultados do BioASQ são referentes à tarefa toda, e não apenas à parte de IR.
 
-Though an annotated dataset was absent for this study, participation in the BioASQ challenge was an important event. Nevertheless, it is crucial to note that BioASQ results are not just about {\ir} but the whole task, detailed in the subsection \ref{bioasq}. 
+Participation in the BioASQ challenge was an opportunity to address the absence of an annotated dataset to validate the results of this study. Nevertheless, it is crucial to note that BioASQ results are not just about {\ir} but the whole task, detailed in the subsection \ref{bioasq}. Although the results of the whole task were not enough to validate the {\ir} results, BioAsq was important for gaining knowledge and experience in implementing the method.
 
 % Tinhas o dataset do EHDEN, explicas (ou ja explicaste) como é que ele era, e validaste manualmente com um conjunto de questões que faziam sentido, inspiradas no book of OHDSI. (ver o cap certo).
 % Explicas o metodo de validação. Consiste em selecionar uma doença, droga ou procedimento, e realizar o mesmo trabalho que os investigadores que fazem parte do EHDEN fazem. Ir ao Network dashboards, concept browser (citar o concept browser), e procurar pelos conceitos, e assim obter as BDs. Verificar se as que o chatbot te deu sao as mesmas que existem no CB com mais RCD.
 
-With no annotated datasets available, the {\bm} validation is done manually, using a question set that made sense to me, inspired by {\ohdsi}'s Book \cite{informatics_book_nodate}. This manual process consists in select a disease, drug, or procedure, and do the same manual process of a researcher who is part of {\ehden}. In simple terms, this process involves accessing the Network Dashboards tool of a specific database and going to the Concept Browser tab, where it is possible to search the concepts contained in that database. For each suggested database and its corresponding concepts identified by the search, this explained process is carried out to compare the concepts found on the Concept Browser with the concepts identified for each suggested database. As this comparison showed promising results, the {\bm} method became the method of choice.
+With no annotated datasets available, the {\bm} validation is done manually, using a question set that made sense to me, inspired by {\ohdsi}'s Book \cite{informatics_book_nodate}. This manual process consists in select a disease, drug, or procedure, and do the same manual process of a researcher who is part of {\ehden}. In simple terms, this process involves accessing the Network Dashboards tool of a specific database and going to the Concept Browser tab, where it is possible to search the concepts contained in that database. For each suggested database and its corresponding concepts identified by the search, this explained process is carried out to compare the concepts found on the Concept Browser with the concepts identified for each suggested database. The Figure \ref{fig_ir_sol} illustrates this process, where a search in a specific database is conducted using the term "covid". 
+
+\begin{figure}[H]
+    \includegraphics[width=\textwidth]{figs/chapter5/concept_browser.png}
+    \centering
+	\caption{Manual process to validate the IR results.}
+    \label{fig_ir_sol}
+\end{figure}
+
 
 % Não sendo possivel obter métricas..., identificamos uma possibilidade de no futuro anotar este dataset para ser possivel de identificar modelos de IR mais poderosos.
 
-It is recognized that this process is not the most valuable to validate the results. Since no metrics are available for validation, alignment with workflow in {\ehden} formed the basis of our validation approach. However, annotating the dataset may enable the identification of more powerful {\ir} models in the future.
+As this comparison showed promising results, the {\bm} method became the method of choice. It is recognized that this process is not the most valuable to validate the results. Since no metrics are available for validation, alignment with workflow in {\ehden} formed the basis of our validation approach. However, annotating the dataset may enable the identification of more powerful {\ir} models in the future.
 
 
 
 \section{LLM Implementation: FlowiseAI vs Langflow}
 
-Langflow and FlowiseAI are similar tools that provide multiple tools that allow the building of different workflows, architectures, and integrations with external tools. The table \ref{flowise_vs_langflow} shows a comparison between these two frameworks, identifying the strengths and weaknesses of each one.
+Langflow and FlowiseAI are similar tools that provide multiple tools that allow the building of different workflows, architectures, and integrations with external tools. The table \ref{flowise_vs_langflow} shows a comparison between these two frameworks, identifying the strengths and weaknesses of each one. It is crucial to note that, for this project implementation, integration with Ollama is necessary as the chosen LLM is installed in a local version of the Ollama framework. 
 
 FlowiseAI can run in air-gapped environments with local {\llm}, embeddings and vector databases. Also, it creates autonomous agents that can use tools to execute different tasks, such as Custom Tools, OpenAI Assistant, and Function Agent. FlowiseAI has proved to be a great solution to build an {\llm}-based chatbot. However, the FlowiseAI implementation become limited to address the requirements of the query builder. It became difficult to control the logic and the flow required by the query builder requirements. 
 
@@ -85,7 +93,7 @@ Although these frameworks prove to be good options, they have limitations that d
 
 The integration of {\ir} techniques within a conversational user interface represents a significant advancement in the field of data discovery~\cite{ritzel2019development}. Its ability to return a list of databases that are pertinent to the user's query not only saves time but also introduces a level of precision in the selection process that was previously unattainable through manual methods. The integration of generative {\ai} helps the conversation be more human-like. % tbd: adicionar mais coisas aqui!!! 
 
-Researcher can establish questions like ``We want to conduct a characterization study with main research topic about Covid-19.'', and the tool responds with the most relevant databases that may have the information to answer such questions. Then, the research can analyze this information in more detail, or refine the question. Figure \ref{fig_chat1} shows how this system can contribute to solve the problem, and how it can streamline the process of identifying the most suitable observational databases for medical research.
+Researcher can establish questions like ``We want to conduct a characterization study with main research topic about Covid-19.'', and the tool responds with the most relevant databases that may have the information to answer such questions. Then, the research can analyze this information in more detail, or refine the question. Figure \ref{fig_chat1} shows the evolution of the data discovery techniques, starting with a database catalog, which evolved to more graphical representations until the proposed chatbot-like search engine. Also, Figure \ref{fig_chat1} shows how this engine can streamline the process of identifying the most suitable observational databases for medical research, with a simple interaction.
 
 \begin{figure}[H]
     \includegraphics[width=0.8\textwidth]{figs/chapter5/evolution.pdf}

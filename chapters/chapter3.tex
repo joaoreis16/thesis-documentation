@@ -86,11 +86,9 @@ The combination of these four files gives the necessary information about the da
 
 \section{Information Retrieval}
 
-After understanding the data and its connections, an {\ir} component is crucial to this project to find the most suitable databases. This section discusses mainly the {\ir} methods tested, the process of indexing and seaching in the collection and an API-driven approach of the {\ir} component.
+After understanding the data and its connections, an {\ir} component is crucial to this project to find the most suitable databases. 
 
-% TODO: passar a introdução do bio asq para aqui!!!
-
-BioASQ\footnote{\url{http://bioasq.org/}} addresses the information access problem for biomedical experts by organizing challenges in biomedical semantic indexing and {\qa}. These challenges cover tasks such as hierarchical text classification, machine learning, {\ir}, {\qa} from texts and structured data, and multi-document summarization.
+To validate the {\ir} results, BioASQ\footnote{\url{http://bioasq.org/}} addresses the information access problem for biomedical experts by organizing challenges in biomedical semantic indexing and {\qa}. These challenges cover tasks such as hierarchical text classification, machine learning, {\ir}, {\qa} from texts and structured data, and multi-document summarization.
 
 This section outlines the {\ir} component, covering the BioASQ challenge and its relevance, the implementation of BM25 for indexing and searching databases, and the API-driven approach for integrating {\ir} functionalities with external systems.
 
@@ -98,15 +96,17 @@ This section outlines the {\ir} component, covering the BioASQ challenge and its
 \subsection{BioASQ Challenge 2024}
 \label{bioasq}
 
-% preciso explicar o que é o ieeta ou agora ou antes !!
-The BioASQ includes several challenges. The IEETA team was involved in 'BioASQ Task 12b', focusing on biomedical semantic {\qa}. This challenge aims to advance the development of systems capable of understanding and answering biomedical questions. Participants must respond to test questions using various types of information, including relevant concepts, articles, and snippets. The challenge involves 5,000 training questions with gold-standard answers and introduces 500 new test questions, all constructed by European biomedical experts. The challenge consists of two phases, A and B:
+
+To choose and validate the {\ir} method for this project, I joined the IEETA team and was involved in the 2024 edition of the BioASQ challenge. The BioASQ includes several challenges. The IEETA team was involved in 'BioASQ Task 12b', focusing on biomedical semantic {\qa}. This challenge aims to advance the development of systems capable of understanding and answering biomedical questions. Participants must respond to test questions using various types of information, including relevant concepts, articles, and snippets. The challenge involves 5,000 training questions with gold-standard answers and introduces 500 new test questions, all constructed by European biomedical experts. 
+
+The challenge consists of two phases, A and B:
 
 \begin{itemize}
     \item \textbf{Phase A}: Participants respond to released questions with relevant articles and snippets.
     \item \textbf{Phase B}: Participants provide exact and ideal answers based on questions and provide relevant articles and snippets.
 \end{itemize}
 
-To choose and validate the {\ir} method for this project, I joined the IEETA team and was involved in the 2024 edition of the BioASQ challenge. My task was implementing and testing some {\ir} methods to determine which performs better. This task allowed me to have more concrete results. The techniques used and tested were {\bm}, SPLADE\cite{formal_splade_2021}, and BGE-M3\cite{chen_bge_2024}. {\bm} has already been explained, so here's a brief overview of the other methods tested.
+My task was implementing and testing some {\ir} methods to determine which performs better. This task allowed me to have more concrete results. The techniques used and tested were {\bm}, SPLADE\cite{formal_splade_2021}, and BGE-M3\cite{chen_bge_2024}. {\bm} has already been explained, so here's a brief overview of the other methods tested.
 
 
 \subsubsection{SPLADE} 

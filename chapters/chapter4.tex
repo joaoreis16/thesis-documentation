@@ -1,7 +1,7 @@
 \chapter{Query Builder}
 \label{chapter:QB}
 
-This project has another goal: to enhance the conversational search assistant to collect additional information in order to provide a query as an outcome. The query is referred to as cohort definition in the ATLAS community, as detailed in section \ref{atlas}.
+This chapter focuses on the third goal of this system, defined in the Introduction (section \ref{objectives}): to enhance the conversational search assistant to collect additional information in order to provide a query as an outcome. The query is referred to as cohort definition in the ATLAS community, as detailed in section \ref{atlas}.
 
 The following section discusses the implementation of the query builder, as well as the decisions and strategies involved.
 
@@ -107,9 +107,9 @@ The ATLAS platform accepts the import of a cohort definition in a JSON format. T
 
 \subsection{Template Pointer}
 
-In a nutshell, the cohort questions file have the questions to complete the cohort template file. However, when exchanging messages with the user, tracking which questions must be asked and which question the user responded to is essential and also a problem.
+In a nutshell, the cohort questions file have the questions to complete the cohort template file. However, when exchanging messages with the user, tracking which questions must be asked and which question the user responded to is challenging problem.
 
-The solution to this issue is creating a pointer to a template key. The pointer retrieves a template key that should be completed with the user information. The pointer points to the same key until the user responds to the question associated with the pointer. Otherwise, it moves to the following template key.
+One possible solution is creating a pointer to a template key. The pointer retrieves a JSON key from the questions file (Code \ref{questions}). This key points to a question that needs to be asked to the user. When the user answers this question, it is easy to fill the template file (Code \ref{template}), because the pointer indicates which key of the template corresponds to the answer. When this occurs, the pointer moves to the next key in the questions file. If the user has not answered the associated question yet, the key stays in the same position.
 
 So, during the conversation, the pointer helps:
 
@@ -316,12 +316,12 @@ The interaction between various components and institutions is crucial for the e
   \label{fig_network}
 \end{figure}
 
-The {\ehden} Portal serves as the central hub, hosting the {\ehden} Chatbot Interface. Within this portal, the Network Dashboards provide metadata about various databases, which are crucial for the initial indexing and subsequent query building.
+Following the diagram in the Figure \ref{fig_network} as an example, the {\ehden} Portal serves as the central hub, hosting the {\ehden} Chatbot Interface. Within this portal, the Network Dashboards provide metadata about various databases, which are crucial for the initial indexing and subsequent query building.
 
 The {\ehden} Chatbot Interface interacts directly with the user, guiding them through the process of defining concept sets and cohorts. It communicates with the IR API to retrieve relevant questions and forms, which are then presented to the user for completion.
 
 The {\ir} API acts as a mediator between the user inputs received via the Chatbot Interface and the ATLAS platform. It processes user queries, retrieves relevant database metadata, and prepares the necessary JSON structures for Cohort and Concept Set definitions.
 
-Multiple institutions interact with the {\ehden} Portal {\ir} API, each with its own Chatbot Interface connected to its ATLAS instance. Institution A and Institution B represent different organizational units that utilize the {\ehden} infrastructure for their research needs. The institutions' Chatbot Interfaces communicate with their respective ATLAS instances and the {\ehden} Portal, ensuring data consistency and integration.
+Multiple institutions, with its own Chatbot Interface, can consume the {\ir} API of the {\ehden} Portal. Institution A and Institution B represent different institutions that utilize the {\ehden} infrastructure for their research needs. The institutions' Chatbot Interfaces communicate with their respective ATLAS instances and the {\ehden} Portal, ensuring data consistency and integration.
 
 Institutions A and B, through their Chatbot Interfaces, interact with the {\ir} API and ATLAS to perform similar tasks. Each institution can define its cohorts and concept sets, leveraging the centralized capabilities of the {\ehden} infrastructure while maintaining individual ATLAS instances for specific research activities.
