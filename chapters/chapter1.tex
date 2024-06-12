@@ -12,9 +12,9 @@
 
 In the field of medical research, the lack of sufficient samples to conduct robust and statistically significant studies is still a challenge~\cite{rogers2021clinical}. This problem has more impact in studies involving rare diseases, specific patient subgroups, or when analyzing rare outcomes in common diseases~\cite{topaloglu2018using}. This lack of information can lead to underpowered studies, limiting the reliability and generalizability of the research findings~\cite{lombardo2023electronic}. Furthermore, the limitations imposed by insufficient data are significant since individual healthcare institutions often have limited patient populations, which restricts the diversity and volume of data available for research~\cite{rogers2021clinical,lombardo2023electronic}.
 
-Multicentre studies are a possible strategy to overcome the issue of insufficient samples used in a study~\cite{almeida2021methodology}. By aggregating data from multiple sources, researchers may increase the number of participants and the population diversity~\cite{kaelber2008research}. Although this solution seems to solve the problem, it raises more challenges, namely the heterogeneity between databases~\cite{pereira2023querying} and privacy issues~\cite{almeida2022secure}. In other words, databases contain different types, formats, and/or sources, which are often not compatible with each other. The existence of these diverse data is not very effective, as they cannot be easily shared or integrated with other data.
+Multicentre studies are a possible strategy to overcome the issue of insufficient samples used in a study~\cite{almeida2021methodology}. By aggregating data from multiple sources, researchers may increase the number of participants and the population diversity~\cite{kaelber2008research}. Although this solution seems to solve the problem, it raises more challenges, namely related to the interoperability between databases~\cite{pereira2023querying} and privacy issues~\cite{almeida2022secure}. In other words, databases contain different types, formats, and/or sources, which are often not compatible with each other. The existence of these diverse data is not very effective, as they cannot be easily shared or integrated with other data.
 
-To address the challenge of data heterogeneity in multi-institutional studies, the {\ohdsi} initiative proposed some strategies. {\ohdsi} is a collaborative network that aims to improve health by empowering a community to collaboratively generate evidence that promotes better health decisions and better care~\cite{hripcsak2016characterizing}. A key contribution of {\ohdsi} is the development of standardized data models and tools that facilitate the harmonization of observational health data~\cite{park2023exploring}. The most notable is the {\omop}. The {\omop} standardizes the format and content of clinical data, enabling data from different sources to be integrated and analyzed cohesively~\cite{hripcsak2016characterizing,almeida2021two}. The {\ohdsi} tools enable researchers to effectively overcome the barriers posed by data heterogeneity since the data would be mapped into the {\omop} format. This procedure also enhances the reproducibility and scalability of research, contributing to more reliable and impactful healthcare insights~\cite{reich2024ohdsi}.
+To address the challenge of data heterogeneity in multi-institutional studies, the \textbf{{\ohdsi}}\footnote{\url{https://www.ohdsi.org/}} initiative proposed some strategies. {\ohdsi} is a collaborative network that aims to improve health by empowering a community to collaboratively generate evidence that promotes better health decisions and better care~\cite{hripcsak2016characterizing}. A key contribution of {\ohdsi} is the development of standardized data models and tools that facilitate the harmonization of observational health data~\cite{park2023exploring}. The most notable is the {\omop}. The {\omop} standardizes the format and content of clinical data, enabling data from different sources to be integrated and analyzed cohesively~\cite{hripcsak2016characterizing,almeida2021two}. The {\ohdsi} tools enable researchers to effectively overcome the barriers posed by data heterogeneity since the data would be mapped into the {\omop} format. This procedure also enhances the reproducibility and scalability of research, contributing to more reliable and impactful healthcare insights~\cite{reich2024ohdsi}.
 
 
 \section{Motivation}
@@ -23,11 +23,11 @@ To address the challenge of data heterogeneity in multi-institutional studies, t
 % 3º Problema: Ok isso é giro, mas algumas bd/conceitos são dispensos sendo dificil chegar à query que se pretende para o estudo. e este é o desafio
 
 
-Solving the heterogeneity issues simplified the growth of multi-institutional observational databases. This raised new opportunities and challenges, considering multicentre studies~\cite{almeida2023clinical}. One of the main challenges is the selection of the most appropriate databases for conducting a study. However, there are already some solutions to address that problem~\cite{almeida2024montra2}. 
+Solving the heterogeneity issues simplified the growth of multi-institutional observational databases. This raised new opportunities and challenges, considering multicentre studies~\cite{almeida2023clinical}. One of the main challenges is the selection of the most appropriate databases for conducting a study. However, there are already some solutions to address that problem~\cite{almeida2024montra2, silva2018montra, oliveira2019emif}. 
 
-The {\ehden}project is one of several initiatives to simplify multicentre studies. In this project, the consortium members helped European data providers migrate their databases to the {\omop} data schema and publish their metadata in a web catalogue. This comprehensive catalogue offers researchers a centralized platform to explore the variety of available data sources~\cite{almeida2023fair}. With the increasing number of data partners, selecting databases only using metadata becomes complex, which leads to the creation of the {\ehden} Network Dashboards tool. It gives statistical and aggregated information about the databases available on the network. Researchers get more context to select, manually, the databases that satisfy their study requirements.
+The {\ehden} project is one of several initiatives to simplify multicentre studies. In this project, the consortium members helped European data providers migrate their databases to the {\omop} data schema and publish their metadata in a web catalogue. This comprehensive catalogue offers researchers a centralized platform to explore the variety of available data sources~\cite{almeida2023fair}. With the increasing number of data partners, selecting databases only using metadata becomes complex, which leads to the creation of the {\ehden} Network Dashboards tool\footnote{\url{https://github.com/EHDEN/NetworkDashboards}}. It gives statistical and aggregated information about the databases available on the network. Researchers get more context to select, manually, the databases that satisfy their study requirements.
 
-Despite these improvements, the catalogue now hosts the information of more than 150 databases. Researchers often spend considerable time and effort to find the most suitable database for their research criteria. The current methods of database discovery often rely on manual search and evaluation, which can be time-consuming and subject to human error, impacting the quality and efficiency of their research. For these reasons, the challenge of efficiently discovering the most appropriate databases for a specific study returned. 
+Despite these improvements, the catalogue now hosts the information of more than 200 databases. Researchers often spend considerable time and effort to find the most suitable database for their research criteria. The current methods of database discovery often rely on manual search and evaluation, which can be time-consuming and subject to human error. For these reasons, the challenge of efficiently discovering the most appropriate databases for a specific study. 
 
 
 
@@ -39,20 +39,18 @@ Despite these improvements, the catalogue now hosts the information of more than
 % 2. developed a chat-like search engine to help discover the best databases for a study
 % 3. enhance the engine to collect additional information to provide a query as outcome.
 
-With the increasing adoption of chatbot-like tools, the main objective of this work is to develop a conversational query builder to help medical researchers define their study objectives. This approach offers a more personalized and efficient method of database discovery. Researchers can interact with the chatbot conversationally, specifying their needs and receiving tailored recommendations. 
-
-To achieve this objective, the present dissertation seeks to answer the following research question:
+With the increasing adoption of chatbot-like tools, the main objective of this work is to develop a conversational query builder to help medical researchers define their study objectives. This approach offers a more personalized and efficient method of database discovery. Researchers can interact with the chatbot conversationally, specifying their needs and receiving tailored recommendations. To achieve this objective, the present dissertation seeks to answer the following research question:
 
 \begin{quote}
-    \small\textit{How can a conversational query builder support medical researchers when defining a study protocol?}
+    \small\textit{How can a conversational query builder support medical researchers when defining an observational study?}
 \end{quote}
 
 To answer this question, the work can be addressed by focusing on different aspects, namely by dividing it into three stages:
 
 \begin{enumerate}
-    \item Study of state-of-the-art: i) methodologies to build a conversational user interface, ii) procedures to retrieve the databases of most interest, and iii) explore the definition of a study protocol;
-    \item Developed a chat-like search engine to help discover the best databases for a study;
-    \item Enhance the engine to collect additional information to provide a query as an outcome. 
+    \item Study of state-of-the-art: i) methodologies to build a conversational user interface, ii) procedures to retrieve the databases of most interest, and iii) explore the definition of an observational study;
+    \item Develop a chat-like search engine to help discover the best databases for a study;
+    \item Enhance the engine to suport the cohort definiton for observational study. 
 \end{enumerate}
 
 
@@ -62,35 +60,28 @@ To answer this question, the work can be addressed by focusing on different aspe
 
 This dissertation is organized into several sections, each designed to build upon the previous one to provide a comprehensive understanding of the project and its findings. The document starts with a introduction to provide background information, outlining the motivation, the problem and the proposed solution.
 
-The introduction is followed by Chapter \ref{chapter:SA}, which delves into the state of the art. This chapter reviews the current literature and technologies relevant to the study. It aims to explore areas such as information retrieval procedures to access the most appropriate databases, large language models, methodologies to build a conversational user interface, interactive query builders, and the definition of a study protocol.
+The introduction is followed by Chapter~\ref{chapter:SA}, which delves into the state of the art. This chapter reviews the current literature and technologies relevant to the study. It aims to explore areas such as information retrieval procedures to access the most appropriate databases, large language models, methodologies to build a conversational user interface, interactive query builders, and the definition of a study protocol.
 
-The Chapter \ref{chapter:CSA} and Chapter \ref{chapter:QB} describe the implementation phase. The Conversational Search Assistant, described in Chapter \ref{chapter:CSA}, aims to develop a chat-like search engine to help discover the best databases for a study. The Query Builder, outlined in Chapter \ref{chapter:QB}, explains how to enhance the engine to collect additional information to provide a query as an outcome.
+The Conversational Search Assistant, described in Chapter~\ref{chapter:CSA}, aims to develop a chat-like search engine to help discover the best databases for a study. The Query Builder, outlined in Chapter~\ref{chapter:QB}, explains how to enhance the engine to collect additional information to provide a query as an outcome.
 
-This is followed by the Results and Discussion in Chapter \ref{chapter:RD}. It presents the findings of the study, analyzing and interpreting the results in the context of the research objectives.
-
-To conclude the dissertation, the Chapter \ref{chapter:Conclusions} summarizes the findings and contributions of the project to this field.
+Chapter~\ref{chapter:RD} presents the findings of the study, analyzing and interpreting the results in the context of the research objectives. To conclude the dissertation, the Chapter~\ref{chapter:Conclusions} summarizes the findings and contributions of the project to this field.
 
 
 \section{Contributions}
 
-\noindent \textbf{Papers}
+This dissertation led to scientific contributions during its development due to its promising solution for a real problem. The following are the conference papers and posters that originated from this dissertation:
+
+\noindent \textbf{Conference}
 
 \begin{itemize}
-    \item ``Using Flowise to Streamline Biomedical Data Discovery and Analysis''\cite{reis2024flowise}, 22nd IEEE Mediterranean Electrotechnical Conference (MELECON) 2024.
-    \item ``A chatbot-like platform to enhance the discovery of OMOP CDM databases''\cite{reis2024chatbotlike}, 34th Medical Informatics Europe (MIE) Conference 2024.
-    \item ``HealthDBFinder: a question-answering task for health database discovery''\cite{almeida2024healthdbfinder}, 37th IEEE International Symposium on Computer-Based Medical Systems (CBMS) 2024.
+    \item ``Using Flowise to Streamline Biomedical Data Discovery and Analysis'', 22nd IEEE Mediterranean Electrotechnical Conference (MELECON), 2024~\cite{reis2024flowise}.
+    \item ``A chatbot-like platform to enhance the discovery of OMOP CDM databases'', 34th Medical Informatics Europe (MIE) Conference, 2024~\cite{reis2024chatbotlike}.
+    \item ``HealthDBFinder: a question-answering task for health database discovery'', 37th IEEE International Symposium on Computer-Based Medical Systems (CBMS), 2024~\cite{almeida2024healthdbfinder}.
 \end{itemize}
 
 
 \noindent \textbf{Posters}
 
 \begin{itemize}
-    \item OHDSI Collaborators Showcase Submission Form 2024.
-\end{itemize}
-
-
-\noindent \textbf{Presentations}
-
-\begin{itemize}
-    \item ``Using Flowise to Streamline Biomedical Data Discovery and Analysis''\cite{reis2024flowise} at 22nd IEEE Mediterranean Electrotechnical Conference (MELECON) 2024.
+    \item ``A Chatbot to help discover OMOP DCM databases within EHDEN Network'', OHDSI Europe Symposium, 2024.
 \end{itemize}

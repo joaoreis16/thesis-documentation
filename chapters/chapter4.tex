@@ -1,9 +1,9 @@
 \chapter{Query Builder}
 \label{chapter:QB}
 
-This chapter focuses on the third goal of this system, defined in the Introduction (section \ref{objectives}): to enhance the conversational search assistant to collect additional information in order to provide a query as an outcome. The query is referred to as cohort definition in the ATLAS community, as detailed in section \ref{atlas}.
+{\ohdsi} provides diverse open-source tools to support various use cases on observational patient-level data. Among these tools is ATLAS, a software tool designed to help researchers conduct observational studies. ATLAS includes a feature for creating study cohorts, allowing researchers to define groups of people based on their specific research questions.
 
-The following section discusses the implementation of the query builder, as well as the decisions and strategies involved.
+This chapter is dedicated to the third goal of the system: enhancing the conversational search assistant to define and provide an observational study as an outcome. \hl{The observational study is referred to as a cohort in the ATLAS community.} The conversational query builder should assist researchers in defining their cohorts within ATLAS. The following section discusses the implementation of the query builder, as well as the decisions and strategies involved.
 
 
 \section{Implementation Strategy}
@@ -13,32 +13,32 @@ The following section discusses the implementation of the query builder, as well
 %   pointer para o campo a ser analisado
 %   divisão do query builder em 2 partes: concept set and cohort definition
 
-To create a system that builds a query through a conversation with the user, the first step is to get a cohort definition generated in the ATLAS platform after implementing an experimental case. Understanding how the cohort is built is crucial at this stage. The section \ref{atlas} details defining a cohort. The definition of a cohort requires the definition of a concept set. So, the strategy of the cohort construction is focused first on creating the concept set and then on the rest of the cohort's parameters.
+The definition of a cohort requires the definition of a concept set. The strategy of the cohort construction is focused first on creating the concept set and then on the remaining of the cohort's parameters.
 
 
 \subsection{Interaction between Components}
 
-It is important to understand how this system interacts with the user and other external tools. Diagram \ref{fig_interaction} describes all the interactions between components. The interaction diagram all the interactions between components. The system components are the {\ir} API and the Chatbot Interface, which contains the User interface and the {\llm}. The {\ehden} Portal and ATLAS are external tools.
+The conversational query builder involves a sequence of steps and interactions to achieve the desired outcome. Figure~\ref{fig_interaction} describes all the interactions between components and the user. The system components are the {\ir} API and the chatbot user interface. The {\ehden} Portal and ATLAS are external tools.
 
 \begin{figure}[H]
   \includegraphics[width=\textwidth]{figs/chapter4/interaction_diagram2.png}
   \centering
-  \caption{Interaction diagram between the user, the system components and external tools.}
+  \caption[Interaction diagram between components]{Interaction diagram between the user, the system components and external tools.}
   \label{fig_interaction}
 \end{figure}
 
-This diagram presents the interactions detailed in the previous chapter \ref{chapter:CSA} — steps 1 to 5 —, and all the interactions of the conversational query builder — steps 6 to 14 —, explained during this chapter.
+\hl{This diagram illustrates the interactions outlined in the previous} Chapter~\ref{chapter:CSA} from steps 1 to 5. Additionally, it depicts all the interactions of the conversational query builder, steps 6 to 14, as explained in this chapter.
 
-Reminding the interactions explained in chapter \ref{chapter:CSA}, the {\ir} component receives the databases' metadata from the {\ehden} Portal — step 1 —, creating and indexing the documents. The user asks a question to the Chatbot Interface — step 2. Here, the {\llm} applies his task of identifying the research topic and sends it to the {\ir} API — step 3. The {\ir} API retrieves the most suitable databases for the research concept and sends the list of databases to the Chatbot Interface — step 4. The user can review the recommended databases in the catalogue in the {\ehden} Portal — step 5. 
+Reminding the interactions explained in Chapter~\ref{chapter:CSA}, the {\ir} component receives the databases' metadata from the {\ehden} Portal (step 1), creating and indexing the documents. In step 2, the user asks a question to the Chatbot Interface. The {\llm} applies his task of identifying the research topic and sends it to the {\ir} API (step 3). The {\ir} API retrieves the most suitable databases for the research concept and sends the list of databases to the Chatbot Interface (step 4). The user can review the recommended databases in the catalogue in the {\ehden} Portal, as the last step of this stage.
 
-Now, the query builder phase starts. As mentioned before, the cohort's construction requires a concept set. So, the {\ir} API, when sending the databases to the chatbot interface, also sends questions and then a form to help define the concept set — step 6. The user answers the question and fills out the form — step 7 —, in order to create the Concept Set that could be sent to the ATLAS instance — step 8. 
+The query builder phase starts. As mentioned before, the cohort's construction requires a concept set. So, the {\ir} API, when sending the databases to the chatbot interface, also sends questions and then a form to help define the concept set (step 6). The user answers the question and fills out the form in order to create the concept set that could be sent to the ATLAS instance. This describes the steps 7 and 8 of the Figure~\ref{fig_interaction}. 
 
-The rest of the cohort will be determined now that the concept set is defined. The Concept Set is added to the cohort definition template  — step 9. The {\ir} API sends a question to complete a field needed for the cohort definition  — step 10. After the user answers to it  — step 11 —, the {\llm}, in the Chatbot Interface, analyses if the user message is an answer to the question. If so, the answer will be saved in the cohort template — step 12. Steps 10, 11, and 12 are repeated until the cohort template is complete. Finally, the API sends the cohort definition to the ATLAS instance if the user requests it — step 13 —, where they can review it in ATLAS — step 14.
+The rest of the cohort is determined now that the concept set is defined. In step 9, the concept set is added to the cohort definition template. The {\ir} API sends a question to complete a field needed for the cohort definition. After the user answers to it, the {\llm}, in the Chatbot Interface, analyses if the user message is an answer to the question. If so, the answer is saved in the cohort template. These are steps 10, 11, and 12, which are repeated until the cohort template is complete. Finally, the API sends the cohort definition to the ATLAS instance if the user requests it, where they can review it in ATLAS. This describes the final steps, 13 and 14. 
 
 
 \subsection{Template and Questions}
 
-The ATLAS platform accepts the import of a cohort definition in a JSON format. Two crucial JSON files are needed to generate this JSON object, personalized with the user's requirements information. One is the template for users to fill out during the conversation {\small\normalfont(\texttt{cohort\_template.json})}, shown in Code \ref{template}. This template is an empty cohort definition JSON structure. The other file, Code \ref{questions}, is the questions associated with each key field of the template {\small\normalfont(\texttt{cohort\_questions.json})}. Each question should be simple and efficient so the medical researcher can respond to it, and its response is the value of that key. Also, each question in the template is manually inserted in the JSON file.  
+The ATLAS platform accepts a cohort definition in a JSON format. Two crucial JSON files are needed to generate this JSON object, personalized with the user's requirements information. One is the template for users to fill out during the conversation {\small\normalfont(\texttt{cohort\_template.json})}, shown in Code Snippet~\ref{template}. This template is an empty cohort definition JSON structure. The other file, Code Snippet~\ref{questions}, contains the questions associated with each key field of the template {\small\normalfont(\texttt{cohort\_questions.json})}. Each question should be simple and efficient so the medical researcher can respond to it, and its response is the value of that key. Also, each question in the template is manually inserted in the JSON file.  
 
 \begin{listing}[H]
   \begin{minted}[breaklines]{json}
@@ -80,7 +80,7 @@ The ATLAS platform accepts the import of a cohort definition in a JSON format. T
   }
 
   \end{minted}
-\caption{The cohort template file {\small\normalfont(\texttt{cohort\_template.json})}.}
+\caption[The cohort template file]{The cohort template JSON file {\small\normalfont(\texttt{cohort\_template.json})}.}
 \label{template}
 \end{listing}  
 
@@ -99,7 +99,7 @@ The ATLAS platform accepts the import of a cohort definition in a JSON format. T
     }
 
   \end{minted}
-  \caption{The cohort questions file {\small\normalfont(\texttt{cohort\_questions.json})}.}
+  \caption[The cohort questions file]{The cohort questions file {\small\normalfont(\texttt{cohort\_questions.json})}.}
   \label{questions}
 \end{listing}
 
@@ -107,11 +107,15 @@ The ATLAS platform accepts the import of a cohort definition in a JSON format. T
 
 \subsection{Template Pointer}
 
-In a nutshell, the cohort questions file have the questions to complete the cohort template file. However, when exchanging messages with the user, tracking which questions must be asked and which question the user responded to is challenging problem.
 
-One possible solution is creating a pointer to a template key. The pointer retrieves a JSON key from the questions file (Code \ref{questions}). This key points to a question that needs to be asked to the user. When the user answers this question, it is easy to fill the template file (Code \ref{template}), because the pointer indicates which key of the template corresponds to the answer. When this occurs, the pointer moves to the next key in the questions file. If the user has not answered the associated question yet, the key stays in the same position.
+% é preciso haver um controlo do que já foi respondido e do que falta responder.
+% para isso, os 2 ficheiros foram criados
+% e existe um pointer que aponta para a parte do template que falta responder. o pointer segue sequencialmente as keys do ficheiro das questões.
 
-So, during the conversation, the pointer helps:
+
+\hl{The cohort questions file has the questions to complete the cohort template file. There is a pointer that tracks which questions have been answered and which ones still need a response. The template pointer sequentially follows the keys in the questions file.} The pointer retrieves a JSON key from the questions file (Code Snippet~\ref{questions}). This key points to a question that needs to be asked to the user. When the user answers this question, it is easy to fill the template file (Code Snippet~\ref{template}), because the pointer indicates which key of the template corresponds to the answer. When this occurs, the pointer moves to the next key in the questions file. If the user has not answered the associated question yet, the key stays in the same position.
+
+During the conversation, the pointer helps:
 
 \begin{itemize}
   \item To determine the appropriate question to ask the user.
@@ -124,25 +128,21 @@ This solution keeps track of the user's responses and dynamically updates the te
 
 \section{Concepts Sets}
 
-In Code \ref{template}, a cohort is defined by multiple JSON fields. One of these fields is the concepts set (the cohort template key is '\textit{ConceptSets}'), which is a list of concepts required to meet the study requirements of the researcher. In order to properly define a cohort, the concept set must be established first. 
-
-A concept set consists of standardized medical terms that define clinical elements like diseases, drugs, and procedures\cite{informatics_chapter_nodate}. Therefore, our strategy is to define the concept set in the conversation before moving on to the remaining fields of the cohort template.
-
-This section details the creation of the concept set needed for the cohort definition later.
+In Code Snippet~\ref{template}, a cohort is defined by multiple JSON fields. One of these fields is the concepts set (the cohort template key is ``\textit{ConceptSets}''), which is a list of concepts required to meet the study requirements of the researcher. In order to properly define a cohort, the concept set must be established first. Therefore, our strategy is to define the concept set in the conversation before moving on to the remaining fields of the cohort template.
 
 
 \subsection{Expression}
 A concept set expression is comprised of a list of concepts with the following attributes:
 
 \begin{itemize}
-  \item \textbf{concept}: Definition of a concept, using data contained in the concepts file  {\small\normalfont(\texttt{concepts.csv})} (section \ref{data}).
+  \item \textbf{concept}: Definition of a concept, using data contained in the concepts file ({\small\normalfont\texttt{concepts.csv}} as described on Section~\ref{data}).
   \item \textbf{isExcluded}: Exclude the concept from the concept set.
   \item \textbf{includeDescendants}: Add all of descendants of a concept, with it also included.
   \item \textbf{includeMapped}: Allow the search for non-standard concepts.
 \end{itemize}
 
 
-The JSON code \ref{conceptset} below represents a concept definition within a concept set expression. This example is not real information; it is just to define a concept set visually.
+The JSON Code Snippet~\ref{conceptset} represents a concept definition within a concept set expression. This example is not real information; it is just to define a concept set visually.
 
 \begin{listing}[H]
   \begin{minted}[breaklines]{json}
@@ -174,7 +174,7 @@ The JSON code \ref{conceptset} below represents a concept definition within a co
     }
 
   \end{minted}
-\caption{A Concept Set expression example.}
+\caption[Concept Set expression example]{Concept Set expression example.}
 \label{conceptset}
 \end{listing}  
 
@@ -191,26 +191,24 @@ The JSON code \ref{conceptset} below represents a concept definition within a co
 % 5) submete o forms, e a concept set é criado
 
 
-The goal is to create a JSON object identical to the one in the Code \ref{conceptset} with the concepts selected by the medical researcher.
+The goal is to create a JSON object identical to the one in the Code Snippet~\ref{conceptset} with the concepts selected by the medical researcher. When a user enters a query, the conversational search assistant retrieves the best databases related to the health topic of that query. It should also inquire whether the user has additional concepts for their study requirements. In an implementation vision, the first key to complete in the cohort template is ``\textit{ConceptsSets}'', so the question regarding that key is rewritten by the {\llm} and then asked to the user.
 
-When a user enters a query, the conversational search assistant retrieves the best databases related to the health topic of that query. It should also inquire whether the user has additional concepts for their study requirements. In an implementation vision, the first key to complete in the cohort template is '\textit{ConceptsSets}', so the question regarding that key is rewritten by the {\llm} and then asked to the user.
+The user should respond to whether there are additional concepts to add. If there are, he should indicate them. If not, he should provide a negative answer. The chatbot continues to ask if there are more concepts until the user confirms that there are no more to add.
 
-The user should respond to whether there are additional concepts to add. If there are, he should indicate them. If not, he should provide a negative answer. The chatbot will continue to ask if there are more concepts until the user confirms that there are no more to add.
+In the {\ir} component, the {\bm} technique searches in the collection for the concepts the user indicates in his responses. After identifying each concept in the collection using the {\ir} technique search, additional information from the concept file is added. This includes the concept ID, concept code, and other attributes that define the concept as represented in Code Snippet~\ref{conceptset}.
 
-Now, in the {\ir} component, the {\bm} technique searches in the collection for the concepts the user indicates in his responses. After identifying each concept in the collection using the {\ir} technique search, additional information from the concept file is added. This includes the concept ID, concept code, and other attributes that define the concept as represented in Code \ref{conceptset}.
-
-The list of concepts identified is sent to the chatbot interface. The chatbot interface shows the concepts in a form. For example, Figure \ref{fig_forms} shows a form to create the concept set after the user mentions his interest in COVID-19. The user gives a name to the concept set and selects the concepts and the other attributes.
+The list of concepts identified is sent to the chatbot interface. The chatbot interface shows the concepts in a form. For example, Figure~\ref{fig_forms} shows a form to create the concept set after the user mentions his interest in COVID-19. The user gives a name to the concept set and selects the concepts and the other attributes.
 
 
 \begin{figure}[H]
   \includegraphics[width=1\textwidth]{figs/chapter4/form.png}
   \centering
-  \caption{The form to create the Concept Set.}
+  \caption[The form to create the Concept Set]{The form to create the Concept Set.}
   \label{fig_forms}
 \end{figure}
 
 
-Finally, the user submits the forms, creating the concept set. The chatbot will send a message informing the user that they can download the concept set JSON file, which is accepted in the ATLAS instance, to create a new concept set. Alternatively, the chatbot can send the file directly to the ATLAS instance. The pointer of the cohort template moves to the next key.
+Finally, the user submits the forms, creating the concept set. The chatbot sends a message informing the user that they can download the concept set JSON file, which is accepted in the ATLAS instance, to create a new concept set. Alternatively, the chatbot can send the file directly to the ATLAS instance. The pointer of the cohort template moves to the next key.
 
 
 
@@ -229,7 +227,7 @@ Finally, the user submits the forms, creating the concept set. The chatbot will 
 
 Once the Concept Set is defined, the list of concepts and their attributes are saved on the template, where the template key points to. Then, the template pointer moves to the next template key. The {\llm} generates a specific question related to the question that the current key points to. This generated question is then presented to the user through the interface.
 
-The user provides a response to the question presented. The user message could be a possible response to the question or, for example, can be a random message. So, the {\llm} checks if the user's message is indeed an answer to the question. This task is mentioned in the section \ref{sec:llm}. If the response is valid, the {\llm} extracts the value and the template is updated with that value. The template pointer advances to the next key, where the next question will be generated by the {\llm}. Otherwise, if the response is invalid or unrelated, the pointer remains on the same key because the question is not answered yet.
+The user provides a response to the question presented. The user message could be a possible response to the question or, for example, can be a random message. The {\llm} checks if the user's message is indeed an answer to the question. This task is mentioned in the Section~\ref{sec:llm}. If the response is valid, the {\llm} extracts the value and the template is updated with that value. The template pointer advances to the next key, where the next question is generated by the {\llm}. Otherwise, if the response is invalid or unrelated, the pointer remains on the same key because the question is not answered yet.
 
 This cycle of getting the question of the pointer, generating the question, presenting it, receiving a response, and verifying the response repeats until the entire cohort is complete, and all keys in the template are filled with the appropriate user responses.
 
@@ -240,12 +238,7 @@ At the end, users can download the cohort definition by clicking on a button sen
 
 \section{Integration with OHDSI ATLAS}
 
-The {\ohdsi} community provides a WebAPI\footnote{https://github.com/OHDSI/WebAPI} that contains all {\ohdsi} RESTful services that can be called from {\ohdsi} applications. This API has many features, such as providing a centralized API for working with databases converted to the {\omop}, searching the {\omop} standardized vocabularies for medical concepts and constructing concept sets. Also, it allows defining cohort definitions for use in identifying patient populations.
-
-The ATLAS platform\footnote{https://atlas-demo.ohdsi.org/} is an open-source software provided by {\ohdsi}, where can be defined not only the cohort but also the concepts sets. This software consumes the {\ohdsi} WebAPI.
-
-This section explains the communication with the external tool ATLAS, emphasizing the interaction of the IR API to assist researchers in creating their concept sets and cohort definitions in ATLAS.
-
+The {\ohdsi} community provides a WebAPI\footnote{\url{https://github.com/OHDSI/WebAPI}} that contains all {\ohdsi} RESTful services that can be called from {\ohdsi} applications. This API has many features, such as providing a centralized API for working with databases converted to the {\omop}, searching the {\omop} standardized vocabularies for medical concepts and constructing concept sets. Also, it allows defining cohort definitions for use in identifying patient populations.
 
 
 \subsection{Communication with ATLAS WebAPI}
@@ -254,7 +247,7 @@ When the user interacts with the tool and finalizes the definition of a concept 
 
 \subsubsection{Creating a Concept Set}
 
-Initially, for the creation of a concept set, the necessary structure for the body of the {\ohdsi} WebAPI endpoint is prepared, as shown in the Code \ref{conceptset_atlas}. This process begins by making a POST request to the {\ohdsi} WebAPI (https://api.ohdsi.org/WebAPI/conceptset/). This POST request is responsible for creating the concept set, although at this stage it is devoid of any concept data. The response from this request includes the ID of the newly created concept set within ATLAS.
+Initially, for the creation of a concept set, the necessary structure for the body of the {\ohdsi} WebAPI endpoint is prepared, as shown in the Code Snippet~\ref{conceptset_atlas}. This process begins by making a POST request\footnote{\url{https://api.ohdsi.org/WebAPI/conceptset/}} to the {\ohdsi} WebAPI. This POST request is responsible for creating the concept set, although at this stage it is devoid of any concept data. The response from this request includes the ID of the newly created concept set within ATLAS.
 
 \begin{listing}[H]
   \begin{minted}[breaklines]{json}
@@ -266,16 +259,16 @@ Initially, for the creation of a concept set, the necessary structure for the bo
     }
 
   \end{minted}
-  \caption{The body to create the Concept Set in ATLAS.}
+  \caption[The body to create the Concept Set in ATLAS]{The body to create the Concept Set in ATLAS.}
   \label{conceptset_atlas}
 \end{listing}
 
 
-Subsequently, the concepts that were defined throughout the user's interaction are sent to the PUT endpoint (https://api.ohdsi.org/WebAPI/conceptset/<Concept Set ID>/items). This PUT request populates the previously created concept set with the specified concepts, completing the definition process.
+Subsequently, the concepts that were defined throughout the user's interaction are sent to the PUT endpoint\footnote{\url{https://api.ohdsi.org/WebAPI/conceptset/<Concept Set ID>/items}}. This PUT request populates the previously created concept set with the specified concepts, completing the definition process.
 
 \subsubsection{Defining a Cohort}
 
-Following the concept set creation, the process of defining a cohort involves preparing the necessary structure for the body of the POST endpoint (https://api.ohdsi.org/WebAPI/cohortdefinition/). The body structure for this request is as shown in the Code \ref{cohort_atlas}.
+Following the concept set creation, the process of defining a cohort involves preparing the necessary structure for the body of the POST endpoint\footnote{\url{https://api.ohdsi.org/WebAPI/cohortdefinition/}}. The body structure for this request is as shown in the Code Snippet~\ref{cohort_atlas}.
 
 
 \begin{listing}[H]
@@ -290,12 +283,12 @@ Following the concept set creation, the process of defining a cohort involves pr
     }
 
   \end{minted}
-  \caption{The body to create the Cohort Defintion in ATLAS.}
+  \caption[The body to create the Cohort Definition in ATLAS]{The body to create the Cohort Definition in ATLAS.}
   \label{cohort_atlas}
 \end{listing}
 
 
-Here, the "expression" field contains the cohort definition that was constructed during the user's interaction. This POST request sends the cohort definition to the OHDSI WebAPI, where it is created and stored in the ATLAS platform.
+The ``\textit{expression}'' field contains the cohort definition that was constructed during the user's interaction. This POST request sends the cohort definition to the OHDSI WebAPI, where it is created and stored in the ATLAS platform.
 
 \subsubsection{User Interaction and Submission}
 
@@ -305,21 +298,21 @@ Upon completion of either the concept set or cohort definition, the user is pres
 
 \subsection{Network Interactions}
 
-The interaction between various components and institutions is crucial for the effective functioning of the query builder and the communication with the ATLAS platform. Figure \ref{fig_network} illustrates these interactions in detail.
+The interaction between various components and institutions is crucial for the effective functioning of the query builder and the communication with the ATLAS platform. Figure~\ref{fig_network} illustrates these interactions in detail.
 
 \begin{figure}[H]
   \includegraphics[width=0.9\textwidth]{figs/chapter4/network_diagram.png}
   \centering
-  \caption{Network diagram illustrating the connections between the system and other institutions.}
+  \caption[Network diagram between components]{Network diagram illustrating the connections between the system and other institutions.}
   \label{fig_network}
 \end{figure}
 
-Following the diagram in the Figure \ref{fig_network} as an example, the {\ehden} Portal serves as the central hub, hosting the {\ehden} Chatbot Interface. Within this portal, the Network Dashboards provide metadata about various databases, which are crucial for the initial indexing and subsequent query building.
+The {\ehden} Portal serves as the central hub, hosting the {\ehden} Chatbot Interface. Within this portal, the Network Dashboards provide metadata about various databases, which are crucial for the initial indexing and subsequent query building.
 
 The {\ehden} Chatbot Interface interacts directly with the user, guiding them through the process of defining concept sets and cohorts. It communicates with the IR API to retrieve relevant questions and forms, which are then presented to the user for completion.
 
 The {\ir} API acts as a mediator between the user inputs received via the Chatbot Interface and the ATLAS platform. It processes user queries, retrieves relevant database metadata, and prepares the necessary JSON structures for Cohort and Concept Set definitions.
 
-Multiple institutions, with its own Chatbot Interface, can consume the {\ir} API of the {\ehden} Portal. Institution A and Institution B represent different institutions that utilize the {\ehden} infrastructure for their research needs. The institutions' Chatbot Interfaces communicate with their respective ATLAS instances and the {\ehden} Portal, ensuring data consistency and integration.
+Multiple institutions, with its own Chatbot Interface, can consume the {\ir} API of the {\ehden} Portal. Institution A and Institution B represent different institutions that use the {\ehden} infrastructure for their research needs. The chatbot interfaces of the institutions communicate with their respective ATLAS instances and the {\ehden} Portal, ensuring data consistency and integration.
 
 Institutions A and B, through their Chatbot Interfaces, interact with the {\ir} API and ATLAS to perform similar tasks. Each institution can define its cohorts and concept sets, leveraging the centralized capabilities of the {\ehden} infrastructure while maintaining individual ATLAS instances for specific research activities.

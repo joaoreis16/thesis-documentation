@@ -82,11 +82,11 @@
 
 % Redefine code boxes
 \ifthenelse{\equal{\useoverleaf}{0}}
-{\usepackage[outputdir=build]{minted}}
-{\usepackage{minted}}%
+{\usepackage[outputdir=build, chapter]{minted}}
+{\usepackage[chapter]{minted}}%
 
 \addto\captionsportuguese{%
-  \renewcommand\listingscaption{Code}
+  \renewcommand\listingscaption{Code Snippet}
 }
 \fvset{fontsize=\footnotesize} % Make Code blocks smaller than text
 \usepackage{csquotes}
@@ -125,7 +125,7 @@
 \usepackage{todonotes}
 
 % Setup bibliography with Biber using IEEE style for proper UTF-8 support
-\usepackage[backend=biber, style=ieee, sorting=none, natbib=true, mincitenames=1, maxcitenames=2]{biblatex}
+\usepackage[backend=biber, style=ieee-modified, sorting=none, natbib=true, mincitenames=1, maxcitenames=2]{biblatex}
 \bibliography{bib/references.bib, bib/rfc.bib}
 
 % Use acronyms
@@ -369,8 +369,8 @@ toc=false,%
     {\oldchapter#1{#2}}
 }
 
-\renewcommand{\listingscaption}{Code}
-%\renewcommand{\listoflistingscaption}{List of Code Excerpts}
+\renewcommand{\listingscaption}{Code Snippet}
+\renewcommand{\listoflistingscaption}{List of Code Snippets}
 \cleardoublepage
 {\small\listoflistings}
 \addcontentsline{toc}{chapter}{\listoflistingscaption}
@@ -389,7 +389,6 @@ toc=false,%
 
 % Print Glossary
 % {\small\include{glossary}}
-
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
