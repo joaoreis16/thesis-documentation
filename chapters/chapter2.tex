@@ -354,7 +354,7 @@ Traditionally, {\llm} can adapt their knowledge and responses to a specific doma
 
 {\rag} involves retrieving pertinent information from external knowledge bases, providing the {\llm} with up-to-date and domain-specific context to enhance response accuracy and relevance, thereby reducing hallucinations. According to~\citet{lewis_retrieval-augmented_2020}, this process aims to retrieve relevant information from a vast corpus of documents and incorporate it into the prompt to improve the quality of predictions.
 
-Using the Figure~\ref{fig_rag} as an example,~\citet{gao_retrieval-augmented_2023} explain simply the workflow of a {\rag}. The first step is 1) Retrieve. It aims to retrieve information from an external data source, such as a vector database. This step uses {\ir} models, such as {\bm}, to retrieve relevant information based on the query. The second step is 2) Augment, that aims to add the information retrieved as context to the {\llm} prompt. The last step is 3) Generation. Using the prompt with context, the {\llm} \hl{generates a response to the query, based on the external information retrieved.}
+Using the Figure~\ref{fig_rag} as an example,~\citet{gao_retrieval-augmented_2023} explain simply the workflow of a {\rag}. The first step is 1) Retrieve. It aims to retrieve information from an external data source, such as a vector database. This step uses {\ir} models, such as {\bm}, to retrieve relevant information based on the query. The second step is 2) Augment, that aims to add the information retrieved as context to the {\llm} prompt. The last step is 3) Generation. Using the prompt with context, the {\llm} generates a response to the query, based on the external information retrieved.
 
 
 %% FIXAR ESTA IMAGEM

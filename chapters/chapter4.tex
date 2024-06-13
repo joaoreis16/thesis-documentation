@@ -27,7 +27,7 @@ The conversational query builder involves a sequence of steps and interactions t
   \label{fig_interaction}
 \end{figure}
 
-\hl{This diagram illustrates the interactions outlined in the previous} Chapter~\ref{chapter:CSA} from steps 1 to 5. Additionally, it depicts all the interactions of the conversational query builder, steps 6 to 14, as explained in this chapter.
+This diagram illustrates the interactions outlined in the previous Chapter~\ref{chapter:CSA} from steps 1 to 5. Additionally, it depicts all the interactions of the conversational query builder, steps 6 to 14, as explained in this chapter.
 
 Reminding the interactions explained in Chapter~\ref{chapter:CSA}, the {\ir} component receives the databases' metadata from the {\ehden} Portal (step 1), creating and indexing the documents. In step 2, the user asks a question to the Chatbot Interface. The {\llm} applies his task of identifying the research topic and sends it to the {\ir} API (step 3). The {\ir} API retrieves the most suitable databases for the research concept and sends the list of databases to the Chatbot Interface (step 4). The user can review the recommended databases in the catalogue in the {\ehden} Portal, as the last step of this stage.
 
@@ -115,7 +115,7 @@ To a better understanding of these files utility, it is given an example using t
 % e existe um pointer que aponta para a parte do template que falta responder. o pointer segue sequencialmente as keys do ficheiro das questões.
 
 
-\hl{The cohort questions file has the questions to complete the cohort template file. There is a pointer that tracks which questions have been answered and which ones still need a response. The template pointer sequentially follows the keys in the questions file.} The pointer retrieves a JSON key from the questions file (Code Snippet~\ref{questions}). This key points to a question that needs to be asked to the user. When the user answers this question, it is easy to fill the template file (Code Snippet~\ref{template}), because the pointer indicates which key of the template corresponds to the answer. When this occurs, the pointer moves to the next key in the questions file. If the user has not answered the associated question yet, the key stays in the same position.
+The cohort questions file has the questions to complete the cohort template file. There is a pointer that tracks which questions have been answered and which ones still need a response. The template pointer sequentially follows the keys in the questions file. The pointer retrieves a JSON key from the questions file (Code Snippet~\ref{questions}). This key points to a question that needs to be asked to the user. When the user answers this question, it is easy to fill the template file (Code Snippet~\ref{template}), because the pointer indicates which key of the template corresponds to the answer. When this occurs, the pointer moves to the next key in the questions file. If the user has not answered the associated question yet, the key stays in the same position.
 
 During the conversation, the pointer helps:
 
