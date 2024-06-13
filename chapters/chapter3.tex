@@ -14,7 +14,7 @@ This chapter focuses on the second goal of this dissertation: develop a chat-lik
 % o artigo do cbms CAT
 % tudo o que é relacionado com dados
 
-The data utilized for this project comprises real {\ehden} data sourced from the catalogue and the Network Dashboards, provided by {\ieeta}, a partner of {\ehden}. There are four main files that contain the data necessary to obtain an overview of the databases available in the {\ehden} network: the countries file, the data sources file, the medical concepts file, and the Achilles Results file\footnote{\url{https://github.com/EHDEN/CatalogueExport}}. It is essential to understand the content of each file and the relationships between their data, as illustrated in Figure~\ref{fig_data_diagram}.
+The data utilized for this project comprises real {\ehden} data sourced from the catalogue and the Network Dashboards. There are four main files that contain the data necessary to obtain an overview of the databases available in the {\ehden} network: the countries file, the data sources file, the medical concepts file, and the Achilles Results file\footnote{\url{https://github.com/EHDEN/CatalogueExport}}. It is essential to understand the content of each file and the relationships between their data, as illustrated in Figure~\ref{fig_data_diagram}.
 
 \begin{figure}[H]
     \includegraphics[width=1\textwidth]{figs/chapter3/data_diagram.png}
@@ -30,7 +30,7 @@ To comprehend the purpose of the four files, each is detailed with fields, descr
 
 \begin{itemize}
     \item \textbf{Fields:} \texttt{id}, \texttt{country}, \texttt{continent}.
-    \item \textbf{Description:} This file contains of real-world data, listing countries and their corresponding continents. It is used to provide geographical context for the analyses, and supporting studies that require demographic segmentation.
+    \item \textbf{Description:} This file contains of real-world data, listing countries and their corresponding continents. It is used to provide geographical context for the analyzes, and supporting studies that require demographic segmentation.
     \item \textbf{Example Entries:}
     \begin{itemize}
         \item \texttt{233, Ukraine, Europe}
@@ -88,7 +88,7 @@ The combination of these four files gives the necessary information about the da
 This section outlines the {\ir} component, covering the BioASQ challenge and its relevance, and the implementation of BM25 for indexing and searching databases.
 
 
-\subsection{BioASQ Challenge 2024}
+\subsection{BioASQ challenge 2024}
 \label{bioasq}
 
 The BioASQ includes several challenges. My team was involved in ``BioASQ Task 12b'', focusing on biomedical semantic {\qa}. This challenge aims to advance the development of systems capable of understanding and answering biomedical questions. Participants must respond to test questions using various types of information, including relevant concepts, articles, and snippets. The challenge involves 5,000 training questions with gold-standard answers and introduces 500 new test questions, all constructed by European biomedical experts. 
@@ -120,13 +120,13 @@ SPLADE is designed to balance the effectiveness of dense retrieval models with t
 % tbd
 
 
-\subsection{BM25 Implementation}
+\subsection{BM25 implementation}
 \label{bm25implementation}
 
 Although we have tested various methods, the implementation of {\bm} has shown promising results. {\bm} is the selected method for implementing the {\ir} component in this project. The library implemented was PyTerrier\footnote{\url{https://github.com/terrier-org/pyterrier}}, a Python framework for performing {\ir} experiments.
 
 
-\subsubsection{Database Indexing Process}
+\subsubsection{Database indexing process}
 
 The {\ir} component must index a collection of documents that thoroughly represent all the concepts within the databases, ensuring a clear understanding of what each database encompasses. To achive this, the data mentioned in the Section~\ref{data} is used to create the documents.
 
@@ -150,7 +150,7 @@ The first approach to structure of the documents to be indexed is shown in Figur
 The approach to creating the document structure has been refined to enhance the granularity and searchability of the database content. Each concept in the database is individually indexed, as shown in Figure~\ref{fig_struct}, part C). \hl{Each concept within a database is treated as a separate document for indexing purposes. This is achieved by assigning a document number that uniquely combines the database ID and the concept's position within its list. The document number serves as a unique identifier for each concept, ensuring that each piece of data can be individually retrieved and queried. The content of each document, represented by the concept itself, allows for reflecting the importance of concepts within the database, facilitating more precise and efficient retrieval of information.}
 
 
-\subsubsection{Database Searching Process}
+\subsubsection{Database searching process}
 \label{searchprocess}
 
 When the {\ir} system receives a query in free text, the system processes it using {\nlp} techniques applied to the query to enhance the search performance. These processes can include tokenization (splitting the text into individual terms or words), stemming or lemmatization (reducing words to their base form), and stop-word removal (eliminating common words that do not contribute to the search). \hl{Standarding the text and transforming the query into important terms improves the match between the queries and indexed concepts as documents.}
@@ -164,28 +164,29 @@ Each element in the ranked list of databases contains some information about the
 \section{Large Language Model}
 \label{sec:llm}
 
-The {\llm} used in this project is \texttt{Nous Hermes 2 Mixtral 8x7B}~\cite{Nous-Hermes-2-Mixtral-8x7B-DPO} open model, finetuned from Mixtral~\cite{jiang2024a}. This model belongs to the llama family and has 47B of parameters. The reason for using this {\llm} model is that it is a promising model. The {\llm} is installed on a local version of the Ollama\footnote{\url{https://ollama.com/}} framework and deployed in a Virtual Machine to access the {\llm} using a URL. 
+The {\llm} used in this project is \texttt{Nous Hermes 2 Mixtral 8x7B}~\cite{Nous-Hermes-2-Mixtral-8x7B-DPO} open model, finetuned from Mixtral~\cite{jiang2024a}. This model belongs to the llama family and has 47B of parameters. The reason for using this {\llm} model is that it is a promising model. The {\llm} is installed on a local version of the Ollama\footnote{\url{https://ollama.com/}} framework and deployed in a Virtual Machine to access the {\llm} using a URL. The model {\gpt} cannot be used for this project, due to the use of sensitive data. Since {\gpt} is not open-source, the data falls out of control.  It raises privacy concerns for private data in public services.
 
 
 \subsection{Tasks}
 
-The {\llm} has two types of tasks: text generation and text analysis. Table~\ref{table_tasks} shows the different tasks given to the LLM and the respective descriptions. Also, it presents the output format and the temperature used in each task. The output format is the generated response format expected from {\llm}. The temperature of a {\llm} refers to a hyperparameter that controls the randomness of predictions made by the model. A higher temperature results in more creative and random outputs. Otherwise, a lower temperature results in more deterministic and focused outputs.
+The {\llm} has two types of tasks: text generation ({\nlg}) and text analysis ({\nlu}) . Table~\ref{table_tasks} shows the different tasks given to the LLM and the respective descriptions. Also, it presents the output format and the temperature used in each task. The output format is the generated response format expected from {\llm}. The temperature of a {\llm} refers to a hyperparameter that controls the randomness of predictions made by the model. A higher temperature results in more creative and random outputs. Otherwise, a lower temperature results in more deterministic and focused outputs.
 
 \begin{table}[H]
   \centering
+  \def\arraystretch{1.5}
   \resizebox{\textwidth}{!}{%
   \begin{tabular}{|c|c|l|}
   \hline
   \textbf{Type of Task}       & \textbf{Task}           & \textbf{Description}                                                                                                                                      \\ \hline
-  \multirow{3}{*}{Generation} & Response                & Generate a response to a given message.                                                                                                                   \\ \cline{2-3} 
-                              & Response with Databases & Generate a response to retrieve the best databases to the user.                                                                                           \\ \cline{2-3} 
-                              & Question                & Generate a question related to a given question.                                                                                                          \\ \hline
-  \multirow{3}{*}{Analyse}    & Topic                   & \begin{tabular}[c]{@{}l@{}}Identify if the user message is related to health. \\ If so, identify the research topic in the field of health.\end{tabular} \\ \cline{2-3} 
-                              & Yes or No Answer        & Indentify if the answer is positive or negative for a respective question.                                                                                \\ \cline{2-3} 
-                              & Answer to Question      & indentify if the answer is a response for a respective question.                                                                                          \\ \hline
+  \multirow{3}{*}{{\nlg}} & Generate response                & Generate a response to a given message.                                                                                                                   \\ \cline{2-3} 
+                              & Generate response with databases & Generate a response to retrieve the best databases to the user.                                                                                           \\ \cline{2-3} 
+                              & Generate question                & Generate a question related to a given question.                                                                                                          \\ \hline
+  \multirow{3}{*}{{\nlu}}    & analyze topic                   & \begin{tabular}[c]{@{}l@{}}Identify if the user message is related to health. \\ If so, identify the research topic in the field of health.\end{tabular} \\ \cline{2-3} 
+                              & analyze yes or no answer        & Indentify if the answer is positive or negative for a respective question.                                                                                \\ \cline{2-3} 
+                              & analyze answer to question      & indentify if the answer is a response for a respective question.                                                                                          \\ \hline
   \end{tabular}%
   }
-  \caption{Overview of the LLM tasks.}
+  \caption[Overview of the Large Language Model tasks]{Overview of the LLM tasks.}
   \label{table_tasks}
 \end{table}
 
@@ -197,19 +198,20 @@ After defining the tasks, Table~\ref{tasks_info} clarifies the parameters and th
 
 \begin{table}[H]
   \centering
-  \resizebox{0.8\textwidth}{!}{%
+  \def\arraystretch{1.2}
+  \resizebox{0.9\textwidth}{!}{%
   \begin{tabular}{|c|c|c|c|}
   \hline
   \textbf{Type of Task}       & \textbf{Task}           & \textbf{Output format}       & \textbf{\begin{tabular}[c]{@{}c@{}}Temperature\\ (0 - 1)\end{tabular}} \\ \hline
-  \multirow{3}{*}{Generation} & Response                & \multirow{3}{*}{Plain Text}  & 0.4                                                                   \\ \cline{2-2} \cline{4-4} 
-                              & Response with Databases &                              & 0.1                                                                    \\ \cline{2-2} \cline{4-4} 
-                              & Question                &                              & 0.4                                                                   \\ \hline
-  \multirow{3}{*}{Analyse}    & Topic                   & \multirow{3}{*}{JSON object} & 0.1                                                                    \\ \cline{2-2} \cline{4-4} 
-                              & Yes or No Answer        &                              & 0.1                                                                    \\ \cline{2-2} \cline{4-4} 
-                              & Answer to Question      &                              & 0.1                                                                    \\ \hline
+  \multirow{3}{*}{{\nlg}} & Generate response                & \multirow{3}{*}{Plain text}  & 0.4                                                                   \\ \cline{2-2} \cline{4-4} 
+                              & Generate response with databases &                              & 0.4                                                                    \\ \cline{2-2} \cline{4-4} 
+                              & Generate question                &                              & 0.4                                                                   \\ \hline
+  \multirow{3}{*}{{\nlu}}    & analyze topic                   & \multirow{3}{*}{JSON object} & 0.1                                                                    \\ \cline{2-2} \cline{4-4} 
+                              & analyze yes or no answer        &                              & 0.1                                                                    \\ \cline{2-2} \cline{4-4} 
+                              & analyze answer to question      &                              & 0.1                                                                    \\ \hline
   \end{tabular}%
   }
-  \caption{LLM tasks parameters and output information.}
+  \caption[Large Language Model parameters and output information]{LLM parameters and output information.}
   \label{tasks_info}
 \end{table}
 
@@ -219,7 +221,7 @@ In the main analysis task, the language model should respond in a JSON object wi
 
 % llm precisa de prompts. cada tarefa tem o seu prompt especifico e a sua temperatura especifica. estes parametros (prompt e temperature) estão definidos num ficheiro JSON (params.json)
 
-The model require specific prompts to generate appropriate responses. Each task assigned to the LLM has its own specific prompt and a corresponding temperature setting, which controls the randomness of the output, as we can see in the Code Snippet~\ref{params}. These parameters — prompt and temperature — are defined in a JSON file {\small\normalfont(\texttt{params.json})}. 
+The model require specific prompts to generate appropriate responses. Each task assigned to the LLM has its own specific prompt and a corresponding temperature setting, which controls the randomness of the output, as we can see in the Code Snippet~\ref{params}. These parameters — prompt and temperature — are defined in a JSON file. 
 
 \begin{listing}[H]
   \begin{minted}[breaklines]{json}
@@ -229,7 +231,7 @@ The model require specific prompts to generate appropriate responses. Each task 
     "model": "nous-hermes2-mixtral:latest",
     "system": "...",
     "generate_question": {
-      "prompt": "Your goal is generate a question. You already chat with the user; you don't need to welcome him. Just ask the following question (you should rewrite the question): <question>. This question aims to extract more user research requirements. You should write a message with plain text, not in JSON.",
+      "prompt": "Your goal is generate a question. You already chat with the user; you do not need to welcome him. Just ask the following question (you should rewrite the question): <question>. This question aims to extract more user research requirements. You should write a message with plain text, not in JSON.",
       "temperature": 0.4
     },
     "topic": {
@@ -246,7 +248,7 @@ The model require specific prompts to generate appropriate responses. Each task 
     },
     "retriever": {
         "prompt": "...",
-        "temperature": 0.1
+        "temperature": 0.4
     },
     "generate_answer": {
         "prompt": "...",
@@ -254,7 +256,7 @@ The model require specific prompts to generate appropriate responses. Each task 
     }
   }
   \end{minted}
-  \caption[The configuration file of the Large Language Model]{The configuration JSON file of the LLM {\small\normalfont(\texttt{params.json})}}
+  \caption[The configuration file of the Large Language Model]{The configuration JSON file of the {\llm}}
   \label{params}
 \end{listing}
 
@@ -280,7 +282,7 @@ There are some options to integrate the {\llm} in this system. FlowiseAI and Lan
 FlowiseAI\footnote{\url{https://github.com/FlowiseAI/Flowise}}, an open-source automation tool, plays a pivotal role by facilitating the integration of different {\ai} components, combined with {\ir} techniques, as~\citet{reis2024flowise} stated. FlowiseAI enables the creation of customized orchestration flows for {\llm} with {\ai} agents and other tools. The workflows within FlowiseAI consist of interconnected nodes or blocks that represent various actions or operations. The specific workflow implemented is illustrated in Figure~\ref{fig_workflow}.
 
 
-\begin{figure}[H]
+\begin{figure}[ht]
     \includegraphics[width=\textwidth]{figs/chapter3/workflow.png}
     \centering
     \caption[Worflow implemented in FlowiseAI tool]{Worflow implemented in FlowiseAI tool.}
@@ -307,7 +309,7 @@ An implementation was tested, but without much success due to some of the tool's
  
 
 
-\oldsection[EHDEN Chatbot Architecture]{EHDEN Chatbot Architecture\protect\footnote{This section is mainly based in the publication \textit{A chatbot-like platform to enhance the
+\oldsection[EHDEN chatbot architecture]{EHDEN chatbot architecture\protect\footnote{This section is mainly based in the publication \textit{A chatbot-like platform to enhance the
 discovery of OMOP CDM databases, 34th Medical Informatics Europe Conference (MIE), 2024}}}
 
 
@@ -318,13 +320,13 @@ The previous implementation, detailed in the section~\ref{flowise}, tried to ado
 \begin{figure}[H]
     \includegraphics[width=1\textwidth]{figs/chapter3/architecture.png}
     \centering
-    \caption[Overview of the EHDEN chatbot architecture]{Overview of the EHDEN chatbot architecture.}
+    \caption[Overview of the chatbot architecture]{Overview of the EHDEN chatbot architecture.}
     \label{fig_arch}
 \end{figure}
 
 The Conversational User Interface is the primary interface for user interaction, built on the React framework. The User Interface records the user questions and conveys them to the backend to be processed in the component dedicated to {\ir}. 
 
-The backend API, built on the FastAPI framework, handles the HTTP requests from the other components. When it receives a query from the User Interface, the backend communicates with the {\llm}. The {\llm} is the same open model detailed in the section~\ref{sec:llm}, \texttt{Nous Hermes 2 Mixtral 8x7B}. In this implementation, the {\llm} has two tasks: analyse the topic of health and generation of a response with databases or generate a simple response. If the first task returns false, \textit{i.e.}, if the user message is not related to health, the {\llm} generates a simple response reminding the user of the chatbot's purpose. Otherwise, if the first task is true, then the {\rag} architecture is applied. This means that the generation of a response with databases task is applied. The {\bm} retrieves the best databases to the {\llm}, so it could generate a response with that valid information.
+The backend API, built on the FastAPI framework, handles the HTTP requests from the other components. When it receives a query from the User Interface, the backend communicates with the {\llm}. The {\llm} is the same open model detailed in the section~\ref{sec:llm}, \texttt{Nous Hermes 2 Mixtral 8x7B}. In this implementation, the {\llm} has two tasks: analyze the topic of health and generation of a response with databases or generate a simple response. If the first task returns false, \textit{i.e.}, if the user message is not related to health, the {\llm} generates a simple response reminding the user of the chatbot's purpose. Otherwise, if the first task is true, then the {\rag} architecture is applied. This means that the generation of a response with databases task is applied. The {\bm} retrieves the best databases to the {\llm}, so it could generate a response with that valid information.
 
 For research purposes, researchers may save their conversations to facilitate data analysis and enhance their research outcomes. When a user decides to save a conversation, he can do so by pressing a save button, which triggers an API endpoint designed to store the conversation. The conversations are subsequently added to a JSON file, creating a structured and accessible format for future analysis. This method ensures that valuable data is systematically archived and easily retrievable for subsequent research endeavors.
 

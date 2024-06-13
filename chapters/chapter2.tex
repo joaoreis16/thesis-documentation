@@ -14,12 +14,12 @@ With the advancement of technology, deep learning techniques emerged, improving 
 
 Deep learning methods have advanced, with the emergence of neural network architectures, transfer learning, and pre-training techniques. These approaches have advanced the representation of textual data and bolstered the {\ir} system's comprehension of natural language queries~\cite{mitra_introduction_nodate}.
 
-More recently, Transformer architectures with attention mechanisms have been implemented in {\ir} systems to enable more effective handling of complex queries and documents. Moreover, incorporating pre-trained language models like {\bert}~\cite{devlin_bert_2018} and {\gpt}-2 has proven to enhance the performance of {\ir} systems. These methods offer an advanced understanding and processing of context, capturing the relationships and nuances within the natural language query and the documents.
+More recently, transformer architectures with attention mechanisms have been implemented in {\ir} systems to enable more effective handling of complex queries and documents. Moreover, incorporating pre-trained language models like {\bert}~\cite{devlin_bert_2018} and {\gpt}-2 has proven to enhance the performance of {\ir} systems. These methods offer an advanced understanding and processing of context, capturing the relationships and nuances within the natural language query and the documents.
 
 This field has many applications in the real world, such as search engines like Google, digital libraries, and e-commerce platforms. In compliance with~\citet{p_m_efficient_2021}, {\ir} generally functions across three main scales: i) searching the web, ii) retrieving personal information, and iii) conducting searches for enterprises, institutions, and domain-specific contexts. This section describes the {\ir} field, more specifically, traditional methods, neural {\ir} systems and how {\ir} can be joined with natural laguage.
 
 
-\subsection{Traditional Methods}
+\subsection{Traditional methods}
 
 Some successful classical methods are {\tfidf} and {\bm}.
 
@@ -27,14 +27,14 @@ Some successful classical methods are {\tfidf} and {\bm}.
 
 To better understand the {\tfidf} method, first, it is necessary to understand the concepts of {\tf} and {\idf}.
 
-Starting with {\tfidf} method, it is composed of the {\tf} and the {\idf}, two essential concepts to understand this classical {\ir} method.~\citet{manning_introduction_2009} explained these concepts in their work. It is reasonable to assume that a document containing a query term more frequently is more relevant to that query. Therefore, it should be assigned a higher relevance and/or score. {\tf} is the number of term occurrences in a document. However, to evaluate the relevancy of a query, each term is regarded with equal importance.~\citet{manning_introduction_2009} provided the following example to better explain {\tf}: the automotive industry is expected to include the term ``auto'' in nearly every document. The most frequent terms aren't always the most important. Equation~\ref{eqn:tf} shows how the {\tf} is calculated.
+Starting with {\tfidf} method, it is composed of the {\tf} and the {\idf}, two essential concepts to understand this classical {\ir} method.~\citet{liang_research_2022} explained these concepts in their work. It is reasonable to assume that a document containing a query term more frequently is more relevant to that query. Therefore, it should be assigned a higher relevance and/or score. {\tf} is the number of term occurrences in a document. However, to evaluate the relevancy of a query, each term is regarded with equal importance.~\citet{manning_introduction_2009} provided the following example to better explain {\tf}: the automotive industry is expected to include the term ``auto'' in nearly every document. The most frequent terms are not always the most important. Equation~\ref{eqn:tf} shows how the {\tf} is calculated.
 
 \begin{equation}
     \textup{tf}_{t,d} = \frac{\text{Term \textit{t} frequency in document \textit{d}}}{\text{Total words in document \textit{d}}}.
     \label{eqn:tf}
 \end{equation}
 
-In order to reduce the weight of terms that appear frequently, the {\idf} helps to prioritize some terms that are sporadic and possibly more informative and relevant. The {\idf} calculates the rarity of a term across a set of documents. This measure is calculated as the logarithm of the division of the total number of documents by the number of documents in the collection containing the term, as the Equation~\ref{eqn:idf} describes. Aligning with the previous example of the automotive industry, the generic term ``auto'' will have a low {\idf} value. However, the term ``telematics'' will have a high IDF value, underlining the unique and informative significance of the term for distinguishing documents.
+In order to reduce the weight of terms that appear frequently, the {\idf} helps to prioritize some terms that are sporadic and possibly more informative and relevant~\cite{liang_research_2022} . The {\idf} calculates the rarity of a term across a set of documents. This measure is calculated as the logarithm of the division of the total number of documents by the number of documents in the collection containing the term, as the Equation~\ref{eqn:idf} describes. Aligning with the previous example of the automotive industry, the generic term ``auto'' will have a low {\idf} value. However, the term ``telematics'' will have a high IDF value, underlining the unique and informative significance of the term for distinguishing documents.
 
 \begin{equation}
     \textup{idf}_{t} = \log(\frac{\text{Total documents}}{\text{Documents with term \textit{t}}}).
@@ -48,7 +48,7 @@ The TF-IDF method combines TF and IDF to assign a weight to each term in a docum
     \label{eqn:tfidf}
 \end{equation}
 
-{\tfidf} does not consider the semantic information of words, which limits its ability to accurately reflect the similarity between texts~\cite{lan_research_2022}. To address this limitation, researchers have proposed hybrid methods that combine {\tfidf} with semantic understanding to calculate text similarity. This {\ir} method evaluates the importance of a term within a document relative to its occurrence across a collection of documents.
+{\tfidf} does not consider the semantic information of words, which limits its ability to accurately reflect the similarity between texts~\cite{lan_research_2022}. In summary, this {\ir} method evaluates the importance of a term within a document relative to its occurrence across a collection of documents.
 
 
 \subsubsection{BM25}
@@ -73,18 +73,18 @@ Traditional {\ir} methods like {\tfidf} and {\bm} have been effective in matchin
 
 
 
-\subsection{Neural Information Retrieval Systems}
+\subsection{Neural information retrieval systems}
 
 Neural {\ir} systems represent a significant advancement in the field of {\ir}. Conforming to~\citet{mitra_introduction_nodate}, these systems use neural network models and deep learning techniques. This approach can understand and interpret the semantic content of queries and documents. Neural {\ir} systems can be broadly categorized into two types: representation-based and interaction-based models.
 
 Conforming to~\citet{chen_integrating_2023}, the representation-based model focuses on creating representations of both queries and documents. They employ techniques to convert text into high-dimensional vector spaces. Semantically similar terms and phrases are represented by vectors that are close to each other, capturing the underlying meaning and relationships of words beyond their surface-level appearances. This approach employs architectures like {\rnn} and allows the system to understand the content of documents and queries on a deeper level, as~\citet{liu_deep_2022} mentioned.
 
-The interaction-based model examines how words in a query relate to words in a document, capturing complex patterns and dependencies between them~\cite{chen_integrating_2023}. They often use attention mechanisms, as seen in Transformer-based models like {\bert}, to dynamically weigh the importance of different parts of the text based on their relevance to the query. However, only the interaction-based model will be explored.
+The interaction-based model examines how words in a query relate to words in a document, capturing complex patterns and dependencies between them~\cite{chen_integrating_2023}. They often use attention mechanisms, as seen in transformer-based models like {\bert}, to dynamically weigh the importance of different parts of the text based on their relevance to the query. However, only the interaction-based model will be explored.
 
 There are different approaches to implementing an interaction-based model. One of these approaches involves a retrieval stage and a ranker stage~\cite{mitra_introduction_nodate}.~\ref{fig_ir_system} shows an overview of interaction-based {\ir} systems, highlighting the two main stages.
 
 \begin{figure}[ht]
-    \includegraphics[width=14cm]{figs/chapter2/IR_system.png}
+    \includegraphics[width=\textwidth]{figs/chapter2/IR_system.png}
     \centering
     \caption[Overview of an interaction-based Information Retrieval model]{Overview of an interaction-based Information Retrieval model: Retrieval and Ranker.}
     \label{fig_ir_system}
@@ -93,11 +93,11 @@ There are different approaches to implementing an interaction-based model. One o
 After analyzing the query, the retrieval stage selects an initial set of documents that are potentially pertinent to the query, as shown in Figure~\ref{fig_ir_system}. Subsequently, the relevance of these documents undergoes reassessment through the similarity scores. This is followed by the ranking stage, in which the primary objective is to adjust the order of the initially retrieved documents based on their relevance scores using a neural reranking, like {\bert}~\cite{chen_integrating_2023}. This phase prioritizes the enhancement of result effectiveness rather than efficiency. In the end, it returns a rank of documents as close as possible to the user's query criteria. 
 
 
-\subsection{Question Answering}
+\subsection{Question answering}
 
-{\nlp} is the basis for building a {\qa} system. The {\nlp} can be divided into two major components: {\nlu} and {\nlg}, according to~\citet{ayanouz_smart_2020}
+{\nlp} is the basis for building a {\qa} system. The {\nlp} can be divided into two major components: {\nlu} and {\nlg}, according to~\citet{ayanouz_smart_2020}.
 
-The \textbf{{\nlu}} component is focused on enabling machines to understand and interpret human language in a meaningful way. {\nlu} involves processing and analyzing natural language data to comprehend its meaning, context, sentiment, and intent. 
+The {\nlu} component is focused on enabling machines to understand and interpret human language in a meaningful way. {\nlu} involves processing and analyzing natural language data to comprehend its meaning, context, sentiment, and intent. 
 
 In agreement with~\citet{ngai_intelligent_2021}, the user queries can be processed by semantic analysis, pragmatic analysis, and syntactic analysis.~\citet{ayanouz_smart_2020} explained these steps and added two more necessary steps to make it easier to understand: a lexical analysis and discourse integration. The process of query analysis by {\nlu} involves the following steps:
 
@@ -111,7 +111,7 @@ In agreement with~\citet{ngai_intelligent_2021}, the user queries can be process
     \item \textbf{Pragmatic Analysis and Discourse Integration}: This step analyzes the overall context to derive the conclusive interpretation of the actual message in the text. It considers factors like the true meaning of a phrase or sentence based on the broader context.
 \end{itemize}
 
-The other component is \textbf{{\nlg}}. Language generation is responsible for crafting coherent and linguistically accurate responses. It transforms data into natural language text, enabling effective communication and information dissemination~\cite{ngai_intelligent_2021}. 
+The other component is {\nlg}. Language generation is responsible for crafting coherent and linguistically accurate responses. It transforms data into natural language text, enabling effective communication and information dissemination~\cite{ngai_intelligent_2021}. 
 
 Backtracking, {\qa} is a subfield of {\ir} and {\nlp}. According to~\citet{zhong_building_2020}, {\qa} focuses on providing a single and specific answer to a question posed in natural language. Unlike {\ir}, which aims to return a broad range of relevant information or documents in response to a query, {\qa} seeks to pinpoint and provide one precise answer.
 
@@ -130,7 +130,7 @@ Before {\llm}, there were only simple {\lm}, a subfield of {\nlp} and {\ai}, tha
 
 Most of these predictive models were based on probabilities and Markov assumptions, also known as {\slm}. This was heavily dependent on feature engineering. Afterward, as deep learning gained prominence, an architecture designed to learn data features automatically. In other words, neural networks for {\nlp} emerged to enhance {\lm}'s capabilities. Integrating feature learning and model training, {\nlm} established a comprehensive neural network framework applicable to diverse {\nlp} tasks~\cite{liu_prompting_nodate}.
 
-Most recently, the launch of the Transformer Block Architecture by~\citet{vaswani_attention_2023} revolutionized this field. These deep-learning architectures led to the development of pre-trained models not explicitly designed for a particular task, including {\bert} and {\gpt}, collectively known as {\plm}. {\plm} have shown significant performance enhancements across various {\nlp} tasks.
+Most recently, the launch of the transformer Block Architecture by~\citet{vaswani_attention_2023} revolutionized this field. These deep-learning architectures led to the development of pre-trained models not explicitly designed for a particular task, including {\bert} and {\gpt}, collectively known as {\plm}. {\plm} have shown significant performance enhancements across various {\nlp} tasks.
 
 The scale of the parameters of these models has been involved, and the paradigm of ``Pre-train, Prompt, Predict'' like~\citet{liu_prompting_nodate} described, gained widespread acceptance. In terms of interaction with {\lm}, the prompts became crucial. Researchers name these {\plm} with hundreds of billions of parameters as {\llm}. Prompts effectively allow {\llm} to deal with a large number of complex and diverse tasks without a lot of effort.
 
@@ -144,43 +144,45 @@ These models can process and predict patterns with accuracy.~\citet{hadi_LLM_202
 ~\citet{liu_prompting_nodate} noted that the release of the first version of ChatGPT garnered significant social attention, and research into {\llm} triggered more interest. This has led to the development of noteworthy products like PaLM~\cite{anil_palm_2023}, {\gpt}-2, {\gpt}-3, and, most recently, {\gpt}-4~\cite{openai_gpt-4_2023}, and LLaMA and LLaMa-2~\cite{touvron_llama_2023}.
 
 
-\subsection{Architecture Overview}
+\subsection{Architecture overview}
 
-The development and advancement of {\llm} is thankful for the introduction of Transformers by~\citet{vaswani_attention_2023} in 2017. Most {\llm} are built on the Transformer model, which is based on a multihead self-attention mechanism and feedforward layers. This new technology enables parallelization and efficient handling of long-range dependencies, according to~\citet{hadi_LLM_2023}, and led to the development of models that have achieved enormous results, such as {\gpt} by OpenAI and {\bert} by Google. 
+The development and advancement of {\llm} is thankful for the introduction of transformers by~\citet{vaswani_attention_2023} in 2017. Most {\llm} are built on the transformer model, which is based on a multihead self-attention mechanism and feedforward layers. This new technology enables parallelization and efficient handling of long-range dependencies, according to~\citet{hadi_LLM_2023}, and led to the development of models that have achieved enormous results, such as {\gpt} by OpenAI and {\bert} by Google. 
 
 
-\subsection{Transformer Architeture}
+\subsubsection{Transformer architeture}
 
-The architecture of this revolutionized model is shown in Figure~\ref{fig_trans_arch}. The innovation of this model is due to the multihead self-attention mechanism, which is one of its key components~\cite{vaswani_attention_2023, hadi_LLM_2023}. It allows the model to weigh the importance of different words in a sequence when processing each word. This mechanism enables the model to focus on relevant information, capturing dependencies regardless of word order. However, the key advantage of this multihead self-attention mechanism is its highly parallelization~\cite{vaswani_attention_2023}. This characteristic enables the Transformer model to be easily distributed and trained on a large scale using GPUs. The ability to parallelize computations means that Transformers can handle larger datasets and more complex tasks, unlike previous architectures like {\rnn}, where sequential processing of data was required.
+The architecture of this revolutionized model is shown in Figure~\ref{fig_trans_arch}. The transformer architecture uses stacked self-attention and point-wise fully connected layers for both the encoder and decoder. These components are illustrated in the left and right halves of Figure~\ref{fig_trans_arch}, respectively.
+
+The innovation of this model is due to the multihead self-attention mechanism, which is one of its key components~\cite{vaswani_attention_2023, hadi_LLM_2023}. It allows the model to weigh the importance of different words in a sequence when processing each word. This mechanism enables the model to focus on relevant information, capturing dependencies regardless of word order. However, the key advantage of this multihead self-attention mechanism is its highly parallelization~\cite{vaswani_attention_2023}. This characteristic enables the transformer model to be easily distributed and trained on a large scale using GPUs. The ability to parallelize computations means that transformers can handle larger datasets and more complex tasks, unlike previous architectures like {\rnn}, where sequential processing of data was required.
 
 Since the model does not have recurrence and convolution to understand the order of the input sequence, another component, position encoding, provides some information about the position of the tokens in the sequence. This is crucial for capturing sequential information in the data. 
 
 \begin{figure}[ht]
-    \includegraphics[width=8cm]{figs/chapter2/transformer.png}
+    \includegraphics[width=0.5\textwidth]{figs/chapter2/transformer.png}
     \centering
-    \caption[The Transformer Block Architecture]{The Transformer Block Architecture, from~\citet{vaswani_attention_2023}.}
+    \caption[The transformer block architecture]{The transformer block architecture, from~\citet{vaswani_attention_2023}.}
     \label{fig_trans_arch}
 \end{figure}
 
 
-\subsubsection{Pre-training Process}
+\subsubsection{Pre-training process}
 
 Learning the patterns and relationships among the data starts with the pre-training process. In compliance with~\citet{min_recent_pretrained}, the {\llm} needs to access a vast volume of textual data from multiple sources. The goal of this phase is to predict the succeeding word in a sentence based on the context given by the previous words through unsupervised learning. 
 
 According to~\citet{hadi_LLM_2023}, preparing and preprocessing the data before the training stage is necessary to achieve this. The fisrt step is demand quality filtering from the training corpus. It is vital to remove unwanted, repetitive, duplicated, superfluous, and potentially harmful content from the massive text data. Next, it is necessary to pay attention to privacy. The data could have sensitive or personal information, so it is vital to address privacy concerns by removing this information from the pre-training corpus.
 
-An important step, the tokenization, follows this~\cite{hadi_LLM_2023}. This step aims to divide the unprocessed text into sequences of individual tokens, which are subsequently input into {\llm}. Moreover, it is vital in mitigating the computational load and enhancing efficiency during the pre-training phase. Figure~\ref{fig_tokenization} visually presents the tokenization process~\cite{noauthor_openai_nodate} carried out and explained by OpenAI. After the pre-training process, the {\llm} goes through an optimization phase.
+An important step, the tokenization, follows this~\cite{hadi_LLM_2023}. This step aims to divide the unprocessed text into sequences of individual tokens, which are subsequently input into {\llm}. Moreover, it is vital in mitigating the computational load and enhancing efficiency during the pre-training phase. Figure~\ref{fig_tokenization} visually presents the tokenization process~\cite{noauthor_openai_nodate} carried out and explained by OpenAI. In the example of the Figure~\ref{fig_tokenization}, the text inserted has 58 tokens. The colors are meaningless and used to illustrate each token. After the pre-training process, the {\llm} goes through an optimization phase.
 
 \begin{figure}[ht]
-    \includegraphics[width=14cm]{figs/chapter2/tokenization.png}
+    \includegraphics[width=\textwidth]{figs/chapter2/tokenization.png}
     \centering
-    \caption[Tokenization process visually explained]{Tokenization process visually explained by OpenAI~\cite{noauthor_openai_nodate}.}
+    \caption[Tokenization example]{Tokenization by {\gpt}-4 example~\cite{noauthor_openai_nodate}: the colors are used to illustrate each token.}
     \label{fig_tokenization}
 \end{figure}
 
 
 
-\subsection{Optimization Techniques}
+\subsection{Optimization techniques}
 
 There are some techniques to optimize the tasks and the accuracy of the {\llm}. Fine-tuning and prompt engineering are techniques commonly used to enhance the performance of models for specific tasks. These techniques play a crucial role in customizing models and improving their precision for specific applications.
 
@@ -197,39 +199,34 @@ The prompt tuning method integrates trainable tokens, named soft prompts, to the
 
 In prefix tuning, a sequence of trainable tokens is introduced to transformer layers, with only the prefix parameters undergoing fine-tuning, while the remaining model parameters remain unchanged. These added prefixes function as virtual tokens, allowing input sequence tokens to attend to them during processing.
 
-Meanwhile, in adapter tuning, small modules called adapters are added inside each layer of the Transformer. These adapters can be trained to adapt the model for specific tasks. The fine-tuning process works by slightly altering the model's internal features, allowing it to learn task-specific patterns without changing the entire model. {\lora} is one technique that implements Adapter Tuning, introduced by~\citet{hu_lora_2021}. Instead of adding new layers like traditional adapters, {\lora} learns low-rank matrices that are used to update the weights of the existing layers, maintaining the original weights of the model. This approach allows for efficient fine-tuning of the model on specific tasks while maintaining the model's original performance and avoiding significant increases in computational costs.
+Meanwhile, in adapter tuning, small modules called adapters are added inside each layer of the transformer. These adapters can be trained to adapt the model for specific tasks. The fine-tuning process works by slightly altering the model's internal features, allowing it to learn task-specific patterns without changing the entire model. {\lora} is one technique that implements Adapter Tuning, introduced by~\citet{hu_lora_2021}. Instead of adding new layers like traditional adapters, {\lora} learns low-rank matrices that are used to update the weights of the existing layers, maintaining the original weights of the model. This approach allows for efficient fine-tuning of the model on specific tasks while maintaining the model's original performance and avoiding significant increases in computational costs.
 
 
-\subsubsection{Prompt Engineering}
+\subsubsection{Prompt engineering}
 
 With the emergence of {\llm}, other research fields were born. Prompt Engineering is one of these cases and has been widely applied. In compliance with~\citet{mesko_prompt_2023} and~\citet{ma_beyond_2023}, this emerging field involves designing, refining, and implementing prompts or instructions to direct the generated output of {\llm}, aiding in diverse tasks. {\llm} can follow specific directions provided by users in natural language after being tuned with instructions.
 
-There are some techniques of prompt engineering, such as {\chain} and {\react}. {\chain} is a popular problem-solving approach for prompt engineering that aims to break complex tasks into multiple and simpler subtasks and solve them.~\citet{wei_chain--thought_2023} explained that this method involves explicitly modeling the reasoning processes that lead to a final answer, rather than directly generating an answer. This explanation of reasoning often leads to more accurate results. Figure~\ref{fig_cot} explains the effect of this technique.
+There are some techniques of prompt engineering, such as {\chain} and {\react}. {\chain} is a popular problem-solving approach for prompt engineering that aims to break complex tasks into multiple and simpler subtasks and solve them.~\citet{wei_chain--thought_2023} explained that this method involves explicitly modeling the reasoning processes that lead to a final answer, rather than directly generating an answer. This explanation of reasoning often leads to more accurate results. The example of the Figure~\ref{fig_cot} contrasts standard prompting with {\chain} prompting. In the standard prompting, the {\llm} prompt is a math problem with an example that provides directly the respective answer. This approach leads to an incorrect response. Conversely, the {\chain} prompting includes the same math problem but with an example that provides a step-by-step breakdown of the calculations. The detailing of reasoning makes the difference and leads to the correct answer.
 
 {\react} is a prompt technique introduced by~\citet{yao_react_2023}. The idea behind this is to simultaneously include both reasoning and action within a single prompt. To solve a complex task, {\react} consists of three tasks for every subtask: 1) \textbf{Reason} involves analyzing the current situation and determining the necessary steps; then, 2) \textbf{Action} entails executing a task based on the reasoning. 3) \textbf{Observation} then refers to examining the outcomes following the action.
 
-
-\begin{figure}[ht]
-    \includegraphics[width=14cm]{figs/chapter2/CoT.png}
+\begin{figure}[H]
+    \includegraphics[width=\textwidth]{figs/chapter2/CoT.png}
     \centering
-    \caption[Example of Chain-of-thought prompting]{Example of Chain-of-thought prompting. The reasoning processes are highlighted in yellow. Adapted from~\citet{wei_chain--thought_2023}.}
+    \caption[Example of Chain-of-Thought prompting]{Example of Chain-of-Thought prompting. The reasoning processes are highlighted in yellow. Adapted from~\citet{wei_chain--thought_2023}.}
     \label{fig_cot}
 \end{figure}
 
+% ~\citet{mesko_prompt_2023} presents a set of recommendations for creating more effective prompts for {\llm}. The key points include:
 
-~\citet{mesko_prompt_2023} presents a set of recommendations for creating more effective prompts for {\llm}. The key points include:
-
-\begin{itemize}
-    \item The prompt must be as precise as possible.
-    \item Provide context and setting of the prompt to the {\llm}.
-    \item Describe the prompt's goal at the outset.
-    \item Assign a specific role to the {\llm} to provide more context, for example, ``You are a math teacher and explain the natural numbers.''.
-    \item Continuous {\llm} prompt refinement.
-\end{itemize}
-
-Also, regularly testing prompts in real-world situations
-is crucial, as their effectiveness is most accurately assessed through practical application.
-
+% \begin{itemize}
+%     \item The prompt must be as precise as possible.
+%     \item Provide context and setting of the prompt to the {\llm}.
+%     \item Describe the prompt's goal at the outset.
+%     \item Assign a specific role to the {\llm} to provide more context, for example, ``You are a math teacher and explain the natural numbers.''.
+%     \item Continuous {\llm} prompt refinement.
+%     \item Regularly testing prompts in real-world situations
+% \end{itemize}
 
 
 \subsection{Comparison between foundation Large Language Models}
@@ -246,22 +243,26 @@ The Google generative chatbot, Bard, uses as {\llm} the PaLM 2 model~\cite{anil_
 
 The Falcon {\llm} is an open-source model with impressive performance and scalability~\cite{almazrouei_falcon_2023}. There are three variations of the model size: 7 billion, 40 billion, and the most recent, 180 billion of parameters. The Falcon 180B is equipped with an impressive 180 billion parameters and trained on 3.5 trillion tokens. It is accessible for both research and commercial purposes.
 
-%The table~\ref{table:comparison} summarizes the important aspects of comparison between this foundation {\llm}.
+The Mistral\cite{jiang_mistral_2023} was introduced by Mistral AI. It is an open source {\llm} with 7 billion of parameters. This model has 8 192 context length and trainde on 128K tokens. Mistral 7B originated two other models: Mixtral 8x7B~\cite{jiang_mixtral_2024} and Mixtral 8x22B. The table~\ref{table:comparison} summarizes the important aspects of comparison between this foundation {\llm}.
 
-% \begin{table}[ht]
-%     \scalebox{0.8}{
-%         \begin{tabular}{|c|c|c|c|c|c|c|}
-%         \hline
-%         \textbf{Model} & \textbf{Provider} & \textbf{\begin{tabular}[c]{@{}c@{}}Model size\\ (Parameters)\end{tabular}} & \textbf{Context Length} & \textbf{Tokens} & \textbf{Fine-tuneability} & \textbf{Open-source} \\ \hline
-%         GPT-4          & OpenAI            & -                                                                          & -                       & -               & No                        & No                   \\ \hline
-%         LLaMa 2        & Meta              & 7B, 13B, 70B                                                               & 4096                    & 2T              & Yes                       & Yes                  \\ \hline
-%         PaLM 2         & Google            & -                                                                          & -                       & -               & No                        & No                   \\ \hline
-%         Falcon         & TII               & 7B, 40B, 180B                                                              & 2048                    & 3.5T            & Yes                       & Yes                  \\ \hline
-%         \end{tabular}
-%     }
-%     \caption{Comparison of foundation Large Language Models.}
-%     \label{table:comparison}
-% \end{table}
+\begin{table}[ht]
+    \def\arraystretch{1.5}
+    \scalebox{0.82}{
+        \begin{tabular}{|c|c|c|c|c|c|c|}
+        \hline
+        \textbf{Model} & \textbf{Provider} & \textbf{\begin{tabular}[c]{@{}c@{}}Model size\\ (Parameters)\end{tabular}} & \textbf{Context Length} & \textbf{Tokens} & \textbf{Fine-tuneability} & \textbf{Open-source} \\ \hline
+        GPT-4          & OpenAI            & -                                                                          & -                       & -               & No                        & No                   \\ \hline
+        LLaMa 2        & Meta              & 7B, 13B, 70B                                                               & 4096                    & 2T              & Yes                       & Yes                  \\ \hline
+        PaLM 2         & Google            & -                                                                          & -                       & -               & No                        & No                   \\ \hline
+        Falcon         & {\tii}            & 7B, 40B, 180B                                                              & 2048                    & 3.5T            & Yes                       & Yes                  \\ \hline
+        Mistral        & Mistral AI        & 7B                                                                         & 8192                    & 128K            & Yes                       & Yes                  \\ \hline
+        \end{tabular}
+    }
+    \caption[Comparison of foundation Large Language Models]{Comparison of foundation Large Language Models.}
+    \label{table:comparison}
+\end{table}
+
+The table comprises some important aspects, such as if the model is opened or closed source. The source availability of the model is an important aspect in order to choose the {\llm} for this project. An open-source {\llm} is more available for modification. The {\gpt} and PaLM models have this less positive point.
 
 
 
@@ -269,7 +270,7 @@ The Falcon {\llm} is an open-source model with impressive performance and scalab
 
 According to~\citet{liu_prompting_nodate}, the abilities of {\llm}, mainly in-context learning, reasoning for complex content, and creative capacity, proved the versatility of these advanced {\lm}. However, {\llm} has some limitations.~\citet{hadi_LLM_2023} address some of them, and the most important ones are biased responses, hallucination, explainability, and cyber-attacks. 
 
-We already know that {\llm} are pre-trained with extensive training data. But suppose that data contains some biased information related to factors such as gender, socioeconomic status, and/or race. In that case, this may result in analyses and recommendations that are discriminatory or inaccurate across diverse domains. The problem of bias applies not only to training data but also to user interaction bias, algorithmic bias, and contextual bias. The user interaction bias means that, as user prompts shape responses, and if users consistently ask biased or prejudiced questions, the model may acquire and reinforce these biases in its replies.
+We already know that {\llm} are pre-trained with extensive training data. But suppose that data contains some biased information related to factors such as gender, socioeconomic status, and/or race. In that case, this may result in analyzes and recommendations that are discriminatory or inaccurate across diverse domains. The problem of bias applies not only to training data but also to user interaction bias, algorithmic bias, and contextual bias. The user interaction bias means that, as user prompts shape responses, and if users consistently ask biased or prejudiced questions, the model may acquire and reinforce these biases in its replies.
 
 A severe limitation that is an active area of research is hallucination.~\citet{church_emerging_2023} characterized {\llm} hallucinations as when the model attempts to fill gaps in knowledge or context, relying on learned patterns during training. Such occurrences can result in inaccurate or misleading responses, detrimental to the user and the model's reliability.
 
@@ -288,7 +289,7 @@ Conversational user assistants, also known as chatbots, chatterbots, or virtual 
 Chatbots are increasingly being used in various contexts due to their many benefits. These aspects that make companies bet on the use of chatbots are the continuous availability to support and assist the customer, ensuring more consistent support; the cost-efficiency by reducing the human customer support; the time-saving both for the organization and for customers due to the immediate responses to the user queries; the ease and intuitiveness of this systems; and, improve service with every interaction~\cite{misischia_chatbots_2022}. Because of this, the utility of the chatbots as tools is increasing as the technology advances. The rise of conversational user assistants is underpinned by a convergence of technologies, specifically by {\llm}.
 
 
-\subsection{Overview of Conversational User Assistants}
+\subsection{Overview of conversational user assistants}
 
 ~\citet{nuruzzaman_survey_2018} defined the differences between chatbots with opened or closed domains. In an open-domain environment, conversations can go in any direction without a predefined goal or intention. Conversely, in closed-domain environments, the conversation is centered on a particular topic. A closed-domain chatbot is designed with a clear objective.
 
@@ -299,7 +300,7 @@ A \textbf{retrieval-based chatbot} chooses a response from an extensive precompi
 A \textbf{generative-based chatbot} generates a text sequence as a response rather than choosing it from a predefined set of candidates. These chatbots are very flexible and can handle open domains because they are implemented with deep learning techniques. The interactions will be more identical to those of humans, as it implements a self-learning method from a large quantity of interaction data~\cite{peng_survey_2019, agarwal_review_2020}. However, this could be complex and costly to implement.
 
 
-\subsection{Generative-Based Chatbot}
+\subsection{Generative-based chatbot}
 
 Generative-based conversational user assistants are chatbots that use generative models to generate natural language responses. These chatbots use sophisticated deep-learning techniques, such as {\llm}. These have the ability to understand and generate human-like text in context. ChatGPT is an example of this type of chatbot.
 
@@ -330,7 +331,7 @@ Although an {\llm} can generate text from a query, it is not prepared to be appl
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% commented %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\subsubsection{Reinforcement Learning from Human Feedback (RLHF)}
+\subsubsection{Reinforcement learning from human feedback}
 
 According to~\citet{li_human-centered_2019}, {\rlhf} is a popular approach in which an agent learns how to perform a task based on evaluative feedback provided by a human observer. It is a topic that has been explored in the field of conversational {\ai}. This technique is a transformative technique that combines reinforcement learning and supervised learning to refine {\llm} for chatbot applications.~\citet{tran_enhancing_2023} stated that {\rlhf} aims to align chatbot responses to human preferences, improving chatbots' performance and making them more human-like.
 
@@ -344,7 +345,7 @@ The process often involves several iterations of feedback and fine-tuning to con
 
 
 
-\subsubsection{Retrieval-Augmented Generation (RAG)}
+\subsubsection{Retrieval-augmented generation}
 \label{rag_section}
 
 {\rag} is a subfield of {\nlp} and {\ai}. This approach was introduced by~\citet{lewis_retrieval-augmented_2020} in 2020 and combines retrieval-based and generative models to enhance content generation and information retrieval processes. For a clearer comprehension of this method,~\citet{gao_retrieval-augmented_2023} made a survey into {\rag} systems and distinguish the parametric knowledge from non-parametric knowledge. 
@@ -359,9 +360,9 @@ Using the Figure~\ref{fig_rag} as an example,~\citet{gao_retrieval-augmented_202
 %% FIXAR ESTA IMAGEM
 % image reference: https://towardsdatascience.com/retrieval-augmented-generation-rag-from-theory-to-langchain-implementation-4e9bd5f6a4f2
 \begin{figure}[ht]
-    \includegraphics[width=14cm]{figs/chapter2/rag_workflow.png}
+    \includegraphics[width=\textwidth]{figs/chapter2/rag_workflow.png}
     \centering
-    \caption[Retrieval-Augmented Generation Workflow]{Retrieval-Augmented Generation Workflow.}
+    \caption[Retrieval-Augmented Generation workflow]{Retrieval-Augmented Generation workflow.}
     \label{fig_rag}
 \end{figure}
 
@@ -369,20 +370,20 @@ Using the Figure~\ref{fig_rag} as an example,~\citet{gao_retrieval-augmented_202
 % escrever mais? vantagens,  RAG vs Fine-tuning, tipos de RAG
 
 
-\section{Interactive Query Builder}
+\section{Interactive query builder}
 
 A query builder is a user interface tool for dynamically searching and filtering database objects, constructing a query according to user preferences, as the work of~\citet{mussa_forestqb_2022} shows. This query could be in different formats, such as SQL and JSON. This tool lets users construct queries visually, eliminating manual research or coding. 
 
 This section is particularly significant as there is limited documentation on conversational query builders. Therefore, it documents the general workings of query builders and delves into a detailed explanation of the functioning of the ATLAS cohort definition.
 
-\subsection{General Query Builders}
+\subsection{General query builders}
 
 % explicar como funcionam de forma geral
 
 Users interact with the query builder through a user-friendly interface. Figure~\ref{fig_query_builder} shows a query builder interface from jQuery QueryBuilder~\cite{noauthor_jquery_nodate}.
 
 \begin{figure}[H]
-    \includegraphics[width=14cm]{figs/chapter2/querybuilder.png}
+    \includegraphics[width=\textwidth]{figs/chapter2/querybuilder.png}
     \centering
     \caption[Simple query builder example]{Simple query builder from jQuery QueryBuilder~\cite{noauthor_jquery_nodate}.}
     \label{fig_query_builder}
@@ -394,7 +395,7 @@ As users build their queries, the query builder internally represents the condit
 
 % There are several advantages of its use~\cite{noauthor_introducing_2021}: offers a user-friendly interface with menus, operators, and suggestions to facilitate the creation of accurate queries; users, often without direct permissions to modify the data source, can leverage the query builder to transform datasets without making changes to the underlying database; and, the generated queries are easily modifiable, allowing for flexibility in adjustments or repetitions.
 
-\subsection{OHDSI Cohort Creator}
+\subsection{OHDSI cohort creator}
 \label{atlas}
 
 % explicar como funciona o processo
@@ -429,7 +430,7 @@ After defining the cohort, it is possible to generate an SQL code with the query
 
 The dissertation involves the development of a conversational query builder. This system should be a generative-based chatbot with a closed domain. Closed-domain chatbots are specialized in specific areas, offering precise responses. Generative chatbots use advanced {\lm} to create dynamic responses closer to human interactions.
 
-The use of {\llm} allows improvements in the {\nlg} capabilities of chatbots and guides conversations more effectively, especially in the task of defining cohorts in medical research. LLaMa-2 and Falcon appear to be good options to implement since they are open-source and have the possibility of fine-tuning the model. Fine-tune has the role of optimizing chatbot performance, alongside Prompt engineering and {\rag}. 
+The use of {\llm} allows improvements in the {\nlg} capabilities of chatbots and guides conversations more effectively, especially in the task of defining cohorts in medical research. LLaMa-2, Falcon and Mistral appear to be good options to implement since they are open-source and have the possibility of fine-tuning the model. Fine-tune has the role of optimizing chatbot performance, alongside Prompt engineering and {\rag}. 
 
 In terms of {\ir}, in order to retrieve the most interesting databases according to the user's needs, the {\bm} technique proves to be a good balance between effectiveness and efficiency. {\bm} is a straightforward algorithm that improves upon the traditional {\tfidf} approach. Neural {\ir} systems, like interaction-based models, show good results in the {\ir} tasks, but are complex and the neural networks require substantial computational power. It is a lot simpler to implement than the Neural {\ir} systems, as well as requires fewer computer resources. 
 
