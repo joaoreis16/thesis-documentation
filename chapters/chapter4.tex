@@ -31,7 +31,7 @@ This diagram illustrates the interactions outlined in the previous Chapter~\ref{
 
 Reminding the interactions explained in Chapter~\ref{chapter:CSA}, the {\ir} component receives the databases' metadata from the {\ehden} Portal (step 1), creating and indexing the documents. In step 2, the user asks a question to the Chatbot Interface. The {\llm} applies his task of identifying the research topic and sends it to the {\ir} API (step 3). The {\ir} API retrieves the most suitable databases for the research concept and sends the list of databases to the Chatbot Interface (step 4). The user can review the recommended databases in the catalogue in the {\ehden} Portal, as the last step of this stage.
 
-The query builder phase starts. As mentioned before, the cohort's construction requires a concept set. So, the {\ir} API, when sending the databases to the chatbot interface, also sends questions and then a form to help define the concept set (step 6). The user answers the question and fills out the form in order to create the concept set that could be sent to the ATLAS instance. This describes the steps 7 and 8 of the Figure~\ref{fig_interaction}. 
+The query builder phase starts. As mentioned before, the cohort's construction requires a concept set. The {\ir} API, when sending the databases to the chatbot interface, also sends questions and then a form to help define the concept set (step 6). The user answers the question and fills out the form in order to create the concept set that could be sent to the ATLAS instance. This describes the steps 7 and 8 of the Figure~\ref{fig_interaction}. 
 
 The rest of the cohort is determined now that the concept set is defined. In step 9, the concept set is added to the cohort definition template. The {\ir} API sends a question to complete a field needed for the cohort definition. After the user answers to it, the {\llm}, in the Chatbot Interface, analyzes if the user message is an answer to the question. If so, the answer is saved in the cohort template. These are steps 10, 11, and 12, which are repeated until the cohort template is complete. Finally, the API sends the cohort definition to the ATLAS instance if the user requests it, where they can review it in ATLAS. This describes the final steps, 13 and 14. 
 
@@ -233,7 +233,7 @@ The user provides a response to the question presented. The user message could b
 
 This cycle of getting the question of the pointer, generating the question, presenting it, receiving a response, and verifying the response repeats until the entire cohort is complete, and all keys in the template are filled with the appropriate user responses.
 
-At the end, users can download the cohort definition by clicking on a button sent in a message. The cohort definition is in the right structure for import into the ATLAS platform. Alternatively, the chatbot can send the Cohort Defintion directly to the ATLAS instance.
+At the end, users can download the cohort definition by clicking on a button sent in a message. The cohort definition is in the right structure for import into the ATLAS platform. Alternatively, the chatbot can send the cohort definition directly to the ATLAS instance.
 
 % dizer que atualmente o sistem só consegue definir a observation window
 % Observation Window: Users can specify the time period during which patients' data will be observed. This includes the start and end dates relative to an index event, ensuring the cohort's temporal accuracy.
@@ -243,13 +243,13 @@ At the end, users can download the cohort definition by clicking on a button sen
 The {\ohdsi} community provides a WebAPI\footnote{\url{https://github.com/OHDSI/WebAPI}} that contains all {\ohdsi} RESTful services that can be called from {\ohdsi} applications. This API has many features, such as providing a centralized API for working with databases converted to the {\omop}, searching the {\omop} standardized vocabularies for medical concepts and constructing concept sets. Also, it allows defining cohort definitions for use in identifying patient populations.
 
 
-\subsection{Communication with ATLAS webAPI}
+\subsection{Communication with ATLAS WebAPI}
 
-When the user interacts with the tool and finalizes the definition of a concept set or cohort, the IR API facilitates seamless integration with the {\ohdsi} WebAPI by consuming specific endpoints designed for these tasks.
+When the user interacts with the tool and finalizes the definition of a concept set or cohort, the IR API facilitates seamless integration with the ATLAS WebAPI by consuming specific endpoints designed for these tasks.
 
 \subsubsection{Creating a concept set}
 
-Initially, for the creation of a concept set, the necessary structure for the body of the {\ohdsi} WebAPI endpoint is prepared, as shown in the Code Snippet~\ref{conceptset_atlas}. This process begins by making a POST request\footnote{\url{https://api.ohdsi.org/WebAPI/conceptset/}} to the {\ohdsi} WebAPI. This POST request is responsible for creating the concept set, although at this stage it is devoid of any concept data. The response from this request includes the ID of the newly created concept set within ATLAS.
+Initially, for the creation of a concept set, the necessary structure for the body of the ATLAS WebAPI endpoint is prepared, as shown in the Code Snippet~\ref{conceptset_atlas}. This process begins by making a POST request\footnote{\url{https://api.ohdsi.org/WebAPI/conceptset/}} to the ATLAS WebAPI. This POST request is responsible for creating the concept set, although at this stage it is devoid of any concept data. The response from this request includes the ID of the newly created concept set within ATLAS.
 
 \begin{listing}[H]
   \begin{minted}[breaklines]{json}
@@ -318,3 +318,13 @@ The {\ir} API acts as a mediator between the user inputs received via the Chatbo
 Multiple institutions, with its own Chatbot Interface, can consume the {\ir} API of the {\ehden} Portal. Institution A and Institution B represent different institutions that use the {\ehden} infrastructure for their research needs. The chatbot interfaces of the institutions communicate with their respective ATLAS instances and the {\ehden} Portal, ensuring data consistency and integration.
 
 Institutions A and B, through their Chatbot Interfaces, interact with the {\ir} API and ATLAS to perform similar tasks. Each institution can define its cohorts and concept sets, leveraging the centralized capabilities of the {\ehden} infrastructure while maintaining individual ATLAS instances for specific research activities.
+
+
+
+\section{Summary}
+
+The development and implementation of a conversational query builder has the aim of enhance the  chat-like search engine to support the cohort definition for observational studies. The implementation strategy involves creating a concept set first, followed by completing the cohort's remaining parameters. The system uses a cohort template and corresponding questions to gather necessary data from users.
+
+The system tracks user responses to the questions in order to fill the cohort template. A pointer mechanism ensures questions are answered sequentially. The {\llm} uses {\nlp} to generate the question message and determine if the user has answered that question asked. If the user has answered, the {\llm} retrieves the required information to fill in the template. If the user has not answered the question, the chatbot repeats the same question. 
+
+In the end, the user can download the concept set or the cohort definition. Additionally, the user can directly send these definitions to the ATLAS platform. The integration with the {\ohdsi} ATLAS platform aims to provide a streamlined experience for researchers in the cohort definition process.

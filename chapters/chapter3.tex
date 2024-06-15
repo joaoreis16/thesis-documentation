@@ -81,9 +81,9 @@ To comprehend the purpose of the four files, each is detailed with fields, descr
 The combination of these four files gives the necessary information about the databases. Each row of the Achilles Results file contains statistical information about each concept available in the database, and a set of characteristics that are commonly used to filter databases in a cohort study. For instance, the number of samples segregated by range of age. 
 
 
-\section{Information Retrieval}
+\section{Information Retrieval}\footnote{\url{http://bioasq.org/}}
 
-To to gain more knowledge about implementing {\ir} methods and, at the same time, validate the {\ir} results of this dissertation, I was involved in a challenge, BioASQ\footnote{\url{http://bioasq.org/}}. BioASQ addresses the information access problem for biomedical experts by organizing challenges in biomedical semantic indexing and {\qa}. These challenges cover tasks such as hierarchical text classification, machine learning, {\ir}, {\qa} from texts and structured data, and multi-document summarization.
+To to gain more knowledge about implementing {\ir} methods and, at the same time, validate the {\ir} results of this dissertation, I participated in BioASQ, which is a set of challenges on biomedical semantic indexing and {\qa}. These challenges cover tasks such as hierarchical text classification, machine learning, {\ir}, {\qa} from texts and structured data, and multi-document summarization.
 
 This section outlines the {\ir} component, covering the BioASQ challenge and its relevance, and the implementation of BM25 for indexing and searching databases.
 
@@ -164,7 +164,7 @@ Each element in the ranked list of databases contains some information about the
 \section{Large Language Model}
 \label{sec:llm}
 
-The {\llm} used in this project is \texttt{Nous Hermes 2 Mixtral 8x7B}~\cite{Nous-Hermes-2-Mixtral-8x7B-DPO} open model, finetuned from Mixtral~\cite{jiang2024a}. This model belongs to the llama family and has 47B of parameters. The reason for using this {\llm} model is that it is a promising model. The {\llm} is installed on a local version of the Ollama\footnote{\url{https://ollama.com/}} framework and deployed in a Virtual Machine to access the {\llm} using a URL. The model {\gpt} cannot be used for this project, due to the use of sensitive data. Since {\gpt} is not open-source, the data falls out of control.  It raises privacy concerns for private data in public services.
+The {\llm} used in this project is \texttt{Nous Hermes 2 Mixtral 8x7B}~\cite{Nous-Hermes-2-Mixtral-8x7B-DPO} open model, finetuned from Mixtral~\cite{jiang2024a}. This model belongs to the Mistral family and has 47B of parameters. The reason for using this {\llm} model is that it is a promising model. The {\llm} is installed on a local version of the Ollama\footnote{\url{https://ollama.com/}} framework and deployed in a Virtual Machine to access the {\llm} using a URL.
 
 
 \subsection{Tasks}
@@ -186,7 +186,7 @@ The {\llm} has two types of tasks: text generation ({\nlg}) and text analysis ({
                               & analyze answer to question      & indentify if the answer is a response for a respective question.                                                                                          \\ \hline
   \end{tabular}%
   }
-  \caption[Overview of the Large Language Model tasks]{Overview of the LLM tasks.}
+  \caption[Overview of the Large Language Model tasks]{Overview of the {\llm} tasks.}
   \label{table_tasks}
 \end{table}
 
@@ -217,11 +217,11 @@ After defining the tasks, Table~\ref{tasks_info} clarifies the parameters and th
 
 Inside the generation main task, the {\llm} can generate a response that may include the most suitable databases and formulate a question to ask the user. The temperature in this type of task is medium to provide a balance between randomness and determinism. The output format is plain text because it is intended to send messages to the user. These tasks can be viewed as {\nlg} tasks.
 
-In the main analysis task, the language model should respond in a JSON object with a specific structure as specified in the prompt. To return a JSON response, the temperature is lowered in order to make the LLM more deterministic and avoid creativity. The response in JSON format is crucial for the system to comprehend the user's response. These tasks is related to the {\nlu} tasks.
+In the main analysis task, the language model should respond in a JSON object with a specific structure as specified in the prompt. To return a JSON response, the temperature is lowered in order to make the {\llm} more deterministic and avoid creativity. The response in JSON format is crucial for the system to comprehend the user's response. These tasks is related to the {\nlu} tasks.
 
 % llm precisa de prompts. cada tarefa tem o seu prompt especifico e a sua temperatura especifica. estes parametros (prompt e temperature) estão definidos num ficheiro JSON (params.json)
 
-The model require specific prompts to generate appropriate responses. Each task assigned to the LLM has its own specific prompt and a corresponding temperature setting, which controls the randomness of the output, as we can see in the Code Snippet~\ref{params}. These parameters — prompt and temperature — are defined in a JSON file. 
+The model require specific prompts to generate appropriate responses. Each task assigned to the {\llm} has its own specific prompt and a corresponding temperature setting, which controls the randomness of the output, as we can see in the Code Snippet~\ref{params}. These parameters — prompt and temperature — are defined in a JSON file. 
 
 \begin{listing}[H]
   \begin{minted}[breaklines]{json}
@@ -290,13 +290,13 @@ FlowiseAI\footnote{\url{https://github.com/FlowiseAI/Flowise}}, an open-source a
 \end{figure}
 
 
-The conversational agent employs a comprehensive approach to enable dynamic interactions on a healthcare {\ir} platform. It orchestrates the dialogue flow through the Conversational Agent Node, utilizing an {\llm} to provide a coherent and context-aware user experience. This node is configured with parameters that control tool access, chat model specifications, and memory capabilities, allowing it to maintain context or state information across interactions for structured conversations.
+The conversational agent employs a comprehensive approach to enable dynamic interactions on a healthcare {\ir} platform. It orchestrates the dialogue flow through the conversational agent node, utilizing an {\llm} to provide a coherent and context-aware user experience. This node is configured with parameters that control tool access, chat model specifications, and memory capabilities, allowing it to maintain context or state information across interactions for structured conversations.
 
-The core of conversational dynamics is powered by the ChatOllama Node, a chatbot engine designed for processing user queries and the generation of relevant responses. The implementation rely on Ollama since other solutions like ChatGPT API possess privacy issues. The Ollama operates based on a set of parameters including a base URL, alongside model specifications and a temperature setting that modulates probabilistic distribution over the predicted tokens. Furthermore, the Conversational Agent incorporates a Buffer Memory component, essential for the retention of interaction histories and stateful data. This component ensures the persistence of conversational context, a critical feature for enhancing user engagement and response relevance.
+The core of conversational dynamics is powered by the ChatOllama node, a chatbot engine designed for processing user queries and the generation of relevant responses. The implementation rely on Ollama since other solutions like ChatGPT API possess privacy issues. The Ollama operates based on a set of parameters including a base URL, alongside model specifications and a temperature setting that modulates probabilistic distribution over the predicted tokens. Furthermore, the conversational agent incorporates a buffer memory component, essential for the retention of interaction histories and stateful data. This component ensures the persistence of conversational context, a critical feature for enhancing user engagement and response relevance.
 
-To provide the most relevant medical databases, a {\rag} architecture was adopted, as detailed in the section~\ref{rag_section}. This approach applied to this scenario involves retrieving the best databases from the {\ir} component and adding them to the {\llm} prompt. {\rag} enables the {\llm} to have up-to-date, valid, and domain-specific information to enhance response accuracy and relevance. 
+To provide the most relevant medical databases, a {\rag} architecture was adopted, as detailed in the Section~\ref{rag_section}. This approach applied to this scenario involves retrieving the best databases from the {\ir} component and adding them to the {\llm} prompt. {\rag} enables the {\llm} to have up-to-date, valid, and domain-specific information to enhance response accuracy and relevance. 
 
-The integration with the Chain Tool facilitates the application of prompt engineering techniques, enabling the agent to access the list of the recommended best databases. The tool consumes the endpoint of the {\ir} component, which is better described in the section~\ref{bm25implementation}. The conversational agent is equipped with real-time, accurate database recommendations, enhancing the quality of information provided to the user. 
+The integration with the chain tool facilitates the application of prompt engineering techniques, enabling the agent to access the list of the recommended best databases. The tool consumes the endpoint of the {\ir} component, which is better described in the Section~\ref{bm25implementation}. The conversational agent is equipped with real-time, accurate database recommendations, enhancing the quality of information provided to the user. 
 
 
 \subsection{Langflow}
@@ -315,7 +315,7 @@ discovery of OMOP CDM databases, 34th Medical Informatics Europe Conference (MIE
 
 The system was designed to be integrated as a tool in the {\ehden} Portal. Therefore, authentication issues were solved by the current mechanisms available on this platform~\cite{almeida2024federated}. Therefore, the system was implemented to use the MONTRA2-SDK~\cite{almeida2024montra2}. This also provided the Network Dashboards tool, an interface to show the metadata, when researchers want to get more details about the suggested databases. 
 
-The previous implementation, detailed in the section~\ref{flowise}, tried to adopt an open-source automation tool to build Chatbot applications, FlowiseAI~\cite{reis2024flowise}. However, these become limited to address the new requirements. Therefore, FlowiseAI was replaced by a Python-based backend, developed for this system. In addition to the {\ir} function, the backend also orchestrates chat flow between the various components. Figure~\ref{fig_arch} represents the key components of the system and their interconnections.
+The previous implementation, detailed in the Section~\ref{flowise}, tried to adopt an open-source automation tool to build Chatbot applications, FlowiseAI~\cite{reis2024flowise}. However, these become limited to address the new requirements. Therefore, FlowiseAI was replaced by a Python-based backend, developed for this system. In addition to the {\ir} function, the backend also orchestrates chat flow between the various components. Figure~\ref{fig_arch} represents the key components of the system and their interconnections.
 
 \begin{figure}[H]
     \includegraphics[width=1\textwidth]{figs/chapter3/architecture.png}
@@ -328,6 +328,14 @@ The Conversational User Interface is the primary interface for user interaction,
 
 The backend API, built on the FastAPI framework, handles the HTTP requests from the other components. When it receives a query from the User Interface, the backend communicates with the {\llm}. The {\llm} is the same open model detailed in the Section~\ref{sec:llm}, \texttt{Nous Hermes 2 Mixtral 8x7B}. In this implementation, the {\llm} has two tasks: analyze the topic of health and generation of a response with databases or generate a simple response. If the first task returns false, \textit{i.e.}, if the user message is not related to health, the {\llm} generates a simple response reminding the user of the chatbot's purpose. Otherwise, if the first task is true, then the {\rag} architecture is applied. This means that the generation of a response with databases task is applied. The {\bm} retrieves the best databases to the {\llm}, so it could generate a response with that valid information.
 
-For research purposes, researchers may save their conversations to facilitate data analysis and enhance their research outcomes. When a user decides to save a conversation, he can do so by pressing a save button, which triggers an API endpoint designed to store the conversation. The conversations are subsequently added to a JSON file, creating a structured and accessible format for future analysis. This method ensures that valuable data is systematically archived and easily retrievable for subsequent research endeavors.
+Researchers may save their conversations to facilitate data analysis and enhance their research outcomes. When a user decides to save a conversation, he can do so by pressing a save button, which triggers an API endpoint designed to store the conversation. The conversations are subsequently added to a JSON file, creating a structured and accessible format for future analysis. This method ensures that valuable data is systematically archived and easily retrievable for subsequent research endeavors.
 
 Storing these dialogues can be particularly valuable for research purposes, for example, identify frequently asked questions by medical researchers. By analyzing the saved conversations, researchers can gain insights into common concerns, informational gaps, and the types of support often sought by medical researchers. By taking advantage of this stored information, the system can be improved, or even develop other platforms to improve the overall quality and impact of medical research.
+
+
+
+\section{Summary}
+
+The development and implementation of a conversational search assistant for the {\ehden} database catalogue is discussed in this chapter. This system aims to help researchers discover the most suitable medical databases for their studies. To obtain the best databases, a collection of unstructured data is created and indexed. The data is extracted from the {\ehden} Network Dashboards tool, which contains metadata of the databases available on the {\ehden} network. The {\bm} technique searches within this collection and ranks the databases by their score.
+
+The integration of a {\llm}, \texttt{Nous Hermes 2 Mixtral model}, is important for {\nlp} tasks. The {\llm} is configured to generate responses and analyze user queries. When a user enters a message, the message is interpreted by the {\llm}. If the {\llm} identifies a health topic, the {\rag} method is applied. The {\ir} component retrieves the best databases, and the {\llm} generates a response with valid information. The system contains a Python-based backend and a React-based user interface. The user interface handles with the user interactions. The backend contains the {\ir} component, handles HTTP requests and coordinates chatflow with the {\llm}.

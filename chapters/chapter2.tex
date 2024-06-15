@@ -37,7 +37,7 @@ Starting with {\tfidf} method, it is composed of the {\tf} and the {\idf}, two e
 In order to reduce the weight of terms that appear frequently, the {\idf} helps to prioritize some terms that are sporadic and possibly more informative and relevant~\cite{liang_research_2022} . The {\idf} calculates the rarity of a term across a set of documents. This measure is calculated as the logarithm of the division of the total number of documents by the number of documents in the collection containing the term, as the Equation~\ref{eqn:idf} describes. Aligning with the previous example of the automotive industry, the generic term ``auto'' will have a low {\idf} value. However, the term ``telematics'' will have a high IDF value, underlining the unique and informative significance of the term for distinguishing documents.
 
 \begin{equation}
-    \textup{idf}_{t} = \log(\frac{\text{Total documents}}{\text{Documents with term \textit{t}}}).
+    \textup{idf}_{t} = \log\bigg(\frac{\text{Total documents}}{\text{Documents with term \textit{t}}}\bigg).
     \label{eqn:idf}
 \end{equation}
 
@@ -54,7 +54,7 @@ The TF-IDF method combines TF and IDF to assign a weight to each term in a docum
 \subsubsection{BM25}
 \label{bm25}
 
-{\bm}, the short form for Best Matching 25, is a ranking algorithm for {\ir} systems, especially in the context of search engines.~\citet{hambarde_information_2023} stated that {\bm} and other initial retrievers are employed for their effectiveness in recalling pertinent documents from an extensive pool. The core components of {\bm} include {\tf}, {\idf}, {\dl}, and tuning parameters. Equation~\ref{eqn:bm25} gives the formula to calculate the {\bm} score.
+{\bm} is a ranking algorithm for {\ir} systems, especially in the context of search engines.~\citet{hambarde_information_2023} stated that {\bm} and other initial retrievers are employed for their effectiveness in recalling pertinent documents from an extensive pool. The core components of {\bm} include {\tf}, {\idf}, {\dl}, and tuning parameters. Equation~\ref{eqn:bm25} gives the formula to calculate the {\bm} score.
 
 \begin{equation}
 score(D,Q) = \sum_{i}^{n} IDF(q_{i}) \ast \frac{f(q_{i},D) \ast (k1 + 1)}{f(q_{i},D) + k1 \ast (1 - b + b \ast \frac{fieldLen}{avgFieldLen})}.
@@ -262,7 +262,7 @@ The Mistral\cite{jiang_mistral_2023} was introduced by Mistral AI. It is an open
     \label{table:comparison}
 \end{table}
 
-The table comprises some important aspects, such as if the model is opened or closed source. The source availability of the model is an important aspect in order to choose the {\llm} for this project. An open-source {\llm} is more available for modification. The {\gpt} and PaLM models have this less positive point.
+The table comprises some important aspects, such as if the model is opened or closed source. The source availability of the model is an important aspect in order to choose the {\llm} for this project. Since the proposed chatbot is intended to help support medical studies, \textit{i.e.}, the chatbot may process sensitive information, it is necessary a private installation of the {\llm}. The {\gpt} and PaLM models can not be used due to this restriction.
 
 
 
@@ -331,7 +331,7 @@ Although an {\llm} can generate text from a query, it is not prepared to be appl
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% commented %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\subsubsection{Reinforcement learning from human feedback}
+\subsubsection{Reinforcement Learning from Human Feedback}
 
 According to~\citet{li_human-centered_2019}, {\rlhf} is a popular approach in which an agent learns how to perform a task based on evaluative feedback provided by a human observer. It is a topic that has been explored in the field of conversational {\ai}. This technique is a transformative technique that combines reinforcement learning and supervised learning to refine {\llm} for chatbot applications.~\citet{tran_enhancing_2023} stated that {\rlhf} aims to align chatbot responses to human preferences, improving chatbots' performance and making them more human-like.
 
@@ -345,7 +345,7 @@ The process often involves several iterations of feedback and fine-tuning to con
 
 
 
-\subsubsection{Retrieval-augmented generation}
+\subsubsection{Retrieval-Augmented Generation}
 \label{rag_section}
 
 {\rag} is a subfield of {\nlp} and {\ai}. This approach was introduced by~\citet{lewis_retrieval-augmented_2020} in 2020 and combines retrieval-based and generative models to enhance content generation and information retrieval processes. For a clearer comprehension of this method,~\citet{gao_retrieval-augmented_2023} made a survey into {\rag} systems and distinguish the parametric knowledge from non-parametric knowledge. 
@@ -354,7 +354,7 @@ Traditionally, {\llm} can adapt their knowledge and responses to a specific doma
 
 {\rag} involves retrieving pertinent information from external knowledge bases, providing the {\llm} with up-to-date and domain-specific context to enhance response accuracy and relevance, thereby reducing hallucinations. According to~\citet{lewis_retrieval-augmented_2020}, this process aims to retrieve relevant information from a vast corpus of documents and incorporate it into the prompt to improve the quality of predictions.
 
-Using the Figure~\ref{fig_rag} as an example,~\citet{gao_retrieval-augmented_2023} explain simply the workflow of a {\rag}. The first step is 1) Retrieve. It aims to retrieve information from an external data source, such as a vector database. This step uses {\ir} models, such as {\bm}, to retrieve relevant information based on the query. The second step is 2) Augment, that aims to add the information retrieved as context to the {\llm} prompt. The last step is 3) Generation. Using the prompt with context, the {\llm} generates a response to the query, based on the external information retrieved.
+Using the Figure~\ref{fig_rag} as an example,~\citet{gao_retrieval-augmented_2023} explain simply the workflow of a {\rag}. The first step aims to retrieve information from an external data source, such as a vector database (step 1). This step uses {\ir} models, such as {\bm}, to retrieve relevant information based on the query. The second step aims to add the information retrieved as context to the {\llm} prompt (step 2). In the last step, using the prompt with context, the {\llm} generates a response to the query, based on the external information retrieved (step 3).
 
 
 %% FIXAR ESTA IMAGEM
@@ -362,7 +362,7 @@ Using the Figure~\ref{fig_rag} as an example,~\citet{gao_retrieval-augmented_202
 \begin{figure}[ht]
     \includegraphics[width=\textwidth]{figs/chapter2/rag_workflow.png}
     \centering
-    \caption[Retrieval-Augmented Generation workflow]{Retrieval-Augmented Generation workflow.}
+    \caption[Retrieval-Augmented Generation workflow]{Retrieval-Augmented Generation workflow: Retrieve, Augment and Generate.}
     \label{fig_rag}
 \end{figure}
 
