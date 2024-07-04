@@ -81,9 +81,9 @@ To comprehend the purpose of the four files, each is detailed with fields, descr
 The combination of these four files gives the necessary information about the databases. Each row of the Achilles Results file contains statistical information about each concept available in the database, and a set of characteristics that are commonly used to filter databases in a cohort study. For instance, the number of samples segregated by range of age. 
 
 
-\section{Information Retrieval}\footnote{\url{http://bioasq.org/}}
+\section{Information Retrieval}
 
-To to gain more knowledge about implementing {\ir} methods and, at the same time, validate the {\ir} results of this dissertation, I participated in BioASQ, which is a set of challenges on biomedical semantic indexing and {\qa}. These challenges cover tasks such as hierarchical text classification, machine learning, {\ir}, {\qa} from texts and structured data, and multi-document summarization.
+To to gain more knowledge about implementing {\ir} methods and, at the same time, validate the {\ir} results of this dissertation, I participated in BioASQ\footnote{\url{http://bioasq.org/}}, which is a set of challenges on biomedical semantic indexing and {\qa}. These challenges cover tasks such as hierarchical text classification, machine learning, {\ir}, {\qa} from texts and structured data, and multi-document summarization.
 
 This section outlines the {\ir} component, covering the BioASQ challenge and its relevance, and the implementation of BM25 for indexing and searching databases.
 
@@ -143,8 +143,8 @@ Figure~\ref{fig_struct} represents the different stages of the data. The first p
 The first approach to structure of the documents to be indexed is shown in Figure~\ref{fig_struct}, part B). The document structure consists of a pairing of database IDs with their corresponding content. The content is represented as a single string, where each concept from each database is concatenated and separated by spaces. However, this way of indexing the database contents has several drawbacks: 
 
 \begin{itemize}
-    \item \textbf{Lack of Granularity}: By concatenating all concepts into a single string, the individual relevance of each concept is lost. When a search query is made, the search engine treats the entire string as a single document, reducing search results' precision and recall.
-    \item \textbf{Poor Search Results}: The search engine returns unsatisfactory results because the indexing does not accurately reflect the importance of each concept. This leads to low search scores, resulting in commonly retrieving irrelevant documents.
+    \item \textbf{Lack of granularity}: By concatenating all concepts into a single string, the individual relevance of each concept is lost. When a search query is made, the search engine treats the entire string as a single document, reducing search results' precision and recall.
+    \item \textbf{Poor search results}: The search engine returns unsatisfactory results because the indexing does not accurately reflect the importance of each concept. This leads to low search scores, resulting in commonly retrieving irrelevant documents.
 \end{itemize}
 
 The approach to creating the document structure has been refined to enhance the granularity and searchability of the database content. Each concept in the database is individually indexed, as shown in Figure~\ref{fig_struct}, part C). Each concept within a database is treated as a separate document for indexing purposes. This is achieved by assigning a document number that uniquely combines the database ID and the concept's position within its list. The document number serves as a unique identifier for each concept, ensuring that each piece of data can be individually retrieved and queried. The content of each document, represented by the concept itself, allows for reflecting the importance of concepts within the database, facilitating more precise and efficient retrieval of information.
@@ -181,9 +181,9 @@ The {\llm} has two types of tasks: text generation ({\nlg}) and text analysis ({
   \multirow{3}{*}{{\nlg}} & Generate response                & Generate a response to a given message.                                                                                                                   \\ \cline{2-3} 
                               & Generate response with databases & Generate a response to retrieve the best databases to the user.                                                                                           \\ \cline{2-3} 
                               & Generate question                & Generate a question related to a given question.                                                                                                          \\ \hline
-  \multirow{3}{*}{{\nlu}}    & analyze topic                   & \begin{tabular}[c]{@{}l@{}}Identify if the user message is related to health. \\ If so, identify the research topic in the field of health.\end{tabular} \\ \cline{2-3} 
-                              & analyze yes or no answer        & Indentify if the answer is positive or negative for a respective question.                                                                                \\ \cline{2-3} 
-                              & analyze answer to question      & indentify if the answer is a response for a respective question.                                                                                          \\ \hline
+  \multirow{3}{*}{{\nlu}}    & Analyze topic                   & \begin{tabular}[c]{@{}l@{}}Identify if the user message is related to health. \\ If so, identify the research topic in the field of health.\end{tabular} \\ \cline{2-3} 
+                              & Analyze yes or no answer        & Identify if the answer is positive or negative for a respective question.                                                                                \\ \cline{2-3} 
+                              & Analyze answer to question      & Identify if the answer is a response for a respective question.                                                                                          \\ \hline
   \end{tabular}%
   }
   \caption[Overview of the Large Language Model tasks]{Overview of the {\llm} tasks.}
@@ -206,9 +206,9 @@ After defining the tasks, Table~\ref{tasks_info} clarifies the parameters and th
   \multirow{3}{*}{{\nlg}} & Generate response                & \multirow{3}{*}{Plain text}  & 0.4                                                                   \\ \cline{2-2} \cline{4-4} 
                               & Generate response with databases &                              & 0.4                                                                    \\ \cline{2-2} \cline{4-4} 
                               & Generate question                &                              & 0.4                                                                   \\ \hline
-  \multirow{3}{*}{{\nlu}}    & analyze topic                   & \multirow{3}{*}{JSON object} & 0.1                                                                    \\ \cline{2-2} \cline{4-4} 
-                              & analyze yes or no answer        &                              & 0.1                                                                    \\ \cline{2-2} \cline{4-4} 
-                              & analyze answer to question      &                              & 0.1                                                                    \\ \hline
+  \multirow{3}{*}{{\nlu}}    & Analyze topic                   & \multirow{3}{*}{JSON object} & 0.1                                                                    \\ \cline{2-2} \cline{4-4} 
+                              & Analyze yes or no answer        &                              & 0.1                                                                    \\ \cline{2-2} \cline{4-4} 
+                              & Analyze answer to question      &                              & 0.1                                                                    \\ \hline
   \end{tabular}%
   }
   \caption[Large Language Model parameters and output information]{LLM parameters and output information.}
@@ -338,4 +338,4 @@ Storing these dialogues can be particularly valuable for research purposes, for 
 
 The development and implementation of a conversational search assistant for the {\ehden} database catalogue is discussed in this chapter. This system aims to help researchers discover the most suitable medical databases for their studies. To obtain the best databases, a collection of unstructured data is created and indexed. The data is extracted from the {\ehden} Network Dashboards tool, which contains metadata of the databases available on the {\ehden} network. The {\bm} technique searches within this collection and ranks the databases by their score.
 
-The integration of a {\llm}, \texttt{Nous Hermes 2 Mixtral model}, is important for {\nlp} tasks. The {\llm} is configured to generate responses and analyze user queries. When a user enters a message, the message is interpreted by the {\llm}. If the {\llm} identifies a health topic, the {\rag} method is applied. The {\ir} component retrieves the best databases, and the {\llm} generates a response with valid information. The system contains a Python-based backend and a React-based user interface. The user interface handles with the user interactions. The backend contains the {\ir} component, handles HTTP requests and coordinates chatflow with the {\llm}.
+The integration of a {\llm}, \texttt{Nous Hermes 2 Mixtral model}, is important for {\nlp} tasks. The {\llm} is configured to generate responses and analyze user queries. When a user enters a message, the message is interpreted by the {\llm}. If the {\llm} identifies a health topic, the {\rag} method is applied. The {\ir} component retrieves the best databases, and the {\llm} generates a response with valid information. The system contains a Python-based backend and a React-based user interface. The user interface handles the user interactions. The backend contains the {\ir} component, handles HTTP requests and coordinates chatflow with the {\llm}.

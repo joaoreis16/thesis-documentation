@@ -57,11 +57,11 @@ The TF-IDF method combines TF and IDF to assign a weight to each term in a docum
 {\bm} is a ranking algorithm for {\ir} systems, especially in the context of search engines.~\citet{hambarde_information_2023} stated that {\bm} and other initial retrievers are employed for their effectiveness in recalling pertinent documents from an extensive pool. The core components of {\bm} include {\tf}, {\idf}, {\dl}, and tuning parameters. Equation~\ref{eqn:bm25} gives the formula to calculate the {\bm} score.
 
 \begin{equation}
-score(D,Q) = \sum_{i}^{n} IDF(q_{i}) \ast \frac{f(q_{i},D) \ast (k1 + 1)}{f(q_{i},D) + k1 \ast (1 - b + b \ast \frac{fieldLen}{avgFieldLen})}.
+score(D,Q) = \sum_{i}^{n} IDF(q_{i}) \ast \frac{f(q_{i},D) \ast (k_1 + 1)}{f(q_{i},D) + k_1 \ast (1 - b + b \ast \frac{fieldLen}{avgFieldLen})}.
 \label{eqn:bm25}
 \end{equation}
 
-As~\citet{phd_understanding_2023} explained, the {\bm} equation is composed of the \textit{ith} query term (q) and the respective {\idf} and {\tf} values. Also, include a division between {\dl} (fieldLen) and the average document length (avgFieldLen). This ratio evaluates how much the length of the document field deviates from the average length.~\citet{noauthor_practical_2018} explained intuitively: \textit{a document tends to receive a lower score when it contains more terms, especially those that do not match the query}. The value \textit{b} is a fine-tuning parameter, and it is responsible for length normalization. When \textit{b} is larger, the ratio has a more significant effect on the overall score. Finally, the \textit{k1} value means term frequency saturation. It is a fine-tuning parameter that prevents the term frequency component of BM25 from having an unlimited impact on the document score.
+As~\citet{phd_understanding_2023} explained, the {\bm} equation is composed of the \textit{ith} query term (q) and the respective {\idf} and {\tf} values. Also, include a division between {\dl} (fieldLen) and the average document length (avgFieldLen). This ratio evaluates how much the length of the document field deviates from the average length.~\citet{noauthor_practical_2018} explained intuitively: \textit{a document tends to receive a lower score when it contains more terms, especially those that do not match the query}. The value \textit{b} is a fine-tuning parameter, and it is responsible for length normalization. When \textit{b} is larger, the ratio has a more significant effect on the overall score. Finally, the \textit{k_1} value means term frequency saturation. It is a fine-tuning parameter that prevents the term frequency component of BM25 from having an unlimited impact on the document score.
 
 This algorithm can be simple and effective in {\ir} tasks, mainly search tasks. Also, it can handle large collections. For these reasons, it is widely used and called a classic. However, {\bm} can not perform a semantic analysis of the query and the documents.
 
@@ -81,7 +81,7 @@ Conforming to~\citet{chen_integrating_2023}, the representation-based model focu
 
 The interaction-based model examines how words in a query relate to words in a document, capturing complex patterns and dependencies between them~\cite{chen_integrating_2023}. They often use attention mechanisms, as seen in transformer-based models like {\bert}, to dynamically weigh the importance of different parts of the text based on their relevance to the query. However, only the interaction-based model will be explored.
 
-There are different approaches to implementing an interaction-based model. One of these approaches involves a retrieval stage and a ranker stage~\cite{mitra_introduction_nodate}.~\ref{fig_ir_system} shows an overview of interaction-based {\ir} systems, highlighting the two main stages.
+There are different approaches to implementing an interaction-based model. One of these approaches involves a retrieval stage and a ranker stage~\cite{mitra_introduction_nodate}.Figure ~\ref{fig_ir_system} shows an overview of interaction-based {\ir} systems, highlighting the two main stages.
 
 \begin{figure}[ht]
     \includegraphics[width=\textwidth]{figs/chapter2/IR_system.png}
@@ -243,7 +243,7 @@ The Google generative chatbot, Bard, uses as {\llm} the PaLM 2 model~\cite{anil_
 
 The Falcon {\llm} is an open-source model with impressive performance and scalability~\cite{almazrouei_falcon_2023}. There are three variations of the model size: 7 billion, 40 billion, and the most recent, 180 billion of parameters. The Falcon 180B is equipped with an impressive 180 billion parameters and trained on 3.5 trillion tokens. It is accessible for both research and commercial purposes.
 
-The Mistral\cite{jiang_mistral_2023} was introduced by Mistral AI. It is an open source {\llm} with 7 billion of parameters. This model has 8 192 context length and trainde on 128K tokens. Mistral 7B originated two other models: Mixtral 8x7B~\cite{jiang_mixtral_2024} and Mixtral 8x22B. The table~\ref{table:comparison} summarizes the important aspects of comparison between this foundation {\llm}.
+The Mistral\cite{jiang_mistral_2023} was introduced by Mistral AI. It is an open source {\llm} with 7 billion of parameters. This model has 8 192 context length and fine-tuned on 128K tokens. Mistral 7B originated two other models: Mixtral 8x7B~\cite{jiang_mixtral_2024} and Mixtral 8x22B. The table~\ref{table:comparison} summarizes the important aspects of comparison between this foundation {\llm}.
 
 \begin{table}[ht]
     \def\arraystretch{1.5}
@@ -408,7 +408,7 @@ There are some different definitions of cohort, but, in the {\ohdsi} research, a
 
 \subsubsection{Cohort definition}
 
-In ATLAS, the process of defining a cohort is composed of 3 stages~\cite{informatics_chapter_nodate}: cohort entry events, inclusion criteria, and cohort exit.The creation of a cohort starts with cohort entry events, defining the initial event criteria. This involves the primary identification of the population of interest, which might include users of a certain drug, individuals with a specific diagnosis, or a combination of factors. The concept set needs to be specified in the cohort entry events. It is a collection of standardized medical concepts used to define clinical elements like diseases, drugs, or procedures. Additional initial event criteria can also be added to refine the population further, such as the event occurring within a certain time frame.
+In ATLAS, the process of defining a cohort is composed of 3 stages~\cite{informatics_chapter_nodate}: cohort entry events, inclusion criteria, and cohort exit. The creation of a cohort starts with cohort entry events, defining the initial event criteria. This involves the primary identification of the population of interest, which might include users of a certain drug, individuals with a specific diagnosis, or a combination of factors. The concept set needs to be specified in the cohort entry events. It is a collection of standardized medical concepts used to define clinical elements like diseases, drugs, or procedures. Additional initial event criteria can also be added to refine the population further, such as the event occurring within a certain time frame.
 
 After defining the initial event, the next step is to establish inclusion criteria. These criteria are based on a combination of domain-specific attributes to further refine and specify the cohort population, ensuring that it aligns closely with the research objectives. The inclusion criteria can be based on a range of factors such as age limits, the presence of certain symptoms, or a specified duration of medication use.
 
